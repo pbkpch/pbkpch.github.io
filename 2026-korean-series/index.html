@@ -44,7 +44,14 @@
     @media(max-width:430px){.navlinks a:nth-child(n+5){display:none}.hero-match{grid-template-columns:1fr 64px 1fr}.team-name{font-size:15px}.stat-strip{grid-template-columns:1fr 1fr}.grid3,.grid4{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}.scenario .l{min-height:0}.timeline{grid-template-columns:repeat(2,1fr)}.m-bars{gap:8px}.pitcher-line{gap:17px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
     @media print{body{background:#fff;color:#111}.topnav,.actions,.sim-settings,.pillrow,.footer{display:none!important}.hero,.panel,.stat-tile,.inset,.star-card,.scoregame,.matchup-box,.scenario,.source{background:#fff!important;color:#111!important;border:1px solid #aaa!important;box-shadow:none!important}.hero-sub,.section-head p,.m-note,.insight-desc,.panel p,.section-note,.source .sfrom,.game .when,.game .where{color:#444!important}.section{padding-top:25px;break-inside:avoid}.wrap{width:100%}h1{font-size:44px}.source-list{grid-template-columns:1fr 1fr}a{color:#111}}
-  </style>
+  
+    /* KS26 evidence-first editorial design, added 2026-11-04 */
+    .hero{padding:37px 0 25px}.hero h1{max-width:900px;font-size:clamp(42px,4.8vw,66px);line-height:1.17;margin:16px 0}.hero-sub{max-width:910px;line-height:1.8}.section{padding-top:65px}
+    .audit-brief{display:grid;grid-template-columns:1.55fr 1fr;border:1px solid #426482;background:linear-gradient(110deg,#173252,#0b1d31);border-radius:18px;margin:0 0 18px;overflow:hidden}
+    .audit-brief>div{padding:27px}.audit-brief span{display:block;color:#9ac5e4;font-size:10px;letter-spacing:.1em;font-weight:900}.audit-brief p{font-size:clamp(15px,1.7vw,20px);line-height:1.85;margin:8px 0 0;color:#e8f2fc;letter-spacing:-.02em}
+    .audit-brief aside{padding:26px;border-left:1px solid #3e5b74;background:#0d233a}.audit-brief aside strong{display:block;font-size:clamp(25px,3.1vw,37px);letter-spacing:-.055em;margin:17px 0 10px;white-space:nowrap}.audit-brief aside i{color:#90abc0;font-size:.72em;font-style:normal}.audit-brief aside small{display:block;font-size:12px;color:#b7cddd;line-height:1.8}.audit-brief aside a{display:inline-block;font-size:12px;margin-top:14px;color:#b7e2ff;font-weight:800;text-decoration:none;border-bottom:1px solid #658ca7}
+    @media(max-width:760px){.audit-brief{grid-template-columns:1fr}.audit-brief aside{border-left:0;border-top:1px solid #426482}.audit-brief>div,.audit-brief aside{padding:19px}.hero{padding:30px 0 20px}.hero h1{font-size:39px}}
+</style>
 </head>
 <body>
   <a class="skip" href="#content">본문 바로 가기</a>
@@ -52,7 +59,7 @@
     <div class="wrap">
       <a class="brand" href="#top"><span class="brand-ball" aria-hidden="true"></span> KS26 <span class="sep">/</span> FIELD NOTES</a>
       <nav class="navlinks" aria-label="페이지 메뉴">
-        <a href="#overview">전력 개요</a><a href="#stats">세이버 분석</a><a href="#stars">주요 타자</a><a href="#pitching">마운드</a><a href="#series">시리즈</a><a href="#simulation">확률 모델</a><a href="#methods">출처·방법론</a>
+        <a href="#overview">전력 개요</a><a href="#stats">세이버 분석</a><a href="#stars">주요 타자</a><a href="#pitching">마운드</a><a href="#gameplan">전술 검증</a><a href="#series">시리즈</a><a href="#simulation">확률 모델</a><a href="#methods">출처·방법론</a>
       </nav>
       <div class="nav-date">2026. 11. 04 <span style="color:#7395ad">·</span> 2차전 전</div>
     </div>
@@ -61,8 +68,8 @@
   <section id="top" class="hero">
     <div class="wrap">
       <div class="capsule"><span class="statusdot"></span> 2026 KOREAN SERIES · IN PROGRESS <span class="sep">|</span> 비공식 데이터 분석</div>
-      <h1>왕좌를 가르는 <em>숫자들.</em><br /><strong>삼성</strong>과 KT의<br />진짜 전력은?</h1>
-      <p class="hero-sub">144경기의 흔적과 단기전의 변수를 분리했다. <b>타격·투구·주루·수비부터 2차전 선발, 1차전 복기, 우승 확률 시나리오까지.</b> 야구팬은 핵심만, 분석가는 계산과 출처까지 볼 수 있는 한국시리즈 특별 리포트.</p>
+      <h1>승부를 가르는 건<br /><em>승수보다 구조다.</em><br /><strong>삼성</strong> vs KT</h1>
+      <p class="hero-sub">정규시즌은 KT가 앞섰다. <b>하지만 2차전 선발의 K−BB%는 사실상 같다.</b> 시즌 전체 전력과 현재 쓸 수 있는 선수, 경기별 전술을 분리해 분석했다. 모든 수치는 출처로, 모든 예측은 계산식과 한계로 돌아갈 수 있다.</p>
       <div class="hero-match" aria-label="한국시리즈 1차전 종료, 삼성 0승, KT 1승">
         <div class="team-side">
           <div class="crest blue" aria-hidden="true">SL</div>
@@ -86,13 +93,18 @@
 
   <main id="content" class="wrap">
     <section id="overview" class="section" aria-labelledby="overview-head">
-      <div class="section-head"><div><span class="eyebrow">01 / EXECUTIVE SUMMARY</span><h2 id="overview-head">3분 만에 이해하는 승부의 구조</h2><p>“누가 더 강한가?”보다 먼저 “어디서 차이가 나는가?”를 읽어야 한다. 이번 시리즈는 공격·투수·엔트리 가용성을 따로 봐야 한다.</p></div><span class="section-index">01 — 07</span></div>
-      <div class="grid3">
-        <article class="panel pad"><div class="kicker-blue">01 · 공격력</div><div class="insight-number">+2.1 <span style="font-size:14px;font-weight:700;color:#8ba4b9">wRC+</span></div><h3>KT 근소 우위. 사실상 접전.</h3><p>KT가 타율·출루율에서 앞서지만, 삼성은 순수장타율(ISO), 볼넷 비율, 삼진 억제에서 앞선다. 공격의 <b>절대적 격차는 작다.</b></p></article>
-        <article class="panel pad"><div class="kicker-red">02 · 투수력</div><div class="insight-number">−0.32 <span style="font-size:14px;font-weight:700;color:#8ba4b9">FIP</span></div><h3>KT의 가장 선명한 강점.</h3><p>KT의 팀 FIP는 4.23, 삼성은 4.55. 삼진·볼넷·홈런을 종합하면 정규시즌 팀 투구력에서 KT가 더 안정적이었다.</p></article>
-        <article class="panel pad"><div class="kicker-blue">03 · 가을야구 변수</div><div class="insight-number">35 <span style="font-size:14px;font-weight:700;color:#8ba4b9">세이브 공백</span></div><h3>삼성 마무리 부재의 비용.</h3><p>35세이브 김재윤이 부상으로 KS 엔트리에 없다. 원태인의 불펜 활용 여부가 삼성의 선발·마무리 두 부문을 동시에 흔든다.</p></article>
+      <div class="section-head"><div><span class="eyebrow">01 / EXECUTIVE SUMMARY</span><h2 id="overview-head">90초 브리프: 무엇이 확인됐나</h2><p>“누가 더 강한가?”보다 먼저 “어디서 차이가 나는가?”를 읽어야 한다. 이번 시리즈는 공격·투수·엔트리 가용성을 따로 봐야 한다.</p></div><span class="section-index">01 — 08</span></div>
+      
+      <div class="audit-brief">
+        <div><span>핵심 판독 · 시즌 기록 + 실전 가용성</span><p><strong>KT가 강한 것은 맞다. 압도적이라는 근거는 부족하다.</strong> 양 팀 공격은 리그 1·2위급, 팀 투수 FIP는 2·4위다. 하지만 2차전 선발의 삼진−볼넷율은 거의 동일하다. 이제 실제로 누가 더 긴 이닝을 버티고, 누가 후반 타석을 책임지는지가 중요하다.</p></div>
+        <aside><span>G2 MATCHUP · K−BB%</span><strong>22.80 <i>≈</i> 22.77%</strong><small>고영표 706타자 · 페덱 303타자. 비율은 거의 같지만 표본과 휴식은 다르다.</small><a href="#gameplan">왜 중요한지 분석 보기 →</a></aside>
       </div>
-      <div class="callout"><div class="callout-kicker">판독</div><p><b>정규시즌 전력은 KT 우세. 하지만 “압도적 우세”는 아니다.</b> 8경기 승차에도 두 팀의 득실점 기반 기대승률 차이는 약 <b>2.4%p</b>뿐이다. 시리즈 진행에 따라 우승 가능성은 훨씬 크게 이동한다. <a class="stat-cite" href="#src-01">S01</a><a class="stat-cite" href="#src-04">S04</a><a class="stat-cite" href="#src-05">S05</a></p></div>
+      <div class="grid3">
+        <article class="panel pad"><div class="kicker-blue">01 · 공격력</div><div class="insight-number">+2.1 <span style="font-size:14px;font-weight:700;color:#8ba4b9">wRC+</span></div><h3>둘 다 리그 최상위 공격</h3><p>wRC+ KT 110.4(리그 1위), 삼성 108.3(2위). 삼성은 ISO·볼넷 비율·삼진 억제에서 앞선다. <b>공격은 격차보다 양 팀이 최상위권이라는 사실이 핵심.</b> <a class="stat-cite" href="#src-04">S04</a></p></article>
+        <article class="panel pad"><div class="kicker-red">02 · 투수력</div><div class="insight-number">−0.32 <span style="font-size:14px;font-weight:700;color:#8ba4b9">FIP</span></div><h3>KT의 투수 지표 우위</h3><p>FIP는 KT 4.23(리그 2위), 삼성 4.55(4위). 투수진 K−BB%도 KT 12.6% 대 삼성 11.1%. <b>공격보다 투구에서 상대적으로 큰 격차</b>가 나타난다. 단, 팀 FIP는 선발과 구원을 섞은 시즌 수치다. <a class="stat-cite" href="#src-05">S05</a></p></article>
+        <article class="panel pad"><div class="kicker-blue">03 · 가을야구 변수</div><div class="insight-number">1 <span style="font-size:14px;font-weight:700;color:#8ba4b9">명 출전 불가</span></div><h3>김재윤 공백은 전력·기용의 변수</h3><p>35세이브 김재윤이 부상으로 KS 엔트리에 없다. 원태인의 불펜 활용 여부가 삼성의 선발·마무리 두 부문을 동시에 흔든다.</p></article>
+      </div>
+      <div class="callout"><div class="callout-kicker">판독 · 사실과 해석을 분리</div><p><b>정규시즌 전력은 KT 우세. 하지만 “압도적 우세”는 아니다.</b> 8경기 승차에도 두 팀의 득실점 기반 기대승률 차이는 약 <b>2.4%p</b>뿐이다. 시리즈 진행에 따라 우승 가능성은 훨씬 크게 이동한다. <a class="stat-cite" href="#src-01">S01</a><a class="stat-cite" href="#src-04">S04</a><a class="stat-cite" href="#src-05">S05</a></p></div>
       <div class="grid2" style="margin-top:15px">
         <article class="panel pad">
           <h3>실제 승률 vs 득실점 기대승률</h3><p style="margin-bottom:18px">실제 승패에 비해 KT의 득실점 기반 우위는 더 작게 나타난다.</p>
@@ -112,7 +124,7 @@
     </section>
 
     <section id="stats" class="section" aria-labelledby="stats-head">
-      <div class="section-head"><div><span class="eyebrow">02 / DATA EXPLORER</span><h2 id="stats-head">정규시즌을 벗겨 보면</h2><p>분류를 전환하며 실제 숫자를 비교하자. 각 그래프는 같은 지표 안에서 두 팀을 같은 축으로 비교하며, 지표마다 의미와 방향이 다르다.</p></div><span class="section-index">DATA / 2026</span></div>
+      <div class="section-head"><div><span class="eyebrow">02 / DATA EXPLORER</span><h2 id="stats-head">144경기의 공격·투구 프로파일</h2><p>분류를 전환하며 실제 숫자를 비교하자. 각 그래프는 같은 지표 안에서 두 팀을 같은 축으로 비교하며, 지표마다 의미와 방향이 다르다.</p></div><span class="section-index">DATA / 2026</span></div>
       <div class="panel metrics-panel">
         <div class="metrics-top"><div><h3 style="margin:0 0 4px">팀 고급 지표 비교</h3><span style="font-size:11px;color:#819ab0">삼성 <span class="key-dot" style="margin-left:8px"></span> <span style="margin-left:9px">KT</span> <span class="key-dot kt" style="margin-left:6px"></span></span></div><div class="pillrow" role="group" aria-label="지표 범주"><button class="pill metric-tab" data-metric="bat" aria-pressed="true">타격</button><button class="pill metric-tab" data-metric="pitch" aria-pressed="false">투구</button><button class="pill metric-tab" data-metric="field" aria-pressed="false">주루·수비</button></div></div>
         <div id="metrics-content" aria-live="polite"></div>
@@ -131,7 +143,7 @@
     </section>
 
     <section id="pitching" class="section" aria-labelledby="pitching-head">
-      <div class="section-head"><div><span class="eyebrow">04 / THE MOUND</span><h2 id="pitching-head">단기전은 누구의 팔에서 갈리나</h2><p>팀 평균 ERA로 끝내기에는 로테이션의 구성과 현재 가용성이 너무 다르다. 선발별 ERA·FIP·이닝을 나란히 놓고 실제 2차전 매치업을 따져보자.</p></div><span class="section-index">PITCHING / DEPTH</span></div>
+      <div class="section-head"><div><span class="eyebrow">04 / THE MOUND</span><h2 id="pitching-head">선발의 평균보다 중요한 실제 투구</h2><p>팀 평균 ERA로 끝내기에는 로테이션의 구성과 현재 가용성이 너무 다르다. 선발별 ERA·FIP·이닝을 나란히 놓고 실제 2차전 매치업을 따져보자.</p></div><span class="section-index">PITCHING / DEPTH</span></div>
       <div class="matchup-head">
         <article class="matchup-box"><div class="head-badge">삼성 · 2차전 선발</div><div class="pitcher-name">크리스 페덱</div><div class="pitcher-line"><div><div class="value mono">2.95</div><div class="label">ERA</div></div><div><div class="value mono">3.05</div><div class="label">FIP</div></div><div><div class="value mono">76⅓</div><div class="label">IP</div></div></div><div class="matchup-quote">KT 상대 8월 29일 6이닝 무실점. 다만 <b>단 1경기</b>이며 당시 힐리어드는 출전하지 않았다. PO 4차전 이후 나흘 휴식.</div></article>
         <article class="matchup-box kt"><div class="head-badge">KT · 2차전 선발</div><div class="pitcher-name">고영표</div><div class="pitcher-line"><div><div class="value mono">3.28</div><div class="label">ERA</div></div><div><div class="value mono">3.23</div><div class="label">FIP</div></div><div><div class="value mono">172⅔</div><div class="label">IP</div></div></div><div class="matchup-quote">삼성 상대 정규시즌 <b>4경기 24이닝 ERA 2.25</b>. K% 25.9%, BB% 3.1%. 긴 휴식 후 등판이라 체력상으로 유리하지만 경기 감각은 별도 변수.</div></article>
@@ -143,13 +155,13 @@
         <div class="section-note"><span class="i">i</span> FIP는 홈런·볼넷·삼진 중심의 투구 지표이며 수비·타구 품질 등의 영향은 남을 수 있다. ERA−FIP가 높다고 반드시 “불운”인 것은 아니다. 회귀 가능성을 검토하는 신호다.</div>
       </div>
       <div class="grid2" style="margin-top:14px">
-        <div class="panel pad"><div class="eyebrow">BULLPEN / 2026</div><h3 style="margin:10px 0">정규시즌 뒷문의 숫자</h3><div class="grid2" style="margin-top:16px"><div class="inset"><span class="progress-label">삼성</span><div class="insight-number blue-t">42</div><div class="progress-label">세이브 · 블론세이브 17</div></div><div class="inset"><span class="progress-label">KT</span><div class="insight-number red-t">33</div><div class="progress-label">세이브 · 블론세이브 22</div></div></div><p style="margin-top:15px">세이브·블론세이브는 기회와 사용 방식의 영향을 받는 <b>맥락 의존 지표</b>라서 이 숫자만으로 불펜의 우열을 확정할 수 없다.</p></div>
+        <div class="panel pad"><div class="eyebrow">BULLPEN / 2026</div><h3 style="margin:10px 0">정규시즌 불펜 숫자가 말해주지 않는 것</h3><div class="grid2" style="margin-top:16px"><div class="inset"><span class="progress-label">삼성</span><div class="insight-number blue-t">42</div><div class="progress-label">세이브 · 블론세이브 17</div></div><div class="inset"><span class="progress-label">KT</span><div class="insight-number red-t">33</div><div class="progress-label">세이브 · 블론세이브 22</div></div></div><p style="margin-top:15px">세이브·블론세이브는 기회와 사용 방식의 영향을 받는 <b>맥락 의존 지표</b>라서 이 숫자만으로 불펜의 우열을 확정할 수 없다.</p></div>
         <div class="alert"><span class="eyebrow" style="color:#f1c187">ACTIVE ROSTER / 실전 변수</span><h3 style="margin:11px 0;color:#ffe0bb">삼성 마무리 김재윤 OUT</h3><p><b>정규시즌 35세이브, ERA 3.22</b>를 기록한 김재윤이 부상으로 한국시리즈 엔트리에서 제외됐다. 박진만 감독은 원태인을 초반 불펜에 대기시키고 1·2차전 결과에 따라 선발 전환 가능성을 언급했다. 정규시즌 팀 불펜 기록이 한국시리즈의 실제 가용 인원을 대표하지 못하는 대표적인 사례다. <a class="stat-cite" href="#src-10">S10</a><a class="stat-cite" href="#src-09">S09</a></p></div>
       </div>
     </section>
 
     <section id="series" class="section" aria-labelledby="series-head">
-      <div class="section-head"><div><span class="eyebrow">05 / GAME CONTEXT</span><h2 id="series-head">시리즈는 이미 시작됐다</h2><p>1차전 결과를 어디까지 해석해야 할까? 한 경기는 귀중한 승리지만, 팀의 정규시즌 실력을 곧바로 뒤집는 증거는 아니다.</p></div><span class="section-index">BEST OF SEVEN</span></div>
+      <div class="section-head"><div><span class="eyebrow">06 / GAME CONTEXT</span><h2 id="series-head">시리즈는 이미 시작됐다</h2><p>1차전 결과를 어디까지 해석해야 할까? 한 경기는 귀중한 승리지만, 팀의 정규시즌 실력을 곧바로 뒤집는 증거는 아니다.</p></div><span class="section-index">BEST OF SEVEN</span></div>
       <article class="scoregame">
         <div class="g1-header"><div><span class="eyebrow">GAME 01 · FINAL</span><h3 style="font-size:22px;margin:7px 0 0">8점 차 리드에서 한 점 차 승부로</h3></div><span style="font-size:11px;color:#94b1c9">11월 3일 · 수원 KT위즈파크 · 17,700명</span></div>
         <div class="game-score"><span class="teammini blue-t">삼성</span><span class="game-num mono">7</span><span class="colon">:</span><span class="game-num mono">8</span><span class="teammini red-t">KT</span></div>
@@ -161,7 +173,7 @@
     </section>
 
     <section id="simulation" class="section" aria-labelledby="sim-head">
-      <div class="section-head"><div><span class="eyebrow">06 / INTERACTIVE MODEL</span><h2 id="sim-head">2차전 결과가 판도를 얼마나 바꾸나?</h2><p>슬라이더로 가정을 바꾸고 우승 확률이 어떻게 움직이는지 확인하자. <b>공식 예측이 아닌, 검증 가능한 단순 확률 모델</b>이다.</p></div><span class="section-index">SCENARIO LAB</span></div>
+      <div class="section-head"><div><span class="eyebrow">07 / INTERACTIVE MODEL</span><h2 id="sim-head">상황별 우승 경로: 계산 가능한 가정만</h2><p>슬라이더로 가정을 바꾸고 우승 확률이 어떻게 움직이는지 확인하자. <b>공식 예측이 아닌, 검증 가능한 단순 확률 모델</b>이다.</p></div><span class="section-index">SCENARIO LAB</span></div>
       <div class="sim-top">
         <div class="sim-primary">
           <div class="eyebrow">삼성 한국시리즈 우승 확률 · 모델값</div>
@@ -190,7 +202,7 @@
     </section>
 
     <section id="methods" class="section" aria-labelledby="methods-head">
-      <div class="section-head"><div><span class="eyebrow">07 / OPEN METHODOLOGY</span><h2 id="methods-head">전문가가 검증할 수 있도록</h2><p>데이터 제공처, 범위, 지표의 한계, 계산식을 공개한다. 통계와 해석, 시나리오를 구분하는 것이 이 리포트의 원칙이다.</p></div><span class="section-index">SOURCES / METHODS</span></div>
+      <div class="section-head"><div><span class="eyebrow">08 / OPEN METHODOLOGY</span><h2 id="methods-head">독자가 숫자를 다시 계산할 수 있도록</h2><p>데이터 제공처, 범위, 지표의 한계, 계산식을 공개한다. 통계와 해석, 시나리오를 구분하는 것이 이 리포트의 원칙이다.</p></div><span class="section-index">SOURCES / METHODS</span></div>
       <div class="model-grid">
         <div class="panel pad"><h3>계산식과 수치 재현</h3><div class="formula">Pyth(RS, RA) = RS<sup>1.83</sup> / (RS<sup>1.83</sup> + RA<sup>1.83</sup>)</div><div class="formula" style="font-size:15px">Log5(S, K) = [S(1−K)] / [S(1−K) + K(1−S)]</div><div class="grid2" style="margin-top:13px"><div class="inset"><div class="progress-label">삼성 기대승률</div><div class="insight-number blue-t mono" style="margin:5px 0">58.4%</div><div class="progress-label">기대승수 ≈ 82.4승 / 141결정</div></div><div class="inset"><div class="progress-label">KT 기대승률</div><div class="insight-number red-t mono" style="margin:5px 0">60.8%</div><div class="progress-label">기대승수 ≈ 84.5승 / 139결정</div></div></div><p style="margin-top:14px">Log5 중립 매치업: <b>삼성 47.55% / KT 52.45%</b>. 전체 수치 계산은 페이지에 포함된 JavaScript로 브라우저에서 수행한다.</p></div>
         <div class="panel pad"><h3>데이터 해석의 안전장치</h3><div class="gloss" style="margin-top:15px"><dl><dt>FIP</dt><dd>삼진·볼넷·피홈런 기반 투수 지표. 수비의 기여를 완전히 제거하는 마법의 지표는 아니다.</dd></dl><dl><dt>wRC+</dt><dd>리그 평균을 100으로 환산한 공격 생산력. 제공처마다 구장 보정·산식이 다를 수 있다.</dd></dl><dl><dt>OPS / ISO</dt><dd>OPS는 출루율+장타율, ISO는 장타율−타율. 전자는 공격의 간편 지표, 후자는 순수장타력.</dd></dl><dl><dt>WAR</dt><dd>대체선수 대비 승리 기여 추정치. 공급자별 수비·주루 보정이 달라 타사끼리 수치 비교 금지.</dd></dl></div></div>
@@ -222,7 +234,12 @@
     ['S14','야구나라 · 안현민 2026시즌 성적','yagoonara.com','https://www.yagoonara.com/players/57/season'],
     ['S15','야구나라 · 2026 정규시즌 홈/원정 성적','yagoonara.com','https://www.yagoonara.com/standings/table?gameType=regular&year=2026'],
     ['S16','야구나라 · KT 개별 투수 성적','yagoonara.com','https://www.yagoonara.com/teams/8/player-records/pitchers?year=2026'],
-    ['S17','뉴시스 · 김재윤 부상과 KS 엔트리 제외','newsis.com','https://www.newsis.com/view/NISX20261102_0003851617']
+    ['S17','뉴시스 · 김재윤 부상과 KS 엔트리 제외','newsis.com','https://nwww.newsis.com/view/NISX20261102_0003851617'],
+    ['S18','KBO · KS 2차전 공식 프리뷰·예고 선발','koreabaseball.com','https://www.koreabaseball.com/MediaNews/News/Preview/View.aspx?bdSe=62605'],
+    ['S19','야구나라 · KS 1차전 이닝·타순·투수표','yagoonara.com','https://www.yagoonara.com/schedule/130108'],
+    ['S20','Dugout9 · KBO 기록 교차확인 및 투구량','dugout9.com','https://dugout9.com/predict'],
+    ['S21','KT 구단 · 2026 정규시즌 팀별 득실점','ktwiz.co.kr','https://www.ktwiz.co.kr/game/regular/ranking/team'],
+    ['S22','연합뉴스 · KS 30인 엔트리, 원태인 기용','yna.co.kr','https://www.yna.co.kr/view/AKR20261102160800007']
   ];
   const $=id=>document.getElementById(id);
   const pct=n=>(n*100).toFixed(1)+'%';
@@ -343,8 +360,8 @@
   updateModel();
   $('source-list').innerHTML=sourceData.map(([id,name,domain,url])=>`<a id="src-${id.slice(1)}" class="source" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name}, 새 창에서 열기"><span class="external">↗</span><div class="sid">${id}</div><div class="sname">${name}</div><div class="sfrom">${domain}</div></a>`).join('');
   $('export-csv').addEventListener('click',()=>{
-    const cols=['범주','지표','삼성','KT','기준'];const rows=[];
-    for(const [category,set] of Object.entries(metricSets))for(const x of set.metrics)rows.push([category,x[0],x[2],x[3],'2026 정규시즌']);
+    const cols=['범주','지표','삼성','KT','기준','출처'];const rows=[];
+    for(const [category,set] of Object.entries(metricSets))for(const x of set.metrics)rows.push([category,x[0],x[2],x[3],'2026 정규시즌',category==='bat'?'S02/S04':category==='pitch'?'S03/S05':'S06/S07']);
     const escapeCSV=x=>'"'+String(x).replaceAll('"','""')+'"';
     const csv='\uFEFF'+[cols,...rows].map(r=>r.map(escapeCSV).join(',')).join('\r\n');
     const a=document.createElement('a');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='KS2026_Samsung_KT_team_metrics.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
