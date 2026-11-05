@@ -29,9 +29,9 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-vis
 @media(max-width:980px){.article{grid-template-columns:minmax(0,1fr) 180px;gap:30px}.section-head{grid-template-columns:145px 1fr;gap:22px}}
 @media(max-width:700px){.wrap{width:calc(100% - 28px)}.nav{gap:12px}.nav a{font-size:10px}.top .wrap{height:55px}.date{display:none}.cover{padding:30px 0}.cover h1{font-size:39px}.summary,.article,.twobox,.breakdown,.compare-grid,.ruler,.evidence-list,.source-grid,.lab-block .calc{grid-template-columns:1fr}.summary{gap:18px}.section{padding:42px 0}.section-head{grid-template-columns:1fr;gap:12px}.section-head h2{font-size:29px}.rail{display:none}.article-main p{font-size:13px}.reportline .row{grid-template-columns:1fr;gap:5px}.data-table{font-size:10px}.data-table th,.data-table td{padding:10px 5px}.data-table .note-cell{font-size:10px}.lab-block{padding:18px}.twobox strong{font-size:32px}.cover .deck{font-size:15px}}
 @media print{.top,.footer,.lab-block input{display:none}.rail{display:none}.article{display:block}.section{break-inside:avoid}.sources{background:#fff}body{background:#fff}.cover h1{font-size:36px}}
-</style></head>
+.manager-link{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:24px 0;margin:29px 0}.manager-link strong{display:block;font:600 21px/1.6 var(--serif);margin:10px 0}.manager-link a{font-size:12px;color:var(--sam);font-weight:700}</style></head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="../">KS<i>26</i> / SCOUTING BOOK</a><nav class="nav" aria-label="목차"><a href="#reading">판독법</a><a href="#samsung">삼성 보고서</a><a href="#kt">KT 보고서</a><a href="#game3">3차전</a><a href="#falsify">검증 목록</a><a href="#sources">출처</a></nav><span class="date">05 NOV 2026</span></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="../">KS<i>26</i> / SCOUTING BOOK</a><nav class="nav" aria-label="목차"><a href="#reading">판독법</a><a href="#samsung">삼성 보고서</a><a href="#kt">KT 보고서</a><a href="#game3">3차전</a><a href="../dugout-chess/">감독 전략</a><a href="#falsify">검증 목록</a><a href="#sources">출처</a></nav><span class="date">05 NOV 2026</span></div></header>
 <main>
 <section id="top" class="cover"><div class="wrap">
  <div class="cover-top"><span class="eye">KS26 / A TWO-TEAM SCOUTING STUDY</span><span class="eye">SPECIAL RESEARCH NOTE · 03</span></div>
@@ -191,6 +191,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-vis
   <div><h3 class="ss">삼성이 점검할 순서</h3><p><b>1.</b> 소형준의 좌우 타자별 피안타율보다, 첫 두 번의 타순 대면에서 출루와 타구 질이 유지되는지.</p><p><b>2.</b> 주자가 있는 구자욱·디아즈 타석을 만들고, KT전 홈런 억제의 원인을 주자·타구 분석으로 좁힐 수 있는지.</p><p><b>3.</b> 후라도의 교체 시점을 정할 때 힐리어드 다음 김현수를 포함한 라인업 전체의 비용을 비교하는지.</p></div>
   <div><h3 class="kk">KT가 점검할 순서</h3><p><b>1.</b> 소형준이 10월의 투구 방식을 재현하는지, 4월 6실점의 타구·구종 패턴이 재발하는지.</p><p><b>2.</b> 힐리어드 앞에 출루 주자를 얼마나 쌓는지. 후라도 상대 9타수 3홈런은 스카우팅 질문이지 공략법 자체가 아님.</p><p><b>3.</b> 박영현의 G1·G2 45구를 고려했을 때 7회부터 9회까지 필요한 아웃을 몇 명에게 나누는지.</p></div>
  </div>
+ <div class="manager-link"><span class="eye">NEXT / DUGOUT DECISION DOSSIER</span><strong>이 판단을 실제 감독은 언제 바꿀까?</strong><a href="../dugout-chess/">박진만 vs 이강철, 공개 발언과 실제 교체 타이밍으로 복원한 의사결정 지도 ↗</a></div>
  <div class="lab-block"><h3>타순 논쟁을 수치로 축소해 보는 실험</h3><p>2번과 3번 타석 배분 차이를 임의로 설정하고, 2차전 실제 2번 타자와 3번 타자를 서로 바꾸었을 때 추가로 기대되는 출루 횟수를 계산한다. 탱고 원칙의 <b>‘좋은 타자에게 더 많은 기회를’</b>라는 직관을 수치로 표현하는 실험이지, 실제 감독의 기대득점이나 승리 확률을 계산한 것이 아니다.</p>
  <label for="pa-gap">타순 한 칸의 경기당 타석 차이: <output id="pa-read">0.11</output> PA/G</label>
  <input type="range" id="pa-gap" min="0" max=".25" step=".01" value=".11">
@@ -240,7 +241,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-vis
  </div>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap"><div><b class="mono">KS26 / SCOUTING BOOK</b><p>이 리포트는 구단의 내부 스카우트 데이터나 비공개 영상 자료를 사용하지 않았다. 공개 자료로 검증 가능한 관측과 독립적으로 계산한 가설을 구분한 비공식 연구물이다.</p></div><div><a href="../">← 종합 분석으로</a> &nbsp; · &nbsp; <a href="../lineup-lab/">선수·타순 기록실</a></div></div></footer>
+<footer class="footer"><div class="wrap"><div><b class="mono">KS26 / SCOUTING BOOK</b><p>이 리포트는 구단의 내부 스카우트 데이터나 비공개 영상 자료를 사용하지 않았다. 공개 자료로 검증 가능한 관측과 독립적으로 계산한 가설을 구분한 비공식 연구물이다.</p></div><div><a href="../">← 종합 분석으로</a> &nbsp; · &nbsp; <a href="../lineup-lab/">선수·타순 기록실</a> · <a href="../dugout-chess/">감독 전략 분석</a></div></div></footer>
 <script>
 'use strict';
 const pa=document.getElementById('pa-gap'),paRead=document.getElementById('pa-read'),sGain=document.getElementById('sam-gain'),kGain=document.getElementById('kt-gain');
