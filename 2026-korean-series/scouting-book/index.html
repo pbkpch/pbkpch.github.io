@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3f0e8">
+<meta name="description" content="2026 한국시리즈 1승1패 후 삼성과 KT를 각각 해부한 비공식 전력분석 리포트. 상대팀별 홈런 억제, 2사 득점권, 타순 18명, 소형준 후라도, 불펜, 전술 선택, 표본 불확실성과 검산.">
+<meta property="og:title" content="KT는 왜 삼성의 홈런을 지웠나 — KS26 팀별 스카우팅북">
+<meta property="og:description" content="140홈런 팀의 KT전 7홈런. KT의 2사 득점권 OPS .862. 16경기의 진짜 의미와 3차전 의사결정 보고서.">
+<title>삼성 7홈런, KT 12홈런 — KS26 팀별 스카우팅북</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+:root{--paper:#f3f0e8;--ink:#222a25;--body:#3e4941;--muted:#657068;--line:#c7cac1;--line2:#d9dcd3;--sam:#376b95;--kt:#a4464c;--tint:#e9e5da;--dark:#1b2f2c;--gold:#947448;--serif:'Noto Serif KR',serif;--sans:'IBM Plex Sans KR',system-ui,sans-serif;--mono:'DM Mono',monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);font:400 14px/1.85 var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:3px;text-decoration-color:#a1aba0}a:hover{color:var(--kt);text-decoration-color:var(--kt)}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #76a2be;outline-offset:3px}
+.wrap{width:min(1190px,calc(100% - 54px));margin-inline:auto}.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.eye{font:500 10px var(--mono);letter-spacing:.095em;text-transform:uppercase;color:var(--muted)}.serif{font-family:var(--serif)}.sub{color:var(--muted)}.ss{color:var(--sam)}.kk{color:var(--kt)}.fine{font-size:11px;line-height:1.85;color:var(--muted)}.wide{max-width:820px}.no-margin{margin:0}
+.top{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:12;background:rgba(243,240,232,.97);backdrop-filter:blur(12px)}.top .wrap{min-height:57px;display:flex;align-items:center;justify-content:space-between;gap:17px}.brand{text-decoration:none;font:600 14px var(--mono);white-space:nowrap}.brand i{font-style:normal;color:var(--kt)}.nav{display:flex;gap:21px;overflow-x:auto;scrollbar-width:none;white-space:nowrap}.nav a{font-size:11px;text-decoration:none;color:#536058;font-weight:600}.nav a:hover{color:var(--kt)}.date{font:500 10px var(--mono);color:var(--muted);white-space:nowrap}
+.cover{padding:43px 0 47px;border-bottom:2px solid var(--ink)}.cover-top{border-top:1px solid var(--ink);padding-top:10px;display:flex;justify-content:space-between;gap:16px}.cover h1{font:600 clamp(39px,5.5vw,72px)/1.29 var(--serif);letter-spacing:-.07em;margin:25px 0;max-width:1000px}.cover h1 i{font-style:normal;color:var(--sam)}.cover .deck{font:400 clamp(15px,1.45vw,18px)/1.98 var(--serif);max-width:830px;color:#465249}.cover .deck strong{font-weight:700;color:var(--ink)}.issue-line{display:flex;gap:19px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:25px}
+.summary{padding:28px 0 32px;border-bottom:1px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:38px}.summary>div{border-left:2px solid var(--ink);padding-left:20px}.summary strong{font:600 19px/1.7 var(--serif);display:block;margin:8px 0}.summary p{font:400 12px/1.9 var(--sans);color:var(--body);margin:0}
+.section{padding:68px 0 75px;border-bottom:1px solid var(--line)}.section:nth-of-type(even){background:#eeeae1}.section-head{display:grid;grid-template-columns:200px minmax(0,1fr);gap:38px;margin-bottom:36px}.section-head h2{font:600 clamp(29px,3.3vw,46px)/1.45 var(--serif);letter-spacing:-.055em;margin:0 0 15px;max-width:890px}.section-head p{font:400 14px/2 var(--sans);color:var(--body);max-width:800px;margin:0}.section-head .no{font:500 11px var(--mono);letter-spacing:.09em;color:var(--muted)}.section-head .no:after{content:'';display:block;background:var(--line);height:1px;width:130px;margin-top:14px}
+.article{display:grid;grid-template-columns:minmax(0,770px) minmax(0,220px);gap:58px}.article-main p{font:400 14px/2.12 var(--serif);margin:0 0 19px}.article-main p b,.article-main p strong{font-weight:700}.article-main h3{font:600 clamp(19px,2vw,27px)/1.56 var(--serif);letter-spacing:-.04em;margin:32px 0 15px}.article-main h3:first-child{margin-top:0}.article-main .caption{font:400 11px/1.85 var(--sans);color:var(--muted);margin:11px 0 23px}.rail{border-top:2px solid var(--ink);padding-top:13px}.rail .side-title{font:500 10px var(--mono);letter-spacing:.08em;color:var(--muted)}.rail blockquote{font:600 18px/1.75 var(--serif);margin:12px 0 22px}.rail .note{font:400 12px/1.9 var(--sans);color:var(--body);margin:11px 0 26px}.rail .note strong{display:block;color:var(--ink)}
+.underline-block{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:20px 0;margin:26px 0 29px}.underline-block h4{font:600 19px/1.6 var(--serif);margin:0 0 12px}.underline-block p{font:400 12px/1.95 var(--sans);margin:0 0 10px}.underline-block p:last-child{margin-bottom:0}
+.table-container{overflow-x:auto;scrollbar-width:thin}.data-table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.55;font-variant-numeric:tabular-nums}.data-table th,.data-table td{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;vertical-align:top}.data-table th{font:500 10px var(--mono);color:var(--muted)}.data-table td:first-child{font-weight:700}.data-table tr:last-child td{border-color:var(--ink)}.data-table .num,.data-table th.num{text-align:right;font-family:var(--mono);white-space:nowrap}.data-table .soft{color:var(--muted);font-weight:400}.data-table .hl{background:rgba(55,107,149,.065)}.data-table .note-cell{max-width:250px;font-size:11px;line-height:1.66;color:#58665d;font-family:var(--sans);font-weight:400}.data-table .kt-hl{background:rgba(164,70,76,.065)}
+.twobox{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:23px 0}.twobox>div{border-top:1px solid var(--ink);padding:15px 0}.twobox .metric-title{font:500 11px var(--mono);color:var(--muted);display:block}.twobox strong{display:block;font:500 clamp(27px,3.2vw,42px)/1.5 var(--mono);letter-spacing:-.06em;margin:10px 0}.twobox small{display:block;font-size:11px;line-height:1.8;color:var(--muted)}.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:20px}.barline{margin:13px 0}.barline div{display:flex;justify-content:space-between;gap:10px;font:500 11px var(--mono);margin-bottom:8px}.barline i{display:block;height:7px;background:#e1e3da}.barline b{display:block;height:100%;background:var(--sam)}.barline.kt b{background:var(--kt)}
+.risk{border-left:2px solid var(--gold);background:#e7e3d8;padding:18px 20px;font:400 12px/1.95 var(--sans);color:#445147;margin:23px 0}.risk strong{color:var(--ink)}.reportline{border-top:1px solid var(--ink);padding:17px 0;margin-top:22px}.reportline .row{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px;line-height:1.88}.reportline .row b{font-size:12px}.reportline .row span{color:#56645b}.reportline h3{margin:0 0 6px}.lab-block{background:#e7e4da;border-top:2px solid var(--ink);padding:26px;margin:31px 0}.lab-block h3{font:600 21px var(--serif);margin:0 0 12px}.lab-block p{font:400 12px/1.93 var(--sans);margin:0 0 13px;color:var(--body)}.lab-block input[type=range]{width:100%;accent-color:var(--sam)}.lab-block .calc{display:grid;grid-template-columns:1fr 1fr;gap:19px;margin-top:18px}.lab-block .calc>div{border-top:1px solid var(--ink);padding:14px 0}.lab-block .calc strong{display:block;font:500 35px var(--mono);margin-top:9px}.lab-block label{display:block;font-size:12px;font-weight:700}.lab-block output{font:500 12px var(--mono)}
+.ruler{border-top:1px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:26px;padding-top:22px;margin:27px 0}.ruler>div h3{font:600 18px var(--serif);margin:0 0 12px}.ruler>div p{font:400 12px/1.9 var(--sans);color:#566259}.ruler ul{margin:0;padding-left:19px}.ruler li{font-size:12px;line-height:1.93;margin-bottom:11px}.closing{border-top:2px solid var(--ink);margin-top:30px;padding-top:23px;font:600 19px/1.85 var(--serif)}
+.compare{padding:55px 0;border-bottom:1px solid var(--line)}.compare h2{font:600 31px var(--serif);letter-spacing:-.04em;margin:7px 0 20px}.compare .thesis{font:400 14px/2.1 var(--serif);max-width:820px;margin:0 0 24px}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.compare-grid>div{border-top:2px solid var(--ink);padding-top:14px}.compare-grid h3{font:600 22px var(--serif);margin:10px 0}.compare-grid p{font-size:12px;line-height:1.95;margin:0 0 13px}.falsify{padding:50px 0;background:#e8e5db;border-bottom:2px solid var(--ink)}.falsify h2{font:600 30px var(--serif);margin:10px 0 15px}.falsify>div>p{font-size:13px;max-width:850px;line-height:2}.evidence-list{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;list-style:none;margin:24px 0;padding:0}.evidence-list li{border-top:1px solid var(--line);padding:18px 0;font-size:12px;line-height:1.9}.evidence-list b{font-size:13px}.evidence-list small{display:block;color:var(--muted);margin-top:5px;line-height:1.8}
+.sources{padding:62px 0;background:#e3e0d6}.sources h2{font:600 28px var(--serif);margin:0 0 13px}.source-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.sources ol{padding-left:22px}.sources li{font-size:12px;margin-bottom:11px;line-height:1.85}.sources p{font-size:12px;line-height:1.94;color:#576158;max-width:900px}.sources a{color:var(--sam);overflow-wrap:anywhere}.source-scope{border-top:1px solid #aeb7ad;margin-top:21px;padding-top:19px}
+.footer{padding:36px 0;background:var(--dark);color:#e9efea}.footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer p{max-width:650px;font-size:11px;color:#b5c5ba;line-height:1.9;margin:7px 0}.footer a{color:#d0e4d5;font-size:12px}
+@media(max-width:980px){.article{grid-template-columns:minmax(0,1fr) 180px;gap:30px}.section-head{grid-template-columns:145px 1fr;gap:22px}}
+@media(max-width:700px){.wrap{width:calc(100% - 28px)}.nav{gap:12px}.nav a{font-size:10px}.top .wrap{height:55px}.date{display:none}.cover{padding:30px 0}.cover h1{font-size:39px}.summary,.article,.twobox,.breakdown,.compare-grid,.ruler,.evidence-list,.source-grid,.lab-block .calc{grid-template-columns:1fr}.summary{gap:18px}.section{padding:42px 0}.section-head{grid-template-columns:1fr;gap:12px}.section-head h2{font-size:29px}.rail{display:none}.article-main p{font-size:13px}.reportline .row{grid-template-columns:1fr;gap:5px}.data-table{font-size:10px}.data-table th,.data-table td{padding:10px 5px}.data-table .note-cell{font-size:10px}.lab-block{padding:18px}.twobox strong{font-size:32px}.cover .deck{font-size:15px}}
+@media print{.top,.footer,.lab-block input{display:none}.rail{display:none}.article{display:block}.section{break-inside:avoid}.sources{background:#fff}body{background:#fff}.cover h1{font-size:36px}}
+</style></head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="../">KS<i>26</i> / SCOUTING BOOK</a><nav class="nav" aria-label="목차"><a href="#reading">판독법</a><a href="#samsung">삼성 보고서</a><a href="#kt">KT 보고서</a><a href="#game3">3차전</a><a href="#falsify">검증 목록</a><a href="#sources">출처</a></nav><span class="date">05 NOV 2026</span></div></header>
+<main>
+<section id="top" class="cover"><div class="wrap">
+ <div class="cover-top"><span class="eye">KS26 / A TWO-TEAM SCOUTING STUDY</span><span class="eye">SPECIAL RESEARCH NOTE · 03</span></div>
+ <h1>삼성은 140홈런 팀인데,<br><i>KT 앞에서는 7개를 쳤다.</i></h1>
+ <p class="deck">시즌 평균으로 보면 삼성은 더 많은 홈런을 친 팀이고, KT는 더 많은 안타와 출루를 생산한 팀이다. 정작 16번 맞붙었을 때는 그 구도가 달라졌다. <strong>두 팀을 각각 해부해야 하는 이유는 순위 차이보다, 상대가 서로에게 강요한 야구의 모양이 다르기 때문이다.</strong></p>
+ <div class="issue-line"><span>자료 마감 2026년 11월 5일 · 한국시리즈 1승 1패</span><span>정규시즌 144경기 + 상대전적 16경기 + KS 1·2차전</span><span>검증 가능 자료와 전술 가설을 구분한 비공식 분석</span></div>
+ <div class="summary">
+  <div><span class="eye ss">SAMSUNG / THE PROBLEM</span><strong>장타의 생산 능력은 남아 있다. 그런데 KT와의 16경기에서는 홈런이 거의 나오지 않았다.</strong><p>상대별 장타 억제의 원인을 규명하지 못한 상태에서 ‘대구에 가면 홈런이 되살아난다’고 예언하지 않는다.</p></div>
+  <div><span class="eye kk">KT / THE PROBLEM</span><strong>높은 출루율과 득점권 생산력은 강점이다. 장타는 힐리어드 한 명에 더 많이 집중되어 있다.</strong><p>후라도 상대 힐리어드의 9타수 3홈런은 중요한 스카우팅 단서지만, 표본이 작아 고정된 상성으로 취급하지 않는다.</p></div>
+ </div>
+</div></section>
+
+<section class="compare" id="reading"><div class="wrap">
+ <span class="eye">HOW THIS REPORT IS READ</span><h2>좋은 기록은 서로 같은 무게가 아니다.</h2>
+ <p class="thesis">이 보고서는 사실을 세 층으로 나눈다. 144경기 정규시즌은 팀의 전반적인 생산력을, 16경기 맞대결은 특정 상대가 실제로 일으킨 변화를, 1·2차전과 선수별 9타수는 현장의 선택을 보여준다. 그 순서대로 읽어야 작은 표본이 큰 표본을 밀어내는 오류를 피할 수 있다.</p>
+ <div class="table-container"><table class="data-table" aria-label="분석 데이터 증거 수준">
+  <thead><tr><th>증거 층위</th><th>분모 / 기간</th><th>사용 가능한 판단</th><th>하면 안 되는 판단</th></tr></thead>
+  <tbody><tr><td>기본 전력</td><td>144경기</td><td>장타·출루·투구의 시즌 구조</td><td>KS 한 경기의 확정 승률</td></tr>
+  <tr><td>상대 특화</td><td>16경기</td><td>맞대결에서 관측된 변화</td><td>원인과 지속성의 확정</td></tr>
+  <tr><td>상황별 실측</td><td>득점권 1,656·1,721타석<br>2사 득점권 753·798타석</td><td>상황에서의 관측 생산력</td><td>안정적인 ‘클러치 재능’ 단정</td></tr>
+  <tr><td>현장 사건</td><td>KS 2경기 / 타자 맞대결 9타수</td><td>실제 사용·실제 장면·변경 가능성</td><td>통계적으로 확정된 상성</td></tr></tbody>
+ </table></div>
+ <p class="fine">상황별 OPS는 제공처가 출루율을 타석 분모로 근사한 값이므로 공식 시즌 OPS와 직접 같은 척도로 혼합하지 않았다. 또한 ‘득점 확률’은 해당 상황에서 이닝 종료까지 득점한 관측 비율이지 해당 타자 한 명의 다음 타석 득점 확률이 아니다. <a href="#src-pbp">원자료·정의 S04</a></p>
+</div></section>
+
+<section class="section" id="samsung"><div class="wrap">
+ <div class="section-head"><span class="no ss">TEAM REPORT / 01<br>SAMSUNG LIONS</span><div><h2>삼성: 장타를 가진 팀인데<br>왜 KT를 만나면 홈런이 줄었을까.</h2><p>삼성의 공격은 장타만으로 이루어지지 않는다. 볼넷, 삼진 억제, 선두 주자의 출루까지 결합되어 있다. 하지만 KT와의 16경기에서는 팀의 가장 강력한 지표 중 하나였던 홈런 생산이 눈에 띄게 줄었다.</p></div></div>
+ <div class="article"><div class="article-main">
+  <h3>144경기 140홈런, 맞대결 16경기 7홈런</h3>
+  <p>2026년 삼성은 팀 홈런 140개, ISO .141, 볼넷 비율 10.9%, 삼진 비율 17.6%를 기록했다. 장타와 출루를 동시에 끌어낼 수 있었고, 홈런이 전부가 아니었어도 리그 평균 이상의 득점력을 유지했다. 팀 wRC+는 108.3이었다. <a href="#src-team" class="source-number">S01</a></p>
+  <p>하지만 KT를 상대한 16경기에서는 홈런이 7개뿐이었다. 다른 128경기에서는 133개였다. <strong>KT 상대 0.44개/경기, 나머지 상대 1.04개/경기.</strong> 표면적으로는 58% 감소다. 야구에서 상대 투수가 누구인지가 왜 중요한지 잘 보여준다. <a href="#src-h2h" class="source-number">S03</a></p>
+  <div class="twobox"><div><span class="metric-title">삼성 홈런 · KT 상대</span><strong class="ss">0.44 <span>HR/G</span></strong><small>7개 / 16경기 · 관측 기록</small></div><div><span class="metric-title">삼성 홈런 · 다른 9팀 상대</span><strong>1.04 <span>HR/G</span></strong><small>(140−7)개 / (144−16)경기 · 관측 기록</small></div></div>
+  <p>두 발생률의 비는 0.421. 홈런 발생을 경기당 독립적인 포아송 사건으로 간주한 <strong>조건부 정확 95% 구간은 약 0.17~0.89</strong>다. 감소폭 자체를 무시하기 어려운 신호지만, 이것은 ‘KT 투수들이 홈런을 58% 억제하는 고유 능력’의 신뢰구간이 아니다. 여러 지표 중 눈에 띄는 것을 고른 탐색적 비교이고, 구장·타석 수·타자 구성의 차이를 제거하지 않았다. <a href="#src-math" class="source-number">계산 S12</a></p>
+  <div class="risk"><strong>대체 설명을 반드시 남겨야 한다.</strong> KT 투수의 장타 억제, 대구·수원의 구장 효과, 삼성 타선의 부상·선발 구성, 선발 로테이션, 타석 수, 상대 스카우팅 모두 가능한 원인이다. 현 데이터만으로 어느 하나를 원인으로 판정하지 않는다.</div>
+
+  <h3>어떤 타선이 소형준을 상대하게 될까</h3>
+  <p>2차전 실제 라인업의 앞 다섯 타자 가운데 김지찬은 출루율 .397, 김성윤은 .375, 구자욱은 .458이었다. 최형우(.387)와 디아즈(.384)까지 뒤따른다. <strong>상위 타순 다섯 명이 모두 출루율 .375 이상</strong>이라는 점은 삼성의 공격력을 설명하는 기본 구조다. 다만 3차전 선발 라인업은 아직 확정되지 않았다. <a href="#src-hitters" class="source-number">S05</a></p>
+  <div class="table-container"><table class="data-table" aria-label="삼성 2차전 실제 선발 타순 기록">
+   <thead><tr><th>G2 타순</th><th>선수</th><th class="num">출루율</th><th class="num">OPS</th><th class="num">wOBA</th><th>3차전 검토 관점</th></tr></thead>
+   <tbody>
+   <tr><td class="mono">1</td><td>김지찬</td><td class="num">.397</td><td class="num">.756</td><td class="num">.362</td><td class="note-cell">선두 출루, 도루보다는 먼저 살아 나가는 가치</td></tr>
+   <tr><td class="mono">2</td><td>김성윤</td><td class="num">.375</td><td class="num">.774</td><td class="num">.361</td><td class="note-cell">상대 언더핸드 공략용 기용의 실제 효과는 미측정</td></tr>
+   <tr class="hl"><td class="mono">3</td><td>구자욱</td><td class="num">.458</td><td class="num">1.039</td><td class="num">.465</td><td class="note-cell">가장 높은 출루·가중 생산력, 더 많은 타석 배분 후보</td></tr>
+   <tr><td class="mono">4</td><td>최형우</td><td class="num">.387</td><td class="num">.849</td><td class="num">.387</td><td class="note-cell">좌타 중심축, 구종별 대응 자료 추가 필요</td></tr>
+   <tr class="hl"><td class="mono">5</td><td>디아즈</td><td class="num">.384</td><td class="num">.894</td><td class="num">.400</td><td class="note-cell">26홈런, 2차전 4안타의 재현성은 별개</td></tr>
+   <tr><td class="mono">6</td><td>류지혁</td><td class="num">.366</td><td class="num">.747</td><td class="num">.352</td><td class="note-cell">출루·연결 역할, 6회 병살로 평가를 끝내지 않음</td></tr>
+   <tr><td class="mono">7</td><td>이재현</td><td class="num">.337</td><td class="num">.793</td><td class="num">.357</td><td class="note-cell">장타율이 높은 하위 타선, 타석 수 표본에 주의</td></tr>
+   <tr><td class="mono">8</td><td>김영웅</td><td class="num">.222</td><td class="num">.496</td><td class="num">—</td><td class="note-cell">고급 지표 검증 불가, 타순 예측 입력에서 제외</td></tr>
+   <tr><td class="mono">9</td><td>강민호</td><td class="num">.352</td><td class="num">.798</td><td class="num">.364</td><td class="note-cell">포수의 공격과 포구·투수 운용 가치를 분리</td></tr>
+   </tbody></table></div>
+  <p class="caption">표는 11월 4일 <b>실제 2차전</b> 선발 타순이며, 지표는 2026 정규시즌 집계. 11월 6일 선발 타순을 의미하지 않는다. wOBA는 야구나라 계산값, 미확인 값은 결측으로 유지. <a href="#src-box">타순 S06</a> · <a href="#src-hitters">지표 S05</a></p>
+
+  <h3>소형준과의 맞대결은 왜 직전 두 경기만 봐선 안 될까</h3>
+  <p>소형준은 삼성전 3경기에서 17이닝 7자책, ERA 3.71을 기록했다. 이 가운데 4월 4일에는 6이닝 6실점이었지만, 10월 7일과 12일에는 합계 11이닝 1실점이었다. <strong>같은 투수가 같은 팀을 상대했는데, 시기별 결과가 크게 달랐다.</strong> <a href="#src-g3" class="source-number">S07</a></p>
+  <p>두 가능성이 있다. KT 배터리가 삼성 타자의 약점을 더 잘 찾아냈을 수 있고, 단순히 일시적인 타구 결과가 달랐을 수도 있다. 이를 구별하려면 4월·10월의 구종 비율, 존 공략, 타구 속도와 변화구 헛스윙률이 필요하다. 실제 그 자료를 확보하지 못했으므로 ‘소형준이 삼성을 완전히 공략했다’는 주장은 하지 않는다.</p>
+  <div class="underline-block"><h4>삼성이 3차전에 풀어야 할 질문</h4>
+   <p>출루한 주자를 뒤 타순의 장타로 연결할 수 있는가. 소형준에게 투구 수를 늘리게 할 수 있는가. 그리고 이전 16경기에서 보이지 않았던 홈런 경로가 대구에서도 막혀 있다면, 대량 득점 대신 한 베이스씩 진루시키는 공격으로 전환할 수 있는가.</p>
+  </div>
+
+  <h3>후라도의 ‘구위’와 마무리 공백은 별개의 위험이다</h3>
+  <p>3차전 선발 후라도는 시즌 150이닝 ERA 3.54, FIP 4.35였다. 삼진 비율은 15.4%였다. 실제 실점을 잘 막았지만 삼진·볼넷·피홈런 기반의 지표는 ERA만큼 강하지 않았다. KT전에는 15⅔이닝 ERA 5.17이었다. 반면 플레이오프에서는 13⅔이닝 2자책이었다. 어느 숫자가 이번 경기의 진실인지 판단하려면 상대 전력·수비 지원·타구 내용을 함께 봐야 한다. <a href="#src-pitch" class="source-number">S02</a> <a href="#src-g3" class="source-number">S07</a></p>
+  <p>정규시즌 35세이브를 올린 김재윤은 한국시리즈 엔트리에 없다. 원태인은 2차전 구원으로 32구를 던졌다. 따라서 후라도를 더 일찍 교체하는 선택에는 불펜의 이닝 부담뿐 아니라 <strong>원태인을 이후 차전에서 어떻게 쓸 것인가</strong>라는 기회비용이 따라온다. <a href="#src-roster" class="source-number">S08</a> <a href="#src-box" class="source-number">S06</a></p>
+  <div class="twobox"><div><span class="metric-title">삼성 구원 소모 · G1+G2</span><strong>206 <span>구</span></strong><small>121 + 85, 개별 회복 상태는 별도</small></div><div><span class="metric-title">두 경기 연속 등판</span><strong>41 <span>구</span></strong><small>배찬승 G1 22 + G2 19 · 회복력을 직접 측정한 값 아님</small></div></div>
+  <p>삼성은 시즌 97도루, 도루 성공률 77.0%로 KT(61.6%)보다 효율적인 주루 결과를 보였다. 하지만 포수·투수의 견제, 타자의 다음 타석 기대득점을 모르는 상태에서 ‘3차전에는 더 많이 뛰어야 한다’는 지시는 근거가 부족하다. 시즌 수비율도 .984로 KT와 같아 단순 실책 수만으로 수비가 더 좋다고 말하기 어렵다. <a href="#src-club" class="source-number">S09</a></p>
+
+  <div class="reportline">
+   <h3>박진만 감독을 위한 의사결정 메모</h3>
+   <div class="row"><b>경기 전</b><span>구자욱의 3번 타석을 유지할지, 2번으로 올릴지 검토. 타석 배분의 작은 이익과 소형준 상대 플래툰·구종 대응이라는 미측정 요소를 분리한다.</span></div>
+   <div class="row"><b>4~6회</b><span>후라도의 세 번째 타순 상대 구간에 앞서 힐리어드가 몇 번째로 등장할지 확인. 볼넷으로 피하면 김현수와의 다음 상대라는 비용을 고려해야 한다.</span></div>
+   <div class="row"><b>7회 이후</b><span>원태인에게 32구를 이미 쓰게 한 G2의 기회비용을 다음 경기와 함께 판단. 김재윤이 없으므로 마무리 이닝을 특정 한 선수의 ‘세이브 전담’으로 전제하지 않는다.</span></div>
+  </div>
+  <p class="closing">삼성의 승리 조건은 ‘대구에서 홈런을 다시 친다’가 아니라, KT가 정규시즌에 막아냈던 장타 경로를 확인하고 막힐 경우에도 득점을 이어갈 대안을 갖는 데 있다.</p>
+ </div><aside class="rail">
+  <span class="side-title">SCOUT'S SCRATCHPAD</span><blockquote>140개와 7개가 동시에 참이다. 둘 중 하나를 지우면 상대 분석이 사라진다.</blockquote>
+  <p class="note"><strong>강점이 유지된 곳</strong>시즌 wRC+ 108.3, 높은 볼넷 비율, 낮은 삼진 비율, 팀 주루 성공률 77%.</p>
+  <p class="note"><strong>이 상대에게서 달랐던 곳</strong>KT전 16경기 장타 중 홈런 7개. 다른 상대보다 경기당 홈런 감소.</p>
+  <p class="note"><strong>관찰해야 할 반증</strong>대구 3~5차전에서 장타가 회복돼도 타순 변화·상대 선발·구장을 분리하기 전에는 원인을 확정하지 않는다.</p>
+  <div class="rule"></div><a class="eye" href="../lineup-lab/">→ 실제 타순 18인 기록실</a>
+ </aside></div>
+</div></section>
+
+<section class="section" id="kt"><div class="wrap">
+ <div class="section-head"><span class="no kk">TEAM REPORT / 02<br>KT WIZ</span><div><h2>KT: 출루는 넓게, 장타는 깊게.<br>문제는 그 둘이 언제 만나느냐다.</h2><p>KT는 2026년 리그 최고 타율·출루율·득점을 기록했다. 그러나 홈런의 상당 부분이 힐리어드 한 명에게 집중되었다. 삼성전에서도 타격과 득점은 다른 시간에 일어났다.</p></div></div>
+ <div class="article"><div class="article-main">
+  <h3>단순한 ‘고타율 팀’이라고 부르면 놓치는 것</h3>
+  <p>KT의 타율 .286, 출루율 .367, 장타율 .415는 모두 리그 최상위권이었다. 타격 wRC+ 110.4도 1위다. 시즌 825득점은 삼성보다 19점 많았다. 다만 팀 ISO는 .130으로 삼성(.141)보다 낮고, 전체 홈런도 121개로 삼성보다 19개 적었다. <a href="#src-team" class="source-number">S01</a> <a href="#src-club" class="source-number">S09</a></p>
+  <p>이걸 KT가 ‘똑딱이 팀’이라는 뜻으로 받아들여서도 안 된다. 힐리어드 혼자 44홈런을 때려냈다. 전체 팀 홈런의 36.4%다. 삼성의 팀내 최다 홈런 선수 디아즈는 26개, 팀 홈런 140개의 18.6%였다. <strong>같은 장타 구성이 아니라, KT는 홈런 생산이 더 한 선수에게 집중된 타선</strong>이었다. 하지만 그만큼 다른 타자들의 출루가 앞에 쌓인다면, 한 번의 장타가 가진 가치는 커진다. <a href="#src-club" class="source-number">S09</a></p>
+  <div class="twobox"><div><span class="metric-title">KT 팀 홈런에서 힐리어드 비중</span><strong class="kk">36.4<span>%</span></strong><small>44/121 · 선수 집중도, 공격 의존도의 인과 추정은 아님</small></div><div><span class="metric-title">삼성 팀 홈런에서 디아즈 비중</span><strong>18.6<span>%</span></strong><small>26/140 · 두 팀의 분포 구조 비교</small></div></div>
+  <p>한 가지 더. KT의 팀 BABIP는 .341로 삼성의 .315보다 높았다. BABIP 차이를 무조건 ‘KT는 운이 좋았다’고 해석할 수 없다. 타구 속도, 수비 범위, 주력, 구장과 라인드라이브 비율이 섞여 있다. <strong>BABIP만으로 장기 회귀량을 계산하지 않았다.</strong></p>
+
+  <h3>2사 득점권에서 더 눈에 띄는 차이</h3>
+  <p>득점권 전체에서 KT는 1,721타석 타율 .307, 제공처 정의의 OPS .832를 기록했다. 삼성은 1,656타석 타율 .291, OPS .819였다. 격차는 작았다. 그런데 <strong>2사 득점권</strong>만 남기면 KT OPS .862(798타석), 삼성 .728(753타석)으로 차이가 .134나 벌어진다. <a href="#src-pbp" class="source-number">S04</a></p>
+  <div class="table-container"><table class="data-table" aria-label="득점권 상황별 2026 데이터">
+   <thead><tr><th>2026 상황</th><th>KT</th><th>삼성</th><th>읽는 방법</th></tr></thead><tbody>
+   <tr><td>전체 득점권</td><td>1,721 PA<br><b>OPS .832</b></td><td>1,656 PA<br><b>OPS .819</b></td><td class="note-cell">전체 득점권에서는 생산력 차이가 작음</td></tr>
+   <tr class="kt-hl"><td>2사 득점권</td><td>798 PA<br><b>OPS .862</b></td><td>753 PA<br><b>OPS .728</b></td><td class="note-cell">아웃 2개가 걸린 상황에서는 관측 격차 확대</td></tr>
+   <tr><td>2사 득점권 타율</td><td><b>.309</b></td><td>.241</td><td class="note-cell">안타는 결과, ‘클러치’의 안정된 재능 증명 아님</td></tr>
+   <tr><td>2사 득점권 득점 확률¹</td><td><b>33.1%</b></td><td>27.2%</td><td class="note-cell">동일 이닝의 중복 상태를 포함할 수 있음</td></tr>
+   </tbody></table></div>
+  <p class="caption">¹ 해당 타석의 상황에서 이닝 종료까지 득점했는지의 관측 비율. 사건이 서로 독립적인 타석으로 발생한 것이 아니며 리그 평균·주자 구성·상대 투수 조건이 다를 수 있다. 제공처는 OPS도 타석 분모 기반 근사값으로 명시. 따라서 이 표에서 ‘KT에 타고난 클러치 능력이 있다’는 결론을 내리지 않았다.</p>
+  <p>2차전 6회말 KT는 1사 2·3루에서 득점하지 못했다. 시즌의 높은 2사 득점권 성적이 한 번의 타석 결과를 보장하지 않는 대표적인 장면이다. 그렇다고 2차전을 근거로 시즌의 출루·안타 능력을 지워서도 안 된다. <a href="#src-box" class="source-number">S06</a></p>
+
+  <h3>선발 타순에서 출루·장타를 누가 연결하는가</h3>
+  <p>최원준(.434 OBP)이 1번, 안현민(.441)이 3번, 힐리어드(.374)가 4번이었다. 김민혁(.342)은 2번, 허경민(.397)은 7번에 자리했다. 2번 타자에게 많은 타석이 돌아간다는 톰 탱고의 논리를 대입하면 안현민이나 허경민을 앞에 둘 이유가 생긴다. 하지만 배치 효과를 실제 득점으로 환산하려면 상대 선발과 수비 출전 비용을 포함해야 한다. <a href="#src-hitters" class="source-number">S05</a></p>
+  <div class="table-container"><table class="data-table" aria-label="KT 2차전 실제 선발 타순 기록">
+   <thead><tr><th>G2 타순</th><th>선수</th><th class="num">출루율</th><th class="num">OPS</th><th class="num">wOBA</th><th>3차전 검토 관점</th></tr></thead><tbody>
+   <tr><td class="mono">1</td><td>최원준</td><td class="num">.434</td><td class="num">.919</td><td class="num">.423</td><td class="note-cell">최대 타석 배분, 2026 시즌 208안타</td></tr>
+   <tr><td class="mono">2</td><td>김민혁</td><td class="num">.342</td><td class="num">.675</td><td class="num">—</td><td class="note-cell">타순 실험의 가장 큰 기회비용 후보</td></tr>
+   <tr class="kt-hl"><td class="mono">3</td><td>안현민</td><td class="num">.441</td><td class="num">.947</td><td class="num">.434</td><td class="note-cell">출루·장타 우수, 417타석 표본</td></tr>
+   <tr class="kt-hl"><td class="mono">4</td><td>힐리어드</td><td class="num">.374</td><td class="num">.967</td><td class="num">.420</td><td class="note-cell">44홈런·139타점, 후라도 상대 3홈런 기록</td></tr>
+   <tr><td class="mono">5</td><td>김현수</td><td class="num">.357</td><td class="num">.777</td><td class="num">.357</td><td class="note-cell">힐리어드를 피할 때 다음 타자로 고려해야 함</td></tr>
+   <tr><td class="mono">6</td><td>류현인</td><td class="num">.390</td><td class="num">.817</td><td class="num">.377</td><td class="note-cell">238PA, 2차전 기용 변화, 표본에 주의</td></tr>
+   <tr><td class="mono">7</td><td>허경민</td><td class="num">.397</td><td class="num">.817</td><td class="num">.381</td><td class="note-cell">7번으로는 높은 출루율, 전진 배치의 대가 검토</td></tr>
+   <tr><td class="mono">8</td><td>한승택</td><td class="num">.302</td><td class="num">.600</td><td class="num">.286</td><td class="note-cell">포수 기용에서 공격·수비의 결합</td></tr>
+   <tr><td class="mono">9</td><td>장준원</td><td class="num">.314</td><td class="num">.708</td><td class="num">.327</td><td class="note-cell">하위 장타 가능성, 시즌 166PA</td></tr>
+   </tbody></table></div>
+  <p class="caption">11월 4일 2차전 선발·2026시즌 선수 출루율·OPS·wOBA. 3차전 타순은 아직 미발표. 미확인 wOBA는 공란으로 남겼다. <a href="#src-hitters">S05</a> · <a href="#src-box">S06</a></p>
+
+  <h3>소형준이 실제로 보여준 세 가지 얼굴</h3>
+  <p>KT 선발 소형준은 시즌 131⅓이닝 ERA 3.15, FIP 3.61, K% 19.4%, BB% 4.4%를 기록했다. 시즌 삼성전 ERA 3.71의 내부 구성은 극단적이다. 4월 4일 6이닝 6실점, 10월 두 차례 11이닝 1실점. <strong>같은 투수의 상대전적을 한 숫자로 뭉치면 최근의 변화도, 초반의 위험도 놓친다.</strong> <a href="#src-g3" class="source-number">S07</a> <a href="#src-pitch" class="source-number">S02</a></p>
+  <p>KT가 3차전에서 얻고 싶은 것은 단순히 소형준의 평균자책점 재현이 아니다. 삼성의 김지찬–김성윤–구자욱 앞 타순에 불필요한 주자를 내보내지 않는 것, 그리고 연장전에서 많이 사용한 불펜을 6회 이전부터 다시 열지 않는 것이다. 다만 긴 이닝 소화가 언제까지 정답인지는 당일 구위와 3번째 타순 대면 정보가 있어야 판단할 수 있다.</p>
+
+  <h3>후라도의 힐리어드 상대 9타수 3홈런은 얼마나 무서운가</h3>
+  <p>힐리어드는 정규시즌 후라도를 상대로 9타수 4안타, 그중 3개가 홈런이었다. 최근 대구 맞대결에서는 한 경기에서 두 차례 홈런을 쳤다. 그러나 그 기록의 분모는 고작 9타수다. 그의 시즌 전체 타율은 .304였다. <a href="#src-g3" class="source-number">S07</a></p>
+  <p>이 상황에선 9타수 3홈런을 ‘반드시 피해야 한다’는 결론으로 쓰기보다 후라도가 어떤 구종과 존에서 그 홈런을 허용했는지 스카우트할 이유로 삼는 게 맞다. 해당 구종별 타구 기록이 검증되지 않았으므로 특정 코스의 고의사구나 승부를 권고하지 않는다. 김현수도 뒤에서 14홈런과 출루율 .357을 제공하기 때문에 단순히 힐리어드를 피해도 상대가 쉬워지는 건 아니다.</p>
+  <div class="twobox"><div><span class="metric-title">KT 불펜 구원 소모 · G1+G2</span><strong>153 <span>구</span></strong><small>73 + 80, 2차전은 구원 7명 사용</small></div><div><span class="metric-title">박영현 2경기 합계</span><strong>45 <span>구</span></strong><small>G1 22 + G2 23, 이동일 후 등판 효과는 미측정</small></div></div>
+  <p>KT는 시즌 수비율 .984, 실책 87개, 병살 처리 125개를 기록했지만 2차전 연장 12회의 송구 실책 한 번이 경기 결과를 바꿨다. <strong>이 장면은 중요하지만, 정규시즌 전체의 수비 능력이 낮다는 새로운 증거 하나로 과대해석하면 안 된다.</strong> 수비 범위 OAA나 DRS를 동일 기준으로 확보하지 못했다. <a href="#src-box">S06</a> <a href="#src-club">S09</a></p>
+  <p>KT의 도루 성공 61회, 실패 38회는 성공률 61.6%다. 무조건 ‘뛰면 안 된다’고 말할 수는 없지만, 공격적인 주루가 이득이 되려면 성공 때 얻는 가치와 실패 때 잃는 가치를 주자·아웃별 KBO 기대득점으로 계산해야 한다. 삼성과의 비교에서 도루 시도 건수만을 주루 능력의 대리값으로 사용하지 않았다.</p>
+
+  <div class="reportline">
+   <h3>이강철 감독을 위한 의사결정 메모</h3>
+   <div class="row"><b>경기 전</b><span>2번 김민혁과 3번 안현민의 위치가 실제 상대 투구와 선수 출전 조건에서 합리적인지 검증. 한 자리 이동의 추가 타석 수만으로 결론을 내지 않는다.</span></div>
+   <div class="row"><b>4~6회</b><span>힐리어드가 후라도와 두 번째·세 번째로 맞붙을 위치를 예측해 대타·투수 교체가 가능한지 파악. 9타수 3홈런 기록은 경계 신호이지만 승부 확률표가 아님.</span></div>
+   <div class="row"><b>7회 이후</b><span>박영현의 앞선 45구와 김정운의 36구를 확인한 뒤, 다시 5아웃 이상을 맡길지 불펜 가용 여부에 따라 선택. 두 선수의 실제 회복 상태는 외부에서 알 수 없음.</span></div>
+  </div>
+  <p class="closing">KT의 승리 조건은 ‘출루율 1위니까 결국 점수가 난다’가 아니라, 이미 잘 만드는 주자를 언제 힐리어드의 장타와 결합할지 설계하고 그 과정에서 한 이닝의 아웃을 낭비하지 않는 데 있다.</p>
+ </div><aside class="rail"><span class="side-title">SCOUT'S SCRATCHPAD</span>
+  <blockquote>타선은 넓지만 홈런은 집중되어 있다. 상대가 힐리어드를 어떻게 상대하는지가 팀 전체 득점 경로를 바꾼다.</blockquote>
+  <p class="note"><strong>유지된 구조</strong>타율·출루율·득점 리그 1위, 2사 득점권 상황에서도 높은 OPS.</p>
+  <p class="note"><strong>주의할 취약성</strong>득점권 결과는 안정적 선수 능력과 다를 수 있음. 도루 성공률 61.6%는 시도 수만으로 높게 평가하기 어려움.</p>
+  <p class="note"><strong>관찰해야 할 반증</strong>힐리어드가 후라도에게 무안타여도 9타수 3홈런 기록이 틀린 것은 아니며, 그 작은 기록의 예측 가치는 원래 약하다.</p>
+  <a class="eye" href="../lineup-lab/">→ 실제 타순 18인 기록실</a>
+ </aside></div>
+</div></section>
+
+<section id="game3" class="compare"><div class="wrap">
+ <span class="eye">THE MATCHUP / FRIDAY NOV 06 · DAEGU</span>
+ <h2>3차전, 두 선발의 반대되는 불확실성</h2>
+ <p class="thesis">소형준은 최근 삼성전에서 아주 잘 던졌지만 4월에는 같은 팀을 상대로 고전했다. 후라도는 플레이오프에서 강했지만 정규시즌 KT전에서는 약했다. 가을야구 2경기의 ERA를 전력으로 격상하지 않고, 실제로 확인할 투구 선택을 분리한다.</p>
+ <div class="table-container"><table class="data-table" aria-label="3차전 선발 투수 비교">
+  <thead><tr><th>투수</th><th>정규시즌</th><th>상대전적</th><th>최근 결과</th><th>가장 필요한 추가 측정</th></tr></thead><tbody>
+  <tr><td>KT 소형준</td><td>131⅓ IP · ERA 3.15<br>FIP 3.61</td><td>삼성전 17 IP · ERA 3.71</td><td>10월 두 경기 11 IP · 1 ER</td><td>4월 대비 구종 분포·제구 위치 변화</td></tr>
+  <tr><td>삼성 후라도</td><td>150 IP · ERA 3.54<br>FIP 4.35</td><td>KT전 15⅔ IP · ERA 5.17</td><td>PO 13⅔ IP · 2 ER</td><td>힐리어드에 허용한 홈런 구종·존·타구 속도</td></tr>
+  </tbody></table></div>
+ <p class="fine">정규시즌 기록과 맞대결 분모가 다른 이유는 세 차례의 상대전적과 시즌 전체를 분리했기 때문이다. 3차전 공식 선발은 확인됐지만 당일 타순은 11월 5일 현재 미발표. <a href="#src-g3">뉴스핌·머니투데이 S07</a></p>
+ <div class="compare-grid">
+  <div><h3 class="ss">삼성이 점검할 순서</h3><p><b>1.</b> 소형준의 좌우 타자별 피안타율보다, 첫 두 번의 타순 대면에서 출루와 타구 질이 유지되는지.</p><p><b>2.</b> 주자가 있는 구자욱·디아즈 타석을 만들고, KT전 홈런 억제의 원인을 주자·타구 분석으로 좁힐 수 있는지.</p><p><b>3.</b> 후라도의 교체 시점을 정할 때 힐리어드 다음 김현수를 포함한 라인업 전체의 비용을 비교하는지.</p></div>
+  <div><h3 class="kk">KT가 점검할 순서</h3><p><b>1.</b> 소형준이 10월의 투구 방식을 재현하는지, 4월 6실점의 타구·구종 패턴이 재발하는지.</p><p><b>2.</b> 힐리어드 앞에 출루 주자를 얼마나 쌓는지. 후라도 상대 9타수 3홈런은 스카우팅 질문이지 공략법 자체가 아님.</p><p><b>3.</b> 박영현의 G1·G2 45구를 고려했을 때 7회부터 9회까지 필요한 아웃을 몇 명에게 나누는지.</p></div>
+ </div>
+ <div class="lab-block"><h3>타순 논쟁을 수치로 축소해 보는 실험</h3><p>2번과 3번 타석 배분 차이를 임의로 설정하고, 2차전 실제 2번 타자와 3번 타자를 서로 바꾸었을 때 추가로 기대되는 출루 횟수를 계산한다. 탱고 원칙의 <b>‘좋은 타자에게 더 많은 기회를’</b>라는 직관을 수치로 표현하는 실험이지, 실제 감독의 기대득점이나 승리 확률을 계산한 것이 아니다.</p>
+ <label for="pa-gap">타순 한 칸의 경기당 타석 차이: <output id="pa-read">0.11</output> PA/G</label>
+ <input type="range" id="pa-gap" min="0" max=".25" step=".01" value=".11">
+ <div class="calc"><div><span class="eye ss">삼성 / 구자욱 ↔ 김성윤</span><strong id="sam-gain">+1.31</strong><small class="fine">144경기 추가 기대 출루 기회 · (OBP .458−.375) × 배분차 × 144</small></div>
+ <div><span class="eye kk">KT / 안현민 ↔ 김민혁</span><strong id="kt-gain">+1.57</strong><small class="fine">144경기 추가 기대 출루 기회 · (OBP .441−.342) × 배분차 × 144</small></div></div>
+ <p class="fine">타석 기회 자체를 임의 고정했고, 출루율을 타순과 무관하게 일정하다고 가정한다. 실제 타순에서는 상대 투수, 주자, 대타, 팀 공격 종료가 타석 분모를 변화시킨다. 이 수치는 게임당 예상 득점이나 최적 타순의 성과가 아니며, 이 작은 효과만 보고 선수 기용을 뒤집는 건 부적절하다.</p>
+ </div>
+</div></section>
+
+<section class="falsify" id="falsify"><div class="wrap">
+ <span class="eye">BEFORE FIRST PITCH / THE EVIDENCE CHECKLIST</span><h2>내일 어떤 장면을 보면<br>지금의 판단을 바꿔야 할까.</h2>
+ <p>전문가 수준의 분석은 경기 전에 가설을 세우고, 경기 뒤 그 가설이 어떤 이유로 맞았거나 틀렸는지 기록할 수 있어야 한다. 다음 항목은 경기 후 해설을 그럴듯하게 만들기 위한 것이 아니라, <b>관측이 나오면 판단이 어떻게 바뀔지 미리 정해두는 목록</b>이야.</p>
+ <ul class="evidence-list">
+  <li><b>01 · 3차전 선발 타순</b><small>G2의 18명을 자동으로 재사용하지 않는다. 후라도·소형준의 투구 손과 실제 상대에 맞춰 누가 빠지고 들어왔는지 먼저 확인.</small></li>
+  <li><b>02 · 삼성의 홈런 경로</b><small>KT전 홈런 7/16경기가 단순한 표본 결과였는지, 3차전 공략 구종·타구 속도·구장 방향이 어떤지 확인. 한 경기의 반등만으로 원인을 확정하지 않음.</small></li>
+  <li><b>03 · 소형준의 두 버전</b><small>4월 6실점 버전과 10월 11이닝 1실점 버전 중 어느 메커니즘이 재현되는지. 단순 자책점이 아니라 카운트·구종·타구를 기록.</small></li>
+  <li><b>04 · 후라도–힐리어드</b><small>9타수 3홈런이라는 매우 작은 표본이 실제 의사결정에 어떤 영향을 미쳤는지. 무조건 피했는지, 어떤 상황·구종에 승부했는지 기록.</small></li>
+  <li><b>05 · 2사 득점권 0.134 OPS 격차</b><small>실제 타자들의 컨택·존 진입률을 측정해야 한다. 타석 결과만으로 KT의 ‘승부근성’이 크다고 결론을 내리지 않음.</small></li>
+  <li><b>06 · 불펜의 진짜 가용성</b><small>G1·G2 박영현 45구, 배찬승 41구. 경기 전 명단과 후반 실제 등판 여부를 구분. 투구 수를 기계적으로 피로 점수로 환산하지 않음.</small></li>
+  <li><b>07 · 수비와 주루의 비용</b><small>실책 한 번은 치명적일 수 있지만 수비 능력 전체와 동일하지 않다. 도루의 가치는 시도 당시 주자·아웃 상황과 후속 타석으로 평가.</small></li>
+  <li><b>08 · 결과론에 저항</b><small>삼성이 우승해도 시즌 90승 KT의 강점이 없어지는 것은 아니고, KT가 우승해도 삼성의 홈런 억제 패턴이 틀린 기록이 되는 것은 아니다.</small></li>
+ </ul>
+</div></section>
+
+<section class="sources" id="sources"><div class="wrap">
+ <span class="eye">DATA & REPRODUCIBILITY</span><h2>숫자를 다시 확인할 수 있도록.</h2>
+ <p>2026년 11월 5일, 3차전 시작 전 기준 자료다. 선수별 실측과 계산상 파생값을 분리했고, 확인할 수 없는 구종·타구질·선발 타순은 기재하지 않았다. 서로 다른 제공처의 WAR과 wRC+를 한 표에 혼합하지 않았다.</p>
+ <div class="source-grid"><ol>
+  <li id="src-team"><a href="https://www.yagoonara.com/sabermetrics/teams" target="_blank" rel="noopener noreferrer">S01 · 2026 팀 타격 세이버매트릭스(wRC+, ISO, BABIP, BB%, K%)</a></li>
+  <li id="src-pitch"><a href="https://www.yagoonara.com/sabermetrics/teams/pitcher" target="_blank" rel="noopener noreferrer">S02 · 2026 팀 투구 세이버매트릭스(FIP, FIP−, K%, BB%)</a></li>
+  <li id="src-h2h"><a href="https://www.yagoonara.com/kbo-team-opponent/samsung" target="_blank" rel="noopener noreferrer">S03 · 삼성 2026 상대팀별 16경기 상세 타격·투구</a> · <a href="https://www.yagoonara.com/kbo-team-opponent/kt" target="_blank" rel="noopener noreferrer">KT 상대팀별</a></li>
+  <li id="src-pbp"><a href="https://www.yagoonara.com/sabermetrics/situation-splits/risp" target="_blank" rel="noopener noreferrer">S04 · 2026 득점권 1,656·1,721PA</a> · <a href="https://www.yagoonara.com/teams/1/sabermetrics/situation-splits/two-out-risp" target="_blank" rel="noopener noreferrer">삼성 2사</a> · <a href="https://www.yagoonara.com/teams/8/sabermetrics/situation-splits/two-out-risp" target="_blank" rel="noopener noreferrer">KT 2사</a></li>
+  <li id="src-hitters"><a href="https://www.yagoonara.com/sabermetrics/hitter/woba" target="_blank" rel="noopener noreferrer">S05 · 2026 타자별 wOBA·정규시즌 지표</a> · <a href="https://www.yagoonara.com/sabermetrics/records/hitter" target="_blank" rel="noopener noreferrer">PA·wRC+ 목록</a></li>
+  <li id="src-box"><a href="https://www.yagoonara.com/schedule/130108" target="_blank" rel="noopener noreferrer">S06 · KS 1차전 타순·박스스코어</a> · <a href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">2차전</a></li>
+  </ol><ol start="7">
+  <li id="src-g3"><a href="https://www.newspim.com/news/view/20261105000006" target="_blank" rel="noopener noreferrer">S07 · 11월 5일 소형준–후라도 선발 발표와 KT 상대 맞대결</a> · <a href="https://www.mt.co.kr/sports/2026/11/05/202611051110776327O" target="_blank" rel="noopener noreferrer">4월·10월 상대전적 상세</a></li>
+  <li id="src-roster"><a href="https://www.koreabaseball.com/MediaNews/News/BreakingNews/View.aspx?bdSe=62606" target="_blank" rel="noopener noreferrer">S08 · KS 경기 전 감독 발언, 선발 타순·김상수 결장</a> · <a href="https://8pm.co.kr/v/481062" target="_blank" rel="noopener noreferrer">삼성 엔트리·부상</a></li>
+  <li id="src-club"><a href="https://www.yagoonara.com/teams/1/current-season" target="_blank" rel="noopener noreferrer">S09 · 삼성 공식 통계 집계</a> · <a href="https://www.yagoonara.com/teams/8/current-season" target="_blank" rel="noopener noreferrer">KT 공식 통계 집계</a></li>
+  <li id="src-analyst"><a href="https://blogs.fangraphs.com/woba-by-batting-order-2011-all-star-break-update/" target="_blank" rel="noopener noreferrer">S10 · Tom Tango/Mitchel Lichtman 계열 타순 논의</a> · <a href="https://library.fangraphs.com/offense/woba/" target="_blank" rel="noopener noreferrer">wOBA 정의</a></li>
+  <li id="src-historical"><a href="https://sabr.org/journal/article/balancing-starter-and-bullpen-workloads-in-a-seven-game-postseason-series/" target="_blank" rel="noopener noreferrer">S11 · 7전제에서 선발·불펜 소모의 기회비용</a></li>
+  <li id="src-math"><a href="./reproduce.py" target="_blank" rel="noopener noreferrer">S12 · 홈런 상대별 발생률·정확 구간·타순 대리값 검산 Python 스크립트</a> · <a href="https://github.com/pbkpch/pbkpch.github.io/tree/master/2026-korean-series/scouting-book" target="_blank" rel="noopener noreferrer">GitHub 원본</a></li>
+  </ol></div>
+ <div class="source-scope"><p><strong>통계적 주의:</strong> 홈런 발생률 비교의 95% 구간은 각 경기의 노출 시간이 같고, 홈런이 같은 속도로 독립적인 포아송 분포를 따른다는 가정에서 추정한 조건부 이항 구간이다. 여러 팀·지표를 탐색한 뒤 골라 보고한 결과여서 다중검정 보정이 없다. 실제 구장별 타석 기회와 타자의 구체적인 조합도 반영되지 않았다. 상대 투수의 인과적 홈런 억제 효과를 보여주는 구간이 아니다.</p>
+ <p><strong>결측:</strong> 공인 구종별 기대득점, 타구 출구속도·각도, 동일 기준의 구장·수비 OAA, 진짜 high-leverage 기여, 실제 선수별 회복 수치, 3차전 확정 타순이 없다. 미확인 데이터를 추정치로 채워 놓지 않았다.</p>
+ <button id="download-evidence" type="button" style="border:1px solid var(--ink);background:transparent;padding:10px 15px;font-size:12px">근거·가정 데이터 JSON 저장</button>
+ <p class="fine">더 많은 1·2차전 선수별 지표와 RE24 교육용 표: <a href="../lineup-lab/">타순 연구소</a> · 시리즈 확률 시나리오: <a href="../">종합 기획 기사</a></p>
+ </div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap"><div><b class="mono">KS26 / SCOUTING BOOK</b><p>이 리포트는 구단의 내부 스카우트 데이터나 비공개 영상 자료를 사용하지 않았다. 공개 자료로 검증 가능한 관측과 독립적으로 계산한 가설을 구분한 비공식 연구물이다.</p></div><div><a href="../">← 종합 분석으로</a> &nbsp; · &nbsp; <a href="../lineup-lab/">선수·타순 기록실</a></div></div></footer>
+<script>
+'use strict';
+const pa=document.getElementById('pa-gap'),paRead=document.getElementById('pa-read'),sGain=document.getElementById('sam-gain'),kGain=document.getElementById('kt-gain');
+function updateSwap(){const d=Number(pa.value);paRead.textContent=d.toFixed(2);sGain.textContent='+'+((.458-.375)*d*144).toFixed(2);kGain.textContent='+'+((.441-.342)*d*144).toFixed(2)}
+pa.addEventListener('input',updateSwap);updateSwap();
+document.getElementById('download-evidence').addEventListener('click',function(){
+  const record={
+    cutoff:'2026-11-05 before KS Game 3; 2026 regular season 144G and G1/G2 observed',
+    sourceMode:'public records, derived arithmetic, scenario, verified missingness',
+    totals:{samsung:{W:83,L:58,T:3,HR:140,vsKT:{G:16,HR:7,AVG:.272,BB:49,K:115},RISP:{PA:1656,OPS:.819,AVG:.291},twoOutRISP:{PA:753,OPS:.728,AVG:.241},KRate:17.6,BBRate:10.9,wRCplus:108.3,ISO:.141},kt:{W:90,L:49,T:5,HR:121,vsSamsung:{G:16,HR:12,AVG:.269,BB:55,K:119},RISP:{PA:1721,OPS:.832,AVG:.307},twoOutRISP:{PA:798,OPS:.862,AVG:.309},KRate:18.8,BBRate:10.2,wRCplus:110.4,ISO:.130}},
+    homerunRates:{samsungVsKT:7/16,samsungVsOther:133/128,observedRateRatio:(7/16)/(133/128),exactPoisson95Approx:[.166,.892],ktVsSamsung:12/16,ktVsOther:109/128},
+    g3:{ktStartingPitcher:'So Hyeong-jun',samsungStartingPitcher:'Ariel Jurado',confirmedDate:'2026-11-05',lineupsConfirmed:false},
+    hypotheticalBattingOrder:{G2SwapSam:[.458,.375],G2SwapKT:[.441,.342],paGapPerGame:Number(pa.value),seasonGames:144,gainNotRuns:true},
+    limitations:['not park-adjusted opponent split','small batter pitcher sample','situational OPS provider-specific estimate','no official third-game lineup','not an internally calibrated model'],
+    sources:[...document.querySelectorAll('.sources ol a')].map(a=>({title:a.textContent.trim(),url:a.href}))};
+  const data=JSON.stringify(record,null,2),url=URL.createObjectURL(new Blob([data],{type:'application/json;charset=utf-8'})),a=document.createElement('a');
+  a.href=url;a.download='KS26_team_scouting_audit.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)
+});
+</script></body></html>
