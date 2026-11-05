@@ -1,278 +1,188 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#f5f2eb" />
-<meta name="description" content="2026 한국시리즈 삼성–KT. 1승1패 이후 소형준–후라도 3차전, 1·2차전 실제 라인업 18인과 탱고식 타순 연구소, 득점 기대·세이버메트릭스·조건부 우승 확률 분석." />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="정규시즌의 답은 KT였다. 한국시리즈의 답은 아직 모른다 — KS26" />
-<meta property="og:description" content="삼성 vs KT · 숫자가 말하는 전력 차이와 그 숫자가 말해주지 않는 것들" />
-<title>삼성 × KT | 2026 한국시리즈 데이터북</title>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f1e9">
+<meta name="description" content="2026 한국시리즈 삼성–KT 1승 1패. 6회의 두 병목, 타순의 기회비용, 3차전 소형준–후라도, 불펜의 가용성과 우승 확률의 두 추정 방식. 2026년 11월 5일 취재·기록 기준.">
+<meta property="og:title" content="6회에 두 번 멈춘 경기 — 삼성·KT 2026 한국시리즈 데이터 분석">
+<meta property="og:description" content="1승 1패. 평균이 보여주는 전력 격차와 한 타석이 바꾸는 승부의 거리를 읽는다.">
+<title>6회에 두 번 멈춘 경기 | 삼성 × KT 2026 한국시리즈</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap');
-:root{--paper:#f5f2eb;--paper2:#ebe7de;--white:#fffef9;--ink:#22231f;--muted:#666a62;--soft:#989a92;--line:#d7d4c9;--lion:#286d9a;--wiz:#a1424c;--gold:#a36c2f;--dark:#202c31;--mono:'DM Mono',ui-monospace,monospace;--sans:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;--serif:'Noto Serif KR','Iowan Old Style','AppleMyungjo',serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}::selection{background:#edd8af}a{color:inherit}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--lion);outline-offset:4px}p{margin:0}h1,h2,h3{margin:0}h2{scroll-margin-top:110px}.skip{position:absolute;left:-9999px;top:12px;background:var(--white);padding:10px 18px;z-index:10}.skip:focus{left:12px}.container{width:min(1100px,calc(100% - 64px));margin:0 auto}.reading{max-width:715px}.eyebrow{font:500 11px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#697066}.num{font-variant-numeric:tabular-nums}.monospace{font-family:var(--mono)}.samsung{color:var(--lion)}.kt{color:var(--wiz)}.text-muted{color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-.site-header{position:sticky;top:0;z-index:100;background:rgba(245,242,235,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--ink)}.site-header .inner{min-height:63px;display:flex;align-items:center;justify-content:space-between;gap:22px}.masthead{white-space:nowrap;display:flex;gap:13px;align-items:baseline;text-decoration:none;font-weight:700;letter-spacing:-.06em;font-size:21px}.masthead i{font:500 10px var(--mono);font-style:normal;letter-spacing:.14em;color:var(--muted)}.top-links{display:flex;align-items:center;gap:25px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.top-links a{text-decoration:none;font-size:12px;color:#535951;font-weight:600}.top-links a:hover{text-decoration:underline;text-underline-offset:5px}.header-date{font:11px var(--mono);color:#60645f;white-space:nowrap}
-.cover{padding:54px 0 38px;border-bottom:1px solid var(--ink);background:var(--paper)}.cover-top{display:flex;justify-content:space-between;align-items:center;border-top:3px double #98988f;padding-top:13px;margin-bottom:42px;gap:12px}.cover-top .eyebrow{color:#394d50}.cover-top .volume{color:#60645f;font:10px var(--mono);white-space:nowrap}.cover-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:76px;align-items:end}.cover h1{font:600 clamp(38px,4.5vw,67px)/1.39 var(--serif);letter-spacing:-.068em;word-break:keep-all}.cover .dek{font-size:16px;line-height:1.96;letter-spacing:-.018em;color:#444941;margin-top:30px;max-width:670px;word-break:keep-all}.cover .dek strong{font-weight:700;color:var(--ink)}.cover .byline{display:flex;flex-wrap:wrap;gap:17px;border-top:1px solid var(--line);padding-top:15px;margin-top:35px;font:11px/1.6 var(--mono);color:#6b716c}.cover .byline strong{color:var(--ink)}
-.score-story{border-top:1px solid var(--ink);align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:30px}.score-label{display:flex;justify-content:space-between;padding-top:16px;font:11px var(--mono);color:#747870}.score-title{font:600 21px var(--serif);line-height:1.8;letter-spacing:-.05em;margin-top:15px}.score-row{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding:9px 0}.score-row strong{font-size:22px;letter-spacing:-.045em}.score-row em{font:500 12px var(--mono);color:#7a7b73;font-style:normal}.score-number{font:500 clamp(77px,9vw,122px)/.95 var(--mono);letter-spacing:-.09em;text-align:right;padding-right:8px;margin-top:22px}.score-number small{display:block;font:12px var(--sans);color:#777c72;letter-spacing:0;margin-top:16px}.score-caption{font-size:12px;line-height:1.9;color:#666a64;padding-bottom:7px}
-.data-ribbon{background:var(--white);border-bottom:1px solid var(--line)}.ribbon-grid{display:grid;grid-template-columns:1fr 1fr 1fr}.ribbon-cell{padding:28px 26px 30px 0;border-right:1px solid var(--line)}.ribbon-cell+div{padding-left:30px}.ribbon-cell:last-child{border:0}.ribbon-cell .label{font-size:12px;color:#4f5752;font-weight:700}.ribbon-cell .big{font:500 clamp(27px,3vw,39px) var(--mono);letter-spacing:-.07em;margin:13px 0 8px}.ribbon-cell .note{font-size:12px;line-height:1.7;color:#696f69}.ribbon-cell .note b{color:var(--ink)}
-.section{padding:95px 0 84px;border-bottom:1px solid var(--line)}.section-header{display:grid;grid-template-columns:190px 1fr;gap:35px;margin-bottom:39px}.section-header h2{font:600 clamp(29px,3.4vw,43px)/1.48 var(--serif);letter-spacing:-.06em;word-break:keep-all;max-width:850px}.section-header .eyebrow{padding-top:14px}.section-headnote{font-size:14px;color:#555b53;line-height:1.9;margin-top:18px;max-width:800px;word-break:keep-all}.chapter{font:500 11px/1.6 var(--mono);letter-spacing:.09em;color:var(--gold)}.prose{font-size:16px;line-height:2.14;color:#363c37;letter-spacing:-.015em;word-break:keep-all}.prose p+p{margin-top:20px}.prose strong{color:#1d2826}.section-inner{margin-left:225px}.source-inline{font:500 10px var(--mono);color:#507188;text-decoration:none;vertical-align:super;margin-left:3px;white-space:nowrap}.source-inline:hover{text-decoration:underline}.aside-note{font:12px/1.85 var(--sans);color:#767b73;margin-top:14px}.figure-head{display:flex;justify-content:space-between;align-items:baseline;gap:15px;padding-bottom:15px;border-bottom:1px solid var(--ink)}.figure-head h3{font-size:16px;font-weight:700;letter-spacing:-.025em}.figure-head small{font:10px var(--mono);color:#777b70}
-.lead-section{padding-top:75px}.lead-columns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--ink);margin-top:40px}.lead-column{padding:24px 26px 10px 0;min-width:0}.lead-column+div{border-left:1px solid var(--line);padding-left:26px}.lead-column span{font:10px var(--mono);color:var(--gold)}.lead-column h3{font:600 20px/1.55 var(--serif);letter-spacing:-.045em;margin:14px 0}.lead-column p{font-size:13px;line-height:1.95;color:#505851;word-break:keep-all}
-.winpct-panel{margin-top:34px;background:var(--white);border:1px solid var(--line);padding:28px 31px}.winrow{display:grid;grid-template-columns:80px 1fr 76px;gap:15px;align-items:center;margin-top:20px}.winrow b{font-size:13px}.scale{height:24px;background:#ebe9e1;position:relative}.scale .segment{position:absolute;left:0;top:0;height:100%}.scale .actual{height:12px;top:0;opacity:.9}.scale .expected{height:12px;top:12px;opacity:.5}.winrow .value{font:500 13px var(--mono);text-align:right}.legend{display:flex;gap:18px;align-items:center;margin:18px 0 0;font-size:11px;color:#666e66}.legend i{display:inline-block;width:19px;height:8px;background:#363c3a;margin-right:7px}.legend i+span{margin-left:4px}.legend .fade{opacity:.48}.wide-figure{margin-top:35px}
-.story-split{display:grid;grid-template-columns:1.14fr .86fr;gap:55px;align-items:start}.metric-paper{background:var(--white);padding:23px 28px;border:1px solid var(--line)}.metric-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}.metric-table th{font:500 11px/1.6 var(--mono);color:#656a64;text-align:right;padding:12px 4px;border-bottom:1px solid #777e77}.metric-table th:first-child,.metric-table td:first-child{text-align:left}.metric-table td{border-bottom:1px solid var(--line);padding:17px 4px;text-align:right;font:500 14px/1.5 var(--mono)}.metric-table td:first-child{font:600 12px var(--sans)}.metric-table tr:last-child td{border:0}.metric-table td small{display:block;font:11px var(--sans);color:#868c84;margin-top:3px}.metric-table td.win{font-weight:700;color:var(--ink)}.metric-table .left-blue{color:var(--lion)}.metric-table .right-red{color:var(--wiz)}.table-note{font-size:11px;line-height:1.8;color:#737a71;margin-top:19px}.term{font-weight:700;border-bottom:1px dotted #888;cursor:help}.logic-list{margin:21px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}.logic-list li{padding:17px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.85}.logic-list li b{display:block;margin-bottom:5px;color:var(--ink)}.logic-list li span{color:#687168}.breakout{margin-top:50px;border-left:3px solid var(--gold);padding:2px 0 2px 24px;max-width:720px;font:600 18px/1.85 var(--serif);letter-spacing:-.035em;color:#3c4039;word-break:keep-all}
-.matchup-stage{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink);border:1px solid var(--ink);margin-top:34px}.pitcher{background:var(--white);padding:31px;min-width:0}.pitcher .topline{display:flex;align-items:baseline;justify-content:space-between;gap:15px;color:#676f69;font:11px var(--mono)}.pitcher h3{font:600 32px var(--serif);margin-top:23px;letter-spacing:-.06em}.pitcher .hero-val{font:500 clamp(42px,5vw,69px)/1.1 var(--mono);letter-spacing:-.09em;margin:20px 0 6px}.pitcher .val-label{font-size:12px;color:#697067}.pitcher .bio{margin-top:22px;font-size:13px;line-height:2;color:#475049;word-break:keep-all}.tiny-facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:20px}.tiny-facts>div{padding:13px 12px 0 0}.tiny-facts>div+div{border-left:1px solid var(--line);padding-left:17px}.tiny-facts small{display:block;font:10px var(--mono);color:#7a7e75}.tiny-facts b{display:block;font:500 19px var(--mono);margin-top:7px}.equal-rule{display:flex;gap:14px;align-items:center;border-bottom:1px solid var(--line);font-size:12px;color:#697168;padding:20px 0}.equal-rule strong{font:500 18px var(--mono);color:var(--ink)}
-.game-strip{background:var(--dark);color:#f3f2ed;padding:29px 30px;margin:25px 0 0}.game-strip .figure-head{border-color:#677276}.game-strip .figure-head small{color:#b0b9b8}.inning-grid{display:grid;grid-template-columns:62px repeat(9,minmax(0,1fr));gap:4px;margin-top:26px;align-items:center}.inning-grid span{font:500 11px var(--mono);text-align:center}.inning-grid span:first-child{text-align:left}.inning-grid .inn-num{color:#a3b5b3;font-size:10px}.inning-grid .cell{padding:10px 0;font:500 13px var(--mono);background:#334147;min-height:38px;display:grid;place-items:center}.inning-grid .cell.focus{background:#f8efe0;color:#243034}.inning-grid .label{font-size:13px;text-align:left;font-weight:700}.innings-take{padding-top:18px;font-size:11px;color:#c1ccc9;line-height:1.8}.postgame{display:grid;grid-template-columns:1fr 1fr;gap:38px;margin-top:30px}.postgame h3{font:600 20px var(--serif);margin:0 0 12px}.postgame p{font-size:13px;line-height:1.96;color:#4d574e}.pitches{margin:25px 0 8px}.pitch-line{margin-bottom:14px}.pitch-line>div{display:flex;justify-content:space-between;font:12px var(--mono);margin-bottom:8px}.pitch-line .track{height:9px;background:#e2dfd4;overflow:hidden}.pitch-line .track i{display:block;height:100%}
-.schedule{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:26px}.schedule>div{padding:21px 15px 22px;border-right:1px solid var(--line)}.schedule>div:first-child{padding-left:0}.schedule>div:last-child{border:0}.schedule .g{font:500 11px var(--mono);color:#7d8279}.schedule .day{font:600 20px var(--serif);margin-top:9px}.schedule .venue{font-size:12px;margin-top:6px}.schedule .home{font:500 10px var(--mono);margin-top:12px;color:var(--lion)}.schedule .away{font:500 10px var(--mono);margin-top:12px;color:var(--wiz)}
-.model-shell{background:var(--dark);color:#f1f0e9;padding:39px;margin-top:27px}.model-shell .figure-head{border-color:#68777a}.model-shell .figure-head small{color:#adbab9}.model-status{display:flex;gap:6px;flex-wrap:wrap;margin-top:23px}.model-status button{background:transparent;border:1px solid #697f84;padding:12px 18px;color:#dce3e3;font-size:12px;font-weight:700}.model-status button[aria-pressed="true"]{background:#f2f1e9;border-color:#f2f1e9;color:#203036}.model-result{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin:26px 0 16px;padding-bottom:22px;border-bottom:1px solid #607074}.model-result small{display:block;color:#c2cdca;font-size:12px}.model-result strong{display:block;font:500 clamp(52px,6vw,85px)/1 var(--mono);letter-spacing:-.09em}.model-meter{height:15px;background:var(--wiz);margin-bottom:13px;display:flex}.model-meter div{background:#7eaeca;height:100%;transition:width .24s}.model-key{display:flex;justify-content:space-between;font:11px var(--mono);color:#ced8d7}.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:33px;margin-top:36px}.control label{display:flex;justify-content:space-between;align-items:baseline;gap:9px;font-size:12px;font-weight:700}.control output{font:500 15px var(--mono)}.control input[type=range]{width:100%;accent-color:#9ac3d2;margin:19px 0 9px}.control small{display:block;color:#b4c3c1;font-size:11px;line-height:1.8}.model-warning{font-size:11px;line-height:1.95;color:#d3dcda;border-top:1px solid #627074;padding-top:20px;margin-top:25px}.model-breakdown{font:11px/1.9 var(--mono);color:#c5d3d0;margin-top:19px}.altcases{margin-top:25px}.altcases table{border-collapse:collapse;width:100%;font:12px var(--mono)}.altcases th,.altcases td{border-bottom:1px solid #647374;padding:11px 4px;text-align:right}.altcases th:first-child,.altcases td:first-child{text-align:left}.altcases th{color:#c7d0ce;font-size:10px;font-weight:400}
-.sources-layout{display:grid;grid-template-columns:1fr 1fr;gap:62px;margin-top:25px}.source-list{list-style:none;padding:0;margin:0}.source-list li{border-bottom:1px solid var(--line);padding:14px 0;display:grid;grid-template-columns:34px 1fr;gap:10px;font-size:12px}.source-list .code{font:10px var(--mono);color:#858880}.source-list a{line-height:1.8;text-decoration:none;color:#3a555b}.source-list a:hover{text-decoration:underline}.method-prose{font-size:13px;line-height:2;color:#4b544c}.method-prose p+p{margin-top:15px}.formula{background:var(--paper2);padding:15px;display:block;margin:14px 0;font:500 12px/2 var(--mono);overflow-x:auto;white-space:normal}.footactions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}.download-btn{border:1px solid #808b82;color:var(--ink);background:none;padding:12px 18px;font-size:12px;font-weight:700}.download-btn:hover{background:var(--paper2)}
-footer{padding:33px 0 46px;background:#e8e6dc;border-top:1px solid var(--ink)}footer .inner{display:flex;justify-content:space-between;gap:24px;align-items:end}footer .line{font:600 23px var(--serif);letter-spacing:-.05em}footer .disclaim{font-size:11px;line-height:1.9;color:#757970;text-align:right}
-@media(max-width:950px){.cover-grid{gap:38px}.section-header{grid-template-columns:125px 1fr;gap:22px}.section-inner{margin-left:147px}.story-split{gap:30px}.header-date{display:none}}
-@media(max-width:720px){.container{width:min(100% - 36px,560px)}.site-header .inner{min-height:57px}.masthead{font-size:18px}.masthead i{display:none}.top-links{gap:15px}.top-links a{font-size:11px}.cover{padding:28px 0 30px}.cover-top{margin-bottom:29px}.cover-grid{grid-template-columns:1fr;gap:33px}.cover h1{font-size:clamp(36px,8.5vw,47px)}.cover .dek{font-size:14px;line-height:1.95;margin-top:20px}.cover .byline{margin-top:24px}.score-story{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:0;border-bottom:1px solid var(--line);padding-bottom:15px}.score-story>div:first-child{grid-column:1/-1}.score-number{font-size:70px;margin:0}.score-caption{font-size:11px}.score-title{font-size:17px;margin:0}.score-label{padding:0}.ribbon-grid{grid-template-columns:1fr}.ribbon-cell,.ribbon-cell+div{border:0;border-bottom:1px solid var(--line);padding:20px 0}.ribbon-cell:last-child{border:0}.ribbon-cell .big{font-size:29px;margin:7px 0}.section{padding:61px 0 57px}.section-header{display:block;margin-bottom:28px}.section-header .eyebrow{display:block;padding:0 0 11px}.section-header h2{font-size:29px}.section-headnote{font-size:12px}.section-inner{margin-left:0}.prose{font-size:14px;line-height:2.03}.lead-columns,.story-split,.postgame,.sources-layout{grid-template-columns:1fr}.lead-column{padding:20px 0}.lead-column+div{border-left:0;border-top:1px solid var(--line);padding-left:0}.lead-column h3{font-size:19px}.story-split,.postgame,.sources-layout{gap:24px}.metric-paper,.winpct-panel{padding:18px}.matchup-stage{grid-template-columns:1fr}.pitcher{padding:25px}.equal-rule{flex-wrap:wrap}.game-strip{padding:20px 13px}.inning-grid{grid-template-columns:42px repeat(9,minmax(0,1fr));gap:2px}.inning-grid .cell{min-height:29px;padding:7px 0;font-size:11px}.inning-grid .label{font-size:11px}.schedule{grid-template-columns:repeat(5,minmax(0,1fr))}.schedule>div{padding:15px 5px}.schedule .day{font-size:15px}.schedule .venue,.schedule .home,.schedule .away{font-size:9px;word-break:keep-all}.model-shell{padding:23px 17px}.model-status button{padding:11px;font-size:11px}.control-grid{grid-template-columns:1fr;gap:24px}.model-result strong{font-size:63px}footer .inner{display:block}footer .disclaim{text-align:left;margin-top:13px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.model-meter div{transition:none}}
-@media print{.site-header,.model-status,.control-grid,.download-btn{display:none!important}.cover{padding-top:20px}.section{break-inside:avoid;padding:30px 0}.model-shell,.game-strip{background:#fff;color:#222;border:1px solid #999}.model-shell *,.game-strip *{color:#222!important}.score-number{font-size:60px}body{background:#fff}}
-
-/* Evidence desk — measured editorial design rather than generic cards. */
-.research-lead{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-bottom:36px}.research-lead article{border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:18px 0 22px}.research-lead strong{display:block;font:500 clamp(35px,4.3vw,58px)/1.25 var(--mono);letter-spacing:-.07em;margin:15px 0}.research-lead strong span{color:var(--soft)}.research-lead strong small{font-size:.45em}.research-lead h3{font:600 20px/1.52 var(--serif);letter-spacing:-.04em}.research-lead p{font-size:12px;line-height:1.93;color:#485148;margin-top:15px}.research-lead p b{color:var(--ink)}.research-lead .footnote{font-size:11px;color:var(--muted)}.research-lead a,.research-detail a{color:var(--lion)}.research-detail{margin-top:30px}.research-detail .figure-head{margin-bottom:15px}.r-table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums;table-layout:fixed}.r-table th,.r-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;line-height:1.65}.r-table th{font:500 11px var(--mono);color:var(--muted)}.r-table td:first-child{font-weight:700}.r-table td:last-child{color:#646a63}.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}.usage-grid h4{margin:5px 0 14px;font-size:13px}.usage-line{display:grid;grid-template-columns:1fr 45px;align-items:center;position:relative;padding:12px 0 15px;border-bottom:1px solid var(--line);font-size:12px}.usage-line b{text-align:right;font:500 13px var(--mono)}.usage-line i{display:block;position:absolute;bottom:5px;left:0;width:var(--w);height:5px;background:var(--c)}@media(max-width:750px){.research-lead,.usage-grid{grid-template-columns:1fr}.r-table{font-size:10px}.r-table th,.r-table td{padding:9px 5px}.research-lead{gap:22px}.research-lead strong{font-size:46px}}@media print{.research-lead{break-inside:avoid}.research-detail{break-inside:avoid}}
-
-.model-compare-research{margin-top:35px;padding-top:24px;border-top:1px solid var(--ink)}.model-compare-research>p{max-width:770px;margin:15px 0;font-size:12px;color:#4e564f;line-height:1.95}.model-compare-scroll{overflow-x:auto}.model-compare-table{width:100%;border-collapse:collapse;font:500 12px/1.7 var(--mono);font-variant-numeric:tabular-nums;min-width:450px}.model-compare-table th,.model-compare-table td{text-align:right;padding:14px 10px;border-bottom:1px solid var(--line)}.model-compare-table th:first-child,.model-compare-table td:first-child{text-align:left}.model-compare-table th{font-weight:500;color:var(--muted)}.model-compare-buttons{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 5px}.model-road-research{margin-top:35px;border-top:1px solid var(--ink);padding-top:21px}.road-readouts{display:grid;grid-template-columns:repeat(3,1fr);margin:25px 0}.road-readouts>div{border-right:1px solid var(--line);padding:4px 20px}.road-readouts>div:first-child{padding-left:0}.road-readouts>div:last-child{border:0}.road-readouts strong{font:500 clamp(23px,3vw,35px) var(--mono);letter-spacing:-.06em}.road-readouts span{display:block;font-size:11px;color:var(--muted);line-height:1.6;margin-top:12px}@media(max-width:750px){.road-readouts{grid-template-columns:1fr}.road-readouts>div,.road-readouts>div:first-child{padding:15px 0;border-right:0;border-bottom:1px solid var(--line)}.model-compare-buttons button{width:100%}}
-.scale-note{display:grid;grid-template-columns:1fr 1fr;gap:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin:27px 0 0}.scale-note>div{min-width:0}.scale-note span{font-size:11px;color:var(--muted)}.scale-note strong{font:500 clamp(24px,3vw,38px) var(--mono);letter-spacing:-.07em;display:block;margin:7px 0}.scale-note strong em{font-style:normal;color:var(--soft)}.scale-note small{font-size:11px;color:var(--muted)}.repro-link{margin:20px 0 17px;font-size:12px;color:#5d665d;line-height:1.85}.repro-link a{font-weight:700;color:var(--lion)}@media(max-width:750px){.scale-note{grid-template-columns:1fr;gap:20px}.scale-note strong{font-size:31px}}
-.ks-update{background:#efebe2}.update-numbers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:5px 0 27px}.update-numbers>div{border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:19px 3px 18px}.update-numbers span,.ks-lab-link span{font:500 11px var(--mono);letter-spacing:.045em;color:var(--muted)}.update-numbers strong{display:block;font:600 clamp(18px,2vw,26px) var(--serif);margin:12px 0}.update-numbers small{display:block;font-size:11px;line-height:1.55;color:var(--muted)}.ks-lab-link{border:1px solid var(--ink);background:#faf7ef;padding:23px 26px;display:grid;gap:10px;margin-top:25px}.ks-lab-link strong{font:600 22px var(--serif)}.ks-lab-link a{color:var(--lion);font-size:13px;font-weight:700}.ks-update .prose p{margin-bottom:14px}@media(max-width:700px){.update-numbers{grid-template-columns:1fr}.ks-lab-link{padding:20px}}.g2-usage{margin-top:33px;border-top:2px solid var(--ink);padding-top:18px}.g2-usage-cols{display:grid;grid-template-columns:1fr 1fr;gap:33px;margin:17px 0}.g2-usage h4{font-size:13px;margin:0 0 11px}.g2-usage table{width:100%;font-size:12px;border-collapse:collapse}.g2-usage th,.g2-usage td{padding:9px;border-bottom:1px solid var(--line);text-align:left}.g2-usage th{font:500 11px var(--mono);color:var(--muted)}.g2-usage table td:nth-child(n+2),.g2-usage table th:nth-child(n+2){text-align:right}.g2-usage p{font-size:11px;color:var(--muted);line-height:1.9}@media(max-width:720px){.g2-usage-cols{grid-template-columns:1fr;gap:22px}}</style>
-</head>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+:root{--paper:#f4f1e9;--ink:#202822;--secondary:#565f57;--faint:#7d877e;--rule:#c4c7bd;--red:#a3474e;--blue:#336c94;--shade:#e8e5dd;--dark:#26352f;--serif:'Noto Serif KR',serif;--sans:'IBM Plex Sans KR',sans-serif;--mono:'DM Mono',monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.82;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:#929c91;text-underline-offset:3px}a:hover{text-decoration-color:var(--red)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #7a9eb8;outline-offset:3px}::selection{background:#b9c8c0}
+.wrap{width:min(1130px,calc(100% - 52px));margin:auto}.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}.eyebrow{font:500 11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--secondary)}.small{font-size:12px}.muted{color:var(--secondary)}.red{color:var(--red)}.blue{color:var(--blue)}
+.site-head{border-bottom:1px solid var(--ink);background:rgba(244,241,233,.97);position:sticky;top:0;z-index:10;backdrop-filter:blur(15px)}
+.site-head .wrap{min-height:59px;display:flex;justify-content:space-between;align-items:center;gap:20px}.logo{font:500 15px var(--mono);text-decoration:none;white-space:nowrap}.logo span{color:var(--red)}.headlinks{display:flex;gap:22px;white-space:nowrap;overflow-x:auto}.headlinks a{font-size:12px;text-decoration:none;color:var(--secondary)}.headlinks a:hover{color:var(--ink)}.date{font:500 10px var(--mono);color:var(--secondary);white-space:nowrap}
+.hero{padding:44px 0 50px;border-bottom:2px solid var(--ink)}.hero .metadata{display:flex;justify-content:space-between;gap:20px;padding-top:10px;border-top:1px solid var(--ink)}.hero h1{font:600 clamp(40px,5.3vw,74px)/1.27 var(--serif);letter-spacing:-.075em;max-width:920px;margin:25px 0 23px}.hero h1 i{color:var(--red);font-style:normal}.hero .dek{font:400 clamp(15px,1.4vw,19px)/1.95 var(--serif);color:#465048;max-width:760px}.hero .dek strong{color:var(--ink)}.hero .meta-line{font-size:11px;color:var(--secondary);display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}
+.story-layout{display:grid;grid-template-columns:180px minmax(0,700px);gap:50px;align-items:start}.sticky-index{position:sticky;top:92px;border-top:2px solid var(--ink);padding-top:13px;font-size:11px;color:var(--secondary)}.sticky-index a{display:block;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--rule)}.sticky-index a:hover{color:var(--red)}.sticky-index strong{color:var(--ink);font-size:12px}.story{max-width:700px}.story p{font:400 15px/2.06 var(--serif);letter-spacing:-.015em;margin:0 0 20px}.story h2{font:600 clamp(26px,3vw,39px)/1.5 var(--serif);letter-spacing:-.055em;margin:0 0 23px}.story h3{font:600 21px/1.55 var(--serif);margin:25px 0 13px}.story a.footlink{font:600 11px var(--mono);color:var(--blue);text-decoration:none;vertical-align:super}.story blockquote{border-left:2px solid var(--red);margin:28px 0;padding:4px 0 4px 22px;font:600 20px/1.75 var(--serif);letter-spacing:-.025em}
+.story-section{padding:62px 0;border-bottom:1px solid var(--rule)}.section-index{display:block;font:500 11px var(--mono);color:var(--red);letter-spacing:.11em;margin:0 0 13px}.byline{color:var(--secondary);font:500 11px var(--mono)}.lead-text{border-top:1px solid var(--ink);padding-top:26px;font-size:16px!important}.aside{font:400 11px/1.85 var(--sans);color:var(--secondary);margin:13px 0 0}.aside strong{color:var(--ink)}.figure{margin:30px 0 34px}.figure>figcaption{font:600 15px var(--sans);margin:0 0 13px}.figure small,.figure-note{display:block;color:var(--secondary);font:400 11px/1.8 var(--sans);margin-top:10px}
+.two-column{display:grid;grid-template-columns:1fr 1fr;gap:18px}.boxline{border-top:1px solid var(--ink);padding-top:14px}.boxline label{display:block;font:500 10px var(--mono);color:var(--secondary);margin-bottom:7px}.boxline strong{font:500 clamp(25px,3vw,37px)/1.45 var(--mono)}.boxline strong span{font-size:.55em;color:var(--faint)}.boxline p{font:400 12px/1.85 var(--sans);color:var(--secondary);margin:8px 0}
+.min-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}.min-table th,.min-table td{padding:12px 7px;border-bottom:1px solid var(--rule);font-size:12px;text-align:left}.min-table th{font:500 10px var(--mono);color:var(--secondary)}.min-table td:not(:first-child),.min-table th:not(:first-child){text-align:right}.min-table td:first-child{font-weight:600}.min-table .focus-row{background:rgba(163,71,78,.06)}.mono-val{font-family:var(--mono)}.source-number{font:500 10px var(--mono);color:var(--blue);text-decoration:none}
+.wide-feature{margin:36px 0 20px;padding:29px;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--shade)}.wide-feature h3{margin:0 0 12px;font:600 23px var(--serif)}.wide-feature p{font:400 13px/1.95 var(--sans);color:#4c5850;margin:0 0 13px}.wide-feature p:last-child{margin:0}.wide-feature a{color:var(--blue)}
+.scoreboard{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:27px 0 0}.scoreboard div{border-top:1px solid var(--ink);padding:14px 0}.scoreboard span{font:500 10px var(--mono);color:var(--secondary)}.scoreboard strong{font:500 clamp(18px,2.6vw,28px)/1.5 var(--mono);letter-spacing:-.05em;display:block;margin:8px 0}.scoreboard small{font:400 11px/1.75 var(--sans);color:var(--secondary)}
+.chart-twocol{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:18px}.pill-data{margin:16px 0}.pill-data .line{display:flex;justify-content:space-between;gap:12px;font:500 11px var(--mono);margin:0 0 8px}.pill-data i{display:block;background:var(--rule);height:8px;overflow:hidden}.pill-data b{display:block;height:8px;background:var(--red);max-width:100%}.pill-data.kt b{background:var(--blue)}.pill-data small{display:block;font:400 11px/1.7 var(--sans);color:var(--secondary);margin-top:7px}
+.story-link{border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);padding:22px 0;margin:28px 0;display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center}.story-link span{display:block;font:500 10px var(--mono);color:var(--red);letter-spacing:.08em}.story-link strong{display:block;font:600 20px var(--serif);margin:8px 0}.story-link a{font-size:13px;font-weight:700;color:var(--blue)}.story-link .arrow{font-size:26px;color:var(--blue);text-decoration:none}
+.model{background:#e8e4da;border-top:2px solid var(--ink);padding:24px;margin:27px 0}.model h3{margin:0 0 9px;font:600 21px var(--serif)}.model p{font:400 12px/1.9 var(--sans);color:#485249}.model .row{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin:19px 0}.model figure{margin:0;border-top:1px solid #87958a;padding:14px 0}.model figure span{font:500 11px var(--mono);color:var(--secondary)}.model figure strong{display:block;font:500 41px/1.5 var(--mono);letter-spacing:-.06em}.model figure small{display:block;font:400 11px/1.7 var(--sans);color:var(--secondary)}.model label{font:600 11px var(--sans);display:block;margin-top:14px}.model output{font:500 11px var(--mono);color:var(--red)}.model input[type=range]{width:100%;accent-color:var(--red);height:26px}.model .recheck{font:400 11px/1.7 var(--sans);color:var(--secondary);margin-top:8px}.model .recheck b{color:var(--ink)}.model meter{width:100%;height:9px}
+.references{background:#e5e1d7;padding:60px 0}.references h2{font:600 31px var(--serif);margin:0 0 12px;letter-spacing:-.05em}.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.references ol{padding-left:19px}.references li{font-size:12px;line-height:1.9;margin-bottom:12px}.references p{font-size:12px;line-height:1.85;color:#566057}.references a{color:var(--blue)}
+.footer{background:var(--dark);color:#ecf0eb;padding:34px 0}.footer .wrap{display:flex;justify-content:space-between;gap:25px;align-items:start;flex-wrap:wrap}.footer small{font:400 11px/1.8 var(--sans);color:#c1d0c7;max-width:570px}.footer a{font-size:12px;color:#cfe1d8}
+@media(max-width:900px){.story-layout{grid-template-columns:140px 1fr;gap:24px}.headlinks{gap:12px}}@media(max-width:650px){.wrap{width:calc(100% - 30px)}.site-head .wrap{min-height:55px}.logo{font-size:12px}.date{display:none}.headlinks a{font-size:10px}.hero{padding:28px 0 32px}.hero h1{font-size:40px}.story-layout{display:block}.sticky-index{position:static;display:flex;flex-wrap:wrap;border-top:0;gap:10px;margin-top:24px}.sticky-index a{border:0;padding:3px 0;font-size:10px}.sticky-index strong{width:100%}.story-section{padding:46px 0}.story p{font-size:14px}.story h2{font-size:27px}.two-column,.chart-twocol,.ref-grid{grid-template-columns:1fr}.scoreboard{grid-template-columns:1fr}.scoreboard div{padding:10px 0}.model .row{grid-template-columns:1fr;gap:2px}.story-link{grid-template-columns:1fr auto}.wide-feature{padding:20px}.references{padding:42px 0}}
+@media print{.site-head,.sticky-index,.footer{display:none}.story-layout{display:block}.story{max-width:100%}body{background:#fff}.model,.references{background:#fff}.hero h1{font-size:38px}.story-section{break-inside:avoid}}
+</style></head>
 <body>
-<a href="#main" class="skip">본문으로 건너뛰기</a>
-<header class="site-header"><div class="container inner"><a href="#top" class="masthead">KS <span>26</span><i>/ DATA NOTES</i></a><nav class="top-links" aria-label="페이지 목차"><a href="#verdict">전력의 간격</a><a href="#after-g2">2차전 복기</a><a href="./lineup-lab/">타순 연구소</a><a href="#offense">타선</a><a href="#starting">선발</a><a href="#research">정밀 검증</a><a href="#gameone">1차전</a><a href="#model">확률 실험실</a><a href="#sources">자료</a></nav><div class="header-date">NOV 05, 2026</div></div></header>
-<main id="main">
-  <section id="top" class="cover"><div class="container">
-    <div class="cover-top"><div class="eyebrow">2026 KOREAN SERIES / 삼성 라이온즈 × KT 위즈</div><div class="volume">SPECIAL ISSUE &nbsp; NO. 01</div></div>
-    <div class="cover-grid">
-      <div><h1>정규시즌의 답은<br />KT였다.<br />한국시리즈의 답은<br />아직 모른다.</h1>
-        <p class="dek">144경기는 KT의 손을 들었다. 득실차가 더 컸고, 투수진의 내용도 좋았다. 하지만 두 팀 타선의 생산력은 생각보다 가깝다. <strong>삼성은 2차전 연장 12회 승리로 1승 1패를 만들었다. 이제 대구에서 소형준과 후라도가 맞붙는다. 남은 다섯 경기를 바꿀 요인은 타선의 질뿐 아니라 타순, 구원 가용성, 한 점이 중요한 순간의 선택이다.</strong></p>
-        <div class="byline"><span><strong>기록 시점</strong> 2026.11.05 · 2차전 종료 / 3차전 전</span><span>분석 범위&nbsp; 정규시즌 144경기 + KS 1·2차전</span><span>비공식 데이터 분석 · 실시간 중계 아님</span></div>
-      </div>
-      <aside class="score-story" aria-label="한국시리즈 2차전 결과"><div><div class="score-label"><span>GAME 02</span><span>11.04 · SUWON</span></div><div class="score-title">12회가 끝나자,<br />1승 1패가 됐다.</div></div><div><div class="score-row"><strong>삼성</strong><em>3</em></div><div class="score-row"><strong>KT</strong><em>2</em></div><div class="score-number">1<span style="font-size:.5em;color:#9c9f92"> : </span>1<small>한국시리즈 전적 · 동률</small></div></div><div class="score-caption">연장 12회초 KT의 송구 실책 이후 삼성 결승 득점. 페덱·고영표가 각각 7이닝 1실점으로 버텼다. <a class="source-inline" href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">2차전 기록</a></div></aside>
-    </div>
-  </div></section>
-  <div class="data-ribbon"><div class="container ribbon-grid">
-    <div class="ribbon-cell"><div class="label">시즌 득실차</div><div class="big"><span class="kt">+176</span> <span style="font-size:.58em;color:#9c9d95">/</span> <span class="samsung">+137</span></div><div class="note">KT가 시즌 전체에서 <b>39점을 더 남겼다.</b></div></div>
-    <div class="ribbon-cell"><div class="label">팀 wRC+ · 공격</div><div class="big"><span class="kt">110.4</span> <span style="font-size:.58em;color:#9c9d95">/</span> <span class="samsung">108.3</span></div><div class="note">두 팀 모두 리그 평균보다 8~10% 좋은 공격.</div></div>
-    <div class="ribbon-cell"><div class="label">팀 FIP · 투수</div><div class="big"><span class="kt">4.23</span> <span style="font-size:.58em;color:#9c9d95">/</span> <span class="samsung">4.55</span></div><div class="note">낮을수록 좋다. <b>투구 내용은 KT 우위.</b></div></div>
-  </div></div>
+<header class="site-head"><div class="wrap"><a href="#top" class="logo">KS <span>26</span> / FIELD NOTES</a><nav class="headlinks" aria-label="페이지 목차"><a href="#scene">그날의 6회</a><a href="#strength">전력</a><a href="#lineup">타순</a><a href="#pitching">마운드</a><a href="#forecast">1승 1패</a><a href="./lineup-lab/">선수 기록실</a></nav><span class="date">05 NOV 2026</span></div></header>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div class="metadata"><span class="eyebrow">A KOREAN SERIES STUDY / 삼성 × KT</span><span class="eyebrow">ISSUE 02 · AFTER GAME 2</span></div>
+  <h1>6회에 두 번 멈춘 경기.<br><i>그 다음은 대구다.</i></h1>
+  <p class="dek">한쪽은 1사 만루, 다른 쪽은 1사 2·3루. 두 팀 모두 6회에 결정적인 기회를 놓쳤다. 열두 회가 끝났을 때 점수는 삼성 3, KT 2. <strong>1승 1패로 돌아선 한국시리즈에서 앞으로 중요해지는 건 타율보다 타석의 배분, 그리고 투수의 사용 순서다.</strong></p>
+  <div class="meta-line"><span>2026.11.05 · 3차전 시작 전 자료</span><span>2026 정규시즌 + KS 1·2차전</span><span>비공식 독립 분석 · 경기 결과 자동 갱신 없음</span></div>
+  <div class="scoreboard" aria-label="한국시리즈 상황">
+    <div><span>GAME 01 / 11.03</span><strong>KT 8 : 7 삼성</strong><small>8점 차 리드가 한 점 차로 좁혀졌다</small></div>
+    <div><span>GAME 02 / 11.04</span><strong>삼성 3 : 2 KT</strong><small>12회 연장 · 오윤석 송구 실책에 결승점</small></div>
+    <div><span>GAME 03 / 11.06</span><strong>소형준 : 후라도</strong><small>대구 18:30 · 현재 시리즈 1승 1패</small></div>
+  </div>
+</div></section>
+<div class="wrap story-layout">
+  <aside class="sticky-index" aria-label="기사 안내"><strong>읽는 순서</strong><a href="#scene">01 · 왜 6회인가</a><a href="#strength">02 · 얼마나 가까운가</a><a href="#lineup">03 · 타순은 무엇을 바꾸나</a><a href="#pitching">04 · 마운드의 교대 비용</a><a href="#forecast">05 · 1승 1패 이후</a><a href="#sources">원자료와 검산</a></aside>
+  <article class="story">
+   <section id="scene" class="story-section">
+    <span class="section-index">01 / GAME TWO, SIXTH INNING</span>
+    <h2>한 번의 병살과 두 번의 땅볼이 남긴 것</h2>
+    <p class="lead-text">삼성은 6회초 안타 세 개로 1사 만루를 만들었다. 류지혁의 타구를 KT 1루수 김현수가 잡아 홈으로 던졌고, 포수 한승택이 다시 1루에 송구했다. 3-2-3 병살. 1점도 얻지 못한 채 기회가 사라졌다. <a class="footlink" href="#ref-game2">[1]</a></p>
+    <p>바로 이어진 6회말에는 KT가 1사 2·3루를 만들었다. 힐리어드의 안타와 김현수의 2루타가 이어졌지만, 페덱은 연속으로 약한 땅볼을 유도해 실점 없이 내려왔다. 이 두 공격의 결과가 반대였다면 경기 이야기는 전혀 달랐을 것이다.</p>
+    <p>그 뒤 삼성은 10회 디아즈의 적시타로 앞섰다가, 같은 선수의 수비 실책으로 다시 동점을 허용했다. 마지막 12회에는 KT 2루수 오윤석의 송구가 빗나가 디아즈가 홈을 밟았다. 3대 2라는 최종 점수에는 이 모든 장면이 압축되어 있다. <a class="footlink" href="#ref-recap">[2]</a></p>
+    <blockquote>선수의 평균적인 공격력과 어느 타석이 득점으로 연결됐는지는 같은 질문이 아니다.</blockquote>
+    <p>이것이 타순을 분석할 때 결과론을 경계하는 이유다. 디아즈는 4안타를 쳤다. 하지만 5번 배치가 4안타를 <em>만들었다</em>고 말할 수는 없다. 마찬가지로 류지혁의 병살만으로 6번 기용이 잘못되었다고 평가할 수도 없다. 판단해야 할 것은 그 선택을 할 당시 감독이 알고 있던 정보와 대안이다.</p>
+    <p class="aside">기록 기준 · 2차전 공식 득점·실책은 KT 구단 박스스코어, 세부 6회 장면은 연합뉴스 경기 복기를 교차 확인했다. 재구성한 가상 득점 기대값이나 개별 타석의 WPA를 이 장면에 붙이지 않았다.</p>
+   </section>
 
-  <section id="after-g2" class="section ks-update"><div class="container">
-   <div class="section-header"><div class="eyebrow">SERIES UPDATE · NOVEMBER 05</div><div><h2>두 번 모두 한 점 차.<br />이번엔 타순과 불펜이 승부처다.</h2><p class="section-headnote">3차전은 11월 6일 대구, KT 소형준 대 삼성 후라도. 아래 분석은 11월 5일 현재 확인된 정보와 정규시즌 지표를 구분한다.</p></div></div>
-   <div class="section-inner">
-    <div class="update-numbers"><div><span>G1 · 11.03</span><strong>KT 8–7 삼성</strong><small>7·8회 삼성 7득점 추격</small></div><div><span>G2 · 11.04</span><strong>삼성 3–2 KT</strong><small>연장 12회 · 디아즈 4안타, KT 송구 실책 결승점</small></div><div><span>G3 · 11.06 18:30</span><strong>소형준 vs 후라도</strong><small>KT 131⅓이닝 ERA 3.15 / 삼성 150이닝 ERA 3.54</small></div></div>
-    <div class="prose reading"><p><strong>2차전의 결과는 타순 최적화가 한 경기의 승패를 결정한다는 증거가 아니다.</strong> 페덱과 고영표가 나란히 7이닝 1실점으로 막았고, 연장 12회 실책이 마지막 점수를 갈랐다. 오히려 타순 논쟁에서는 잘못된 결과론을 경계해야 한다. <a href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">2차전 공식 기록 집계</a></p><p>3차전 후라도의 정규시즌 KT전 ERA 5.17(15⅔이닝)과 플레이오프 ERA 1.32(13⅔이닝)는 서로 다른 단기 표본이다. 소형준의 삼성전 2승 역시 3차전의 확률에 그대로 더할 근거가 되지 않는다. <a href="https://www.news1.kr/sports/baseball/6343664" target="_blank" rel="noopener noreferrer">선발 발표</a></p></div>
-    
- <div class="g2-usage">
-  <div class="figure-head"><h3>2차전 12회 연장전의 실제 구원 투구 수</h3><small>5이닝씩 소화 · 11월 5일 이동일</small></div>
-  <div class="g2-usage-cols">
-    <div><h4 class="samsung">삼성 · 구원 4명, 총 85구</h4>
-    <table><thead><tr><th>투수</th><th>G2 투구</th><th>G1 투구</th></tr></thead><tbody>
-      <tr><td>이승민</td><td>21구</td><td>—</td></tr><tr><td>원태인</td><td>32구</td><td>—</td></tr>
-      <tr><td>김태훈</td><td>13구</td><td>13구</td></tr><tr><td>배찬승</td><td>19구</td><td>22구</td></tr>
-    </tbody></table></div>
-    <div><h4 class="kt">KT · 구원 7명, 총 80구</h4>
-    <table><thead><tr><th>투수</th><th>G2 투구</th><th>G1 투구</th></tr></thead><tbody>
-      <tr><td>박영현</td><td>23구</td><td>22구</td></tr><tr><td>김정운</td><td>23구</td><td>13구</td></tr>
-      <tr><td>손동현</td><td>12구</td><td>8구</td></tr><tr><td>오원석</td><td>8구</td><td>18구</td></tr>
-      <tr><td>스기모토</td><td>5구</td><td>—</td></tr><tr><td>전용주</td><td>2구</td><td>—</td></tr><tr><td>우규민</td><td>7구</td><td>—</td></tr>
-    </tbody></table></div>
-  </div>
-  <p class="table-note"><b>누적 투구 수의 함정.</b> G1·G2 동일 선수의 투구 수는 단순 합계로 제시할 수 있어도 그 수치가 같은 크기의 피로를 뜻하지는 않는다. 삼성 원태인·이승민은 2차전 1⅔·1⅓이닝, KT 박영현은 1⅔이닝. 11월 5일 이동일의 회복 효과를 추정하는 모델은 없다. 개별 기록은 <a href="https://www.yagoonara.com/schedule/130108" target="_blank" rel="noopener noreferrer">G1</a> · <a href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">G2</a> 점수표 기준.</p>
- </div>
-    <p class="ks-lab-link"><span>NEW / DEEP RESEARCH</span><strong>타순을 한 칸 바꾸면 득점 구조는 어떻게 달라질까?</strong><a href="./lineup-lab/">탱고식 타순 연구소 · G1/G2 실제 라인업 18인 분석 열기 ↗</a></p>
-   </div>
-  </div></section>  <section id="verdict" class="section lead-section"><div class="container">
-    <div class="section-header"><div class="eyebrow">01 / THE BIG PICTURE</div><div><h2>승수 차이만큼 전력 차이도 클까.</h2><p class="section-headnote">KT는 90승, 삼성은 83승. 정규시즌의 우열은 분명하지만 그 숫자를 한국시리즈 단판 승률에 그대로 넣을 수는 없다.</p></div></div>
-    <div class="section-inner"><div class="prose reading"><p>KT의 우세를 부정할 이유는 없다. 시즌 득점은 825대 806, 실점은 649대 669였다. 다만 득실차의 차이는 39점. 144경기로 나누면 경기당 약 0.27점이다. 격차가 존재하되, 한 경기에서 확정적으로 드러날 만큼 크다고 할 수는 없다. <a class="source-inline" href="#source-standings">[2]</a></p>
-      <p>득점과 실점만으로 기대승률을 계산하는 피타고리안 모델에선 KT가 60.8%, 삼성이 58.4%다. 실제 승률 간격 5.8%포인트가 득실점 기반으로는 2.4%포인트로 좁혀진다. 그렇다고 <strong>KT의 나머지 승리를 ‘운’으로 몰아갈 수는 없다.</strong> 접전 승부에서 누가, 언제 점수를 냈는지는 이 방식이 설명하지 못한다.</p></div>
-      <div class="winpct-panel wide-figure"><div class="figure-head"><h3>실제 승률과 득실점 기반 기대승률</h3><small>2026 REGULAR SEASON</small></div>
-        <div class="legend"><span><i></i>실제</span><span><i class="fade"></i>피타고리안 기대</span></div>
-        <div class="winrow"><b>삼성</b><div class="scale"><div class="segment actual" style="width:58.9%;background:var(--lion)"></div><div class="segment expected" style="width:58.44%;background:var(--lion)"></div></div><div class="value">58.9%</div></div>
-        <div class="winrow"><b>KT</b><div class="scale"><div class="segment actual" style="width:64.7%;background:var(--wiz)"></div><div class="segment expected" style="width:60.80%;background:var(--wiz)"></div></div><div class="value">64.7%</div></div>
-        <div class="aside-note">기대승률은 득·실점에 지수 1.83을 적용했다. 승수 환산은 무승부를 제외한 경기 수 기준(삼성 141경기, KT 139경기). 삼성 약 82.4승, KT 약 84.5승. 모델의 구성과 계산은 문서 아래에 공개했다.</div>
-      </div>
-      
-      <div class="scale-note"><div><span>팀 공격의 리그 대비 수준</span><strong>110.4 <em>/</em> 108.3</strong><small>KT / 삼성 · 팀 wRC+ (높을수록 공격 생산력 우세)</small></div><div><span>팀 투구의 리그 대비 수준</span><strong>90.4 <em>/</em> 97.3</strong><small>KT / 삼성 · 팀 FIP− (낮을수록 투구 내용 우세)</small></div></div>
-      <p class="table-note">wRC+는 리그 평균 100 대비 공격 생산력의 비율이고, FIP−는 리그 평균 100 대비 투구 지표를 정규화한 값이다. <b>두 지표는 단위와 집계 의미가 다르므로 2.1과 6.9를 같은 선수 가치 차이처럼 비교할 수는 없다.</b> 다만 공격에서 양 팀이 모두 상위권인 반면 투구에서 KT의 상대 우위가 더 뚜렷하다는 방향은 확인된다. <a href="https://www.yagoonara.com/sabermetrics/teams/hitter" target="_blank" rel="noopener noreferrer">타격 지표</a> · <a href="https://www.yagoonara.com/sabermetrics/teams/pitcher" target="_blank" rel="noopener noreferrer">투구 지표</a></p>
-      <div class="lead-columns"><div class="lead-column"><span>WHAT FAVORS KT</span><h3>시즌 전체의 투구 내용</h3><p>팀 FIP 4.23으로 삼성(4.55)보다 낮다. ERA뿐 아니라 삼진·볼넷·홈런을 반영한 지표에서도 앞섰다.</p></div><div class="lead-column"><span>SAMSUNG'S CASE</span><h3>공격의 형태는 다르다</h3><p>삼성의 ISO .141은 KT .130보다 높다. 볼넷은 더 자주 얻고 삼진은 덜 당한다. 홈런도 140대 121.</p></div><div class="lead-column"><span>WHAT WE DON'T KNOW</span><h3>정규시즌은 엔트리가 아니다</h3><p>현재 가용 투수, 2차전 이후 등판 간격, 김재윤의 공백은 팀 평균 성적표에 들어 있지 않다.</p></div></div>
-    </div>
-  </div></section>
-  <section id="offense" class="section"><div class="container">
-    <div class="section-header"><div class="eyebrow">02 / OFFENSE</div><div><h2>KT가 더 많이 안타를 쳤다.<br />삼성은 다른 방법으로 점수를 만들었다.</h2><p class="section-headnote">두 타선은 공격력을 만드는 방식이 다르다. 하나를 우월하다고 말하기보다 어떤 투수를 만났을 때 그 차이가 살아나는지 보는 게 중요하다.</p></div></div>
-    <div class="section-inner story-split"><div class="prose"><p>KT의 타율은 .286으로 삼성(.273)보다 높다. 하지만 출루율은 .367과 .362로 꽤 가깝다. 삼성은 안타의 빈도를 장타와 볼넷, 낮은 삼진율로 어느 정도 메웠다. <a class="source-inline" href="#source-batting">[3]</a></p><p>이를 하나의 공격 생산력 지표로 요약한 <span class="term" title="리그 평균을 100으로 놓고 구장 효과 등을 보정한 득점 생산력 지표">wRC+</span>는 KT 110.4, 삼성 108.3. 리그에서 나란히 1·2위다. <strong>2.1포인트의 차이는 ‘한쪽 타선만 일방적으로 강하다’고 말할 근거가 아니다.</strong></p><p>그렇다고 삼성의 높은 ISO를 대구에서만 통할 무기라고 단정할 수도 없다. 타자 친화적인 구장은 양 팀에 열려 있다. 특정 투수의 구종, 실투 비율, 타구 방향까지 봐야 ‘누가 더 유리한 구장인가’라는 질문에 가까워진다.</p><div class="breakout">대구가 삼성에 유리한 까닭은 홈구장이라는 사실이다. 장타가 잘 나오는 구장이라는 사실은, 양 팀 타자에게 동시에 적용된다.</div></div>
-      <div class="metric-paper"><div class="figure-head"><h3>공격 구성 비교</h3><small>KT / SAMSUNG</small></div><table class="metric-table"><thead><tr><th scope="col">지표</th><th scope="col" class="right-red">KT</th><th scope="col" class="left-blue">삼성</th></tr></thead><tbody><tr><td>wRC+<small>100 = 리그 평균</small></td><td>110.4</td><td>108.3</td></tr><tr><td>타율</td><td>.286</td><td>.273</td></tr><tr><td>출루율</td><td>.367</td><td>.362</td></tr><tr><td>ISO<small>장타율 − 타율</small></td><td>.130</td><td class="win">.141</td></tr><tr><td>볼넷 비율</td><td>10.2%</td><td class="win">10.9%</td></tr><tr><td>삼진 비율<small>낮을수록 적게 당함</small></td><td>18.8%</td><td class="win">17.6%</td></tr><tr><td>홈런</td><td>121</td><td class="win">140</td></tr></tbody></table><div class="table-note">집계: 야구나라 2026 팀 세이버메트릭스. 서로 다른 지표를 억지로 하나의 종합 점수로 바꾸지 않았다. <a href="#source-batting">원자료 확인</a></div></div>
-    </div>
-  </div></section>
-  <section id="starting" class="section"><div class="container">
-    <div class="section-header"><div class="eyebrow">03 / GAME TWO · RETROSPECTIVE</div><div><h2>페덱과 고영표.<br />ERA는 달라도, 삼진과 볼넷의 차이는 거의 없다.</h2><p class="section-headnote">2차전 전에는 ERA 2.95 대 3.28보다 삼진·볼넷의 내용과 표본 차이를 중시했다. 결과는 두 선발 모두 7이닝 1실점이었다. 이는 단판 승부의 확인 결과일 뿐, 두 선수의 진짜 실력이 같다는 증거는 아니다.</p></div></div>
-    <div class="section-inner"><div class="matchup-stage"><article class="pitcher"><div class="topline"><span class="samsung">SAMSUNG / STARTER</span><span>2차전 선발</span></div><h3>크리스 페덱</h3><div class="hero-val samsung">22.77%</div><div class="val-label">K−BB% · (80K − 11BB) ÷ 303타자</div><div class="tiny-facts"><div><small>ERA / FIP</small><b>2.95 / 3.05</b></div><div><small>시즌 투구 이닝</small><b>76⅓</b></div></div><p class="bio">정규시즌 KT전 1경기에서 6이닝 무실점. 결과는 좋았지만 당시 힐리어드는 나오지 않았다. 303타자를 상대한 기록이니 한 번의 맞대결을 지나치게 크게 볼 수 없다.</p></article><article class="pitcher"><div class="topline"><span class="kt">KT / STARTER</span><span>2차전 선발</span></div><h3>고영표</h3><div class="hero-val kt">22.80%</div><div class="val-label">K−BB% · (183K − 22BB) ÷ 706타자</div><div class="tiny-facts"><div><small>ERA / FIP</small><b>3.28 / 3.23</b></div><div><small>시즌 투구 이닝</small><b>172⅔</b></div></div><p class="bio">삼성 상대 4경기 24이닝 평균자책점 2.25. 시즌 전체의 투구량은 페덱보다 두 배 이상 많다. 다만 오랜 실전 휴식 뒤 경기 당일의 제구까지 보장되는 건 아니다.</p></article></div>
-      <div class="equal-rule"><strong>0.03%p 차이</strong><span>K−BB%는 거의 동률. 그렇다고 두 투수가 모든 면에서 똑같다는 뜻은 아니다. 구종과 이닝 분포, 상대 타선, 표본의 차이는 남는다. <a href="#source-g2">[4]</a></span></div>
-      <div class="prose reading" style="margin-top:34px"><p>KT 투수진이 시즌 전체에서 앞섰다는 사실과 2차전 선발 맞대결이 접전이라는 판단은 양립할 수 있다. 여기에 삼성은 1차전에서 구원투수를 더 많이 소모했다. <strong>페덱이 얼마나 오래 던지는가는 단순한 개인 성적을 넘어 다음 투수의 선택 폭까지 바꾼다.</strong></p></div>
-      <details style="margin-top:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0"><summary style="font-weight:700;font-size:13px;cursor:pointer">선발 후보 8명 시즌 ERA·FIP 전체 보기</summary><div style="overflow-x:auto;margin-top:14px"><table class="metric-table" id="rotation-table"><thead><tr><th>소속·투수</th><th>ERA</th><th>FIP</th><th>IP</th><th>K%</th><th>BB%</th></tr></thead><tbody></tbody></table></div><p class="table-note">단일 정규시즌 표본. FIP는 삼진·볼넷·홈런으로 추정한 투구 내용이며 수비·타구질·실제 교체 상황은 설명하지 않는다. <a href="#source-pitching">집계 출처</a></p></details>
-    </div>
-  </div></section>
+   <section id="strength" class="story-section">
+    <span class="section-index">02 / THE 144-GAME EVIDENCE</span>
+    <h2>KT의 90승은 진짜다. 다만 그 차이를 그대로 단기전에 옮길 수는 없다.</h2>
+    <p>정규시즌 KT는 90승 49패 5무, 삼성은 83승 58패 3무였다. 공격 생산력은 양쪽 모두 좋았다. 리그 평균을 100으로 놓은 wRC+에서 KT는 110.4, 삼성은 108.3. 반면 팀 FIP는 KT 4.23, 삼성 4.55로, 볼넷·삼진·피홈런 기반의 투구 내용에서는 KT가 앞섰다. <a class="footlink" href="#ref-teams">[3]</a></p>
+    <figure class="figure"><figcaption>정규시즌 성적: 승률과 득실점이 말하는 두 이야기</figcaption>
+     <table class="min-table"><thead><tr><th>지표</th><th>삼성</th><th>KT</th></tr></thead><tbody>
+      <tr><td>실제 승률 · 무승부 제외</td><td class="mono-val">.589</td><td class="mono-val">.647</td></tr>
+      <tr><td>총 득점 / 총 실점</td><td class="mono-val">806 / 669</td><td class="mono-val">825 / 649</td></tr>
+      <tr><td>득실차</td><td class="mono-val">+137</td><td class="mono-val">+176</td></tr>
+      <tr><td>피타고리안 기대승률¹</td><td class="mono-val">.584</td><td class="mono-val">.608</td></tr>
+      <tr><td>팀 wRC+ · 높을수록 좋음</td><td class="mono-val">108.3</td><td class="mono-val">110.4</td></tr>
+      <tr><td>팀 FIP · 낮을수록 좋음</td><td class="mono-val">4.55</td><td class="mono-val">4.23</td></tr>
+     </tbody></table><small>¹ 득점^1.83 / (득점^1.83 + 실점^1.83), 자체 계산. 시즌 전체 경기의 강도를 요약한 값이지 KS의 즉시 우승 확률이 아니다. 팀 지표는 동일 제공처 2026 정규시즌 집계. <a href="#ref-teams">[3]</a></small>
+    </figure>
+    <p>승률 차이는 5.8%포인트지만, 득실점 기반 기대승률 차이는 약 2.4%포인트로 줄어든다. KT가 접전을 잘 관리했을 수 있고 득점이 승리와 잘 맞물렸을 수도 있다. 어느 쪽이든 그 차이를 고스란히 ‘운이 만든 다섯 승’이라고 단정하는 건 지나친 비약이다.</p>
+    <p>대구에 가면 관찰할 만한 숫자가 하나 더 있다. 삼성은 정규시즌 홈 OPS .799, 원정 OPS .747을 기록했다. 차이는 +.052. KT의 홈−원정 OPS 차이는 +.008이었다. <a class="footlink" href="#ref-home">[4]</a> 삼성의 타구가 대구에서 더 잘 뻗는 경향과 관련 있을 가능성은 있지만, 상대 투수·날짜·선수 구성까지 달라서 이것만으로 홈 효과의 크기를 확정할 순 없다.</p>
+    <div class="wide-feature"><h3>그래서 대구는 삼성에 얼마나 유리한가?</h3><p>‘삼성이 홈에서 더 잘 친다’와 ‘삼성이 대구에서 KT보다 더 잘 친다’는 다른 명제다. KT 힐리어드도 같은 담장과 공기를 상대한다. 대구 구장 효과를 엄밀히 계산하려면 양 팀의 구장별 타구, 상대 투수, 타석 분모를 함께 보정해야 한다.</p><p><a href="#forecast">아래 시리즈 모델은 홈 효과를 임의로 변화시키는 실험으로만 제공한다.</a></p></div>
+   </section>
 
-  <section id="research" class="section"><div class="container">
-    <div class="section-header"><div class="eyebrow">03A / EVIDENCE DESK</div><div><h2>그럴듯한 표본이<br />얼마나 쉽게 결론을 바꾸는가.</h2>
-    <p class="section-headnote">정규시즌의 흔적, 상대 타자 기록, 단기전 투구 소모를 서로 다른 질문으로 분리했다. 같은 숫자를 다른 시점과 분모로 바꿔 읽지 않기 위한 분석가의 점검표.</p></div></div>
-    <div class="section-inner">
-      <div class="research-lead">
-        <article><div class="eyebrow">MATCHUP SAMPLE · 16 GAMES</div><strong>9<span>–</span>7</strong><h3>상대전적은 삼성 우세.<br />하지만 불확실성이 크다.</h3>
-          <p>16번 붙어 9승을 거뒀다. 삼성의 관측 승률은 56.25%. 그러나 이항 독립 시행을 가정한 단순 Wilson 95% 구간도 <b>33.2~76.9%</b>에 달한다. 실제 경기는 로테이션과 경기장이 달라서 이 구간 자체를 팀 실력의 신뢰구간으로 취급할 수 없다.</p>
-          <p>게다가 마지막 맞대결 4경기는 모두 KT가 이겼다. 9승 7패만 택하거나 마지막 네 경기만 택해 결론을 만들면 같은 오류다. <a href="https://www.newspim.com/news/view/20261103000410" target="_blank" rel="noopener noreferrer">맞대결 자료</a></p></article>
-        <article><div class="eyebrow">STARTER UNCERTAINTY · K−BB%</div><strong>±6.7<small>%p</small></strong><h3>페덱·고영표의 ‘동률’은<br />정밀한 동등성 검증이 아니다.</h3>
-          <p>K−BB% 차이(페덱−고영표)는 −0.03%p. 타석별 삼진·볼넷·기타 결과가 독립적으로 발생한다는 단순 근사에서도 두 비율 차이에 대한 95% 구간은 <b>약 −6.7~+6.6%p</b>다. 303타자 대 706타자라는 표본 규모를 무시하면 안 된다.</p>
-          <p class="footnote">근사: Var(K−BB)=[pK+pBB−(pK−pBB)²]/BF, 두 선수 추정 분산 합을 사용. 투구 환경·상대·경기 내 상관성을 반영한 실력 구간은 아님. <a href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">선발 원자료</a></p></article>
-      </div>
-      <div class="research-detail">
-        <div class="figure-head"><h3>고영표 대 삼성 주요 타자 · 2026 정규시즌</h3><small>관찰용, 예측 모델에 미반영</small></div>
-        <table class="r-table"><thead><tr><th>타자</th><th>고영표 상대</th><th>분석상 의미</th></tr></thead><tbody>
-          <tr><td>구자욱</td><td>9타수 4안타</td><td>주목할 타순, 표본은 매우 작음</td></tr>
-          <tr><td>김지찬</td><td>10타수 4안타</td><td>안타 개수로 다음 출루를 예언할 수 없음</td></tr>
-          <tr><td>최형우</td><td>11타수 3안타·1홈런</td><td>홈런은 관측 사실, 재현성은 미확인</td></tr>
-          <tr><td>디아즈</td><td>9타수 무안타</td><td>무안타 기록이 타격 능력의 부재는 아님</td></tr>
-          <tr><td>류지혁</td><td>9타수 무안타</td><td>타석·구종·시점 조건을 보정하지 않은 값</td></tr>
-        </tbody></table>
-        <p class="table-note">9타수에서 안타 한 개 차이는 타율 약 .111 차이다. 수십 타석에도 못 미치는 기록을 임의의 출전 선수 가중치로 쓰면 과적합 위험이 크다. <a href="https://www.yna.co.kr/view/AKR20261103177800007" target="_blank" rel="noopener noreferrer">연합뉴스 상대기록</a></p>
-      </div>
-      <div class="research-detail">
-        <div class="figure-head"><h3>1차전의 불펜 사용량, 합계가 아닌 선수별로 보기</h3><small>삼성 121구 / KT 73구</small></div>
-        <div class="usage-grid">
-          <div><h4>삼성 · 6명</h4>
-            <div class="usage-line"><span>양창섭</span><b>41</b><i style="--w:100%;--c:var(--lion)"></i></div>
-            <div class="usage-line"><span>장찬희</span><b>32</b><i style="--w:78%;--c:var(--lion)"></i></div>
-            <div class="usage-line"><span>배찬승</span><b>22</b><i style="--w:54%;--c:var(--lion)"></i></div>
-            <div class="usage-line"><span>김태훈</span><b>13</b><i style="--w:32%;--c:var(--lion)"></i></div>
-            <div class="usage-line"><span>사토시</span><b>9</b><i style="--w:22%;--c:var(--lion)"></i></div>
-            <div class="usage-line"><span>임기영</span><b>4</b><i style="--w:10%;--c:var(--lion)"></i></div>
-          </div>
-          <div><h4>KT · 5명</h4>
-            <div class="usage-line"><span>박영현</span><b>22</b><i style="--w:54%;--c:var(--wiz)"></i></div>
-            <div class="usage-line"><span>오원석</span><b>18</b><i style="--w:44%;--c:var(--wiz)"></i></div>
-            <div class="usage-line"><span>김정운</span><b>13</b><i style="--w:32%;--c:var(--wiz)"></i></div>
-            <div class="usage-line"><span>로건</span><b>12</b><i style="--w:29%;--c:var(--wiz)"></i></div>
-            <div class="usage-line"><span>손동현</span><b>8</b><i style="--w:20%;--c:var(--wiz)"></i></div>
-          </div>
-        </div>
-        <p class="table-note">삼성 양창섭·장찬희 두 명이 합계 73구를 던졌다. KT 로건도 ⅓이닝 12구를 소화했다. 그러나 투구 수는 <b>피로도나 다음 경기 실점 확률</b>이 아니다. 개별 연투·회복·투구 강도를 확인해야 한다. <a href="https://www.yagoonara.com/schedule/130108" target="_blank" rel="noopener noreferrer">1차전 투수별 공식 스코어 기록</a></p>
-      </div>
-      <div class="research-detail">
-        <div class="figure-head"><h3>홈 성적을 홈 어드밴티지로 오해하지 않기</h3><small>2026 정규시즌 · 무승부 제외</small></div>
-        <table class="r-table"><thead><tr><th>팀</th><th>홈</th><th>원정</th><th>관측 차이</th></tr></thead><tbody>
-          <tr><td>삼성</td><td>43승 29패 · 59.7%</td><td>40승 29패 · 58.0%</td><td>+1.8%p</td></tr>
-          <tr><td>KT</td><td>45승 24패 · 65.2%</td><td>45승 25패 · 64.3%</td><td>+0.9%p</td></tr>
-        </tbody></table>
-        <p class="table-note">홈·원정 상대 구성과 선수 가용성이 다르다. 정규시즌 내 홈−원정 차이는 인과적 홈 효과가 아니다. 아래 시뮬레이터의 ±1.5%p는 실측치가 아니라 민감도 가정이다. <a href="https://kbo-dashboard.co.kr/standings/?compare=KT&amp;metric=winRate&amp;team=KT" target="_blank" rel="noopener noreferrer">홈/원정 집계</a></p>
-      </div>
+   <section id="lineup" class="story-section">
+    <span class="section-index">03 / THE ORDER OF NINE</span>
+    <h2>구자욱이 3번인 이유를 OPS만으로 설명할 수 있을까</h2>
+    <p>톰 탱고와 공동 저자들의 《The Book》 계열 타순 연구는 전통적인 ‘2번 작전, 3번 최고 타자’ 관습에 의문을 던진다. 상위 타자는 더 많은 타석을 받으며, 출루 능력이 높은 타자를 2번에 두는 선택이 타선 전체의 기회를 늘릴 수 있다. 따라서 이론상 삼성 구자욱과 KT 안현민의 3번 배치는 검토 대상이다.</p>
+    <figure class="figure"><figcaption>2차전 실제 중심 타순과 2026 정규시즌 생산력</figcaption>
+      <table class="min-table"><thead><tr><th>팀 / 타순</th><th>선수</th><th>wOBA</th><th>시즌 PA</th></tr></thead><tbody>
+        <tr><td>삼성 2번</td><td>김성윤</td><td class="mono-val">.361</td><td class="mono-val">493</td></tr>
+        <tr class="focus-row"><td>삼성 3번</td><td>구자욱</td><td class="mono-val">.465</td><td class="mono-val">497</td></tr>
+        <tr><td>삼성 5번</td><td>디아즈</td><td class="mono-val">.400</td><td class="mono-val">625</td></tr>
+        <tr><td>KT 1번</td><td>최원준</td><td class="mono-val">.423</td><td class="mono-val">676</td></tr>
+        <tr><td>KT 2번</td><td>김민혁</td><td class="mono-val">미확인</td><td class="mono-val">미확인</td></tr>
+        <tr class="focus-row"><td>KT 3번</td><td>안현민</td><td class="mono-val">.434</td><td class="mono-val">417</td></tr>
+        <tr><td>KT 4번</td><td>힐리어드</td><td class="mono-val">.420</td><td class="mono-val">639</td></tr>
+      </tbody></table>
+      <small>실제 타순: KBO 2차전 기록. wOBA·타석: 야구나라 2026 선수 리더보드. 단일 제공처 정의 내 비교. 김민혁의 해당 고급 지표는 확인되지 않아 채우지 않았다. <a href="#ref-lineup">[5]</a></small>
+    </figure>
+    <p>여기서 감독을 쉽게 비판하면 안 되는 이유가 생긴다. 박진만 감독은 2차전 전에 고영표가 흔치 않은 언더핸드 유형이고, 높은 스트라이크존을 활용하므로 그에 맞춰 출전 선수와 타순을 바꿨다고 설명했다. <a class="footlink" href="#ref-manager">[6]</a> 이건 단순 출루율 정렬과는 다른 문제다. 상대 투수의 릴리스와 구종에 대한 대응, 선수 상태, 수비 포지션, 대타 가능성까지 포함하는 선택이니까.</p>
+    <p>다만 감독의 설명이 곧 그 선택이 최적이었다는 증거 역시 아니다. 플래툰별 타구 질과 충분한 상대 표본, 대체 선발의 예상 타석 가치가 있어야 검증할 수 있다. 지금 말할 수 있는 건 <strong>구자욱·안현민에게 추가 타석을 줄 타순을 검토할 이유가 있지만, 실제 득점 차이는 검증하지 못했다</strong>는 데까지다.</p>
+    <div class="story-link"><div><span>COMPANION / PLAYER REGISTER</span><strong>18명 실제 타순과 선수별 세이버 기록</strong><a href="./lineup-lab/">1·2차전 타순 비교, 선수별 상세, 24개 주자·아웃 상태 연구소 열기</a></div><a class="arrow" href="./lineup-lab/" aria-label="타순 연구소로 이동">↗</a></div>
+   </section>
+
+   <section id="pitching" class="story-section">
+    <span class="section-index">04 / ROTATION, NOT JUST ERA</span>
+    <h2>선발을 빨리 내리면 불펜이 공짜로 생기는 것은 아니다.</h2>
+    <p>2차전의 두 선발은 똑같이 7이닝 1실점을 기록했다. 고영표는 96구 중 투심 51구, 체인지업 29구, 스위퍼 16구를 던졌다. 페덱은 102구를 투심 37구, 체인지업 24구, 커터 22구, 커브 14구, 포심 5구로 나눴다. 비슷한 결과지만 공을 쓰는 방식은 달랐다. <a class="footlink" href="#ref-pitchmix">[7]</a></p>
+    <figure class="figure"><figcaption>2차전 선발의 구종 구성 · 실제 투구 수</figcaption>
+      <div class="chart-twocol">
+      <div><div class="pill-data"><div class="line"><span>고영표 · 투심</span><strong>51 / 96</strong></div><i><b style="width:53.125%"></b></i></div><div class="pill-data"><div class="line"><span>체인지업</span><strong>29 / 96</strong></div><i><b style="width:30.21%"></b></i></div><div class="pill-data"><div class="line"><span>스위퍼</span><strong>16 / 96</strong></div><i><b style="width:16.67%"></b></i></div></div>
+      <div><div class="pill-data kt"><div class="line"><span>페덱 · 투심</span><strong>37 / 102</strong></div><i><b style="width:36.27%"></b></i></div><div class="pill-data kt"><div class="line"><span>체인지업 + 커터</span><strong>46 / 102</strong></div><i><b style="width:45.10%"></b></i></div><div class="pill-data kt"><div class="line"><span>커브 + 포심</span><strong>19 / 102</strong></div><i><b style="width:18.63%"></b></i></div></div>
+      </div><small>연합뉴스 경기 뒤 구종 카운트. 막대는 각 투수 총 투구 수에 대한 구종 비중이며 투구의 질·실점을 직접 표현하지 않는다. <a href="#ref-pitchmix">[7]</a></small>
+    </figure>
+    <p>이제 3차전은 KT 소형준과 삼성 후라도다. 정규시즌 ERA는 소형준 3.15, 후라도 3.54. 후라도는 KT전 15⅔이닝에서 ERA 5.17로 고전했지만 플레이오프에서는 13⅔이닝 2자책이었다. 어느 한 짧은 구간만 선택하면 전력 평가가 뒤집힌다. <a class="footlink" href="#ref-game3">[8]</a></p>
+    <p>또 하나의 쟁점은 연장 12회가 남긴 투구 소모다. 삼성의 1차전 구원 투구 수 합계는 121구, KT는 73구. 2차전에는 각각 85구, 80구를 던졌다. 이틀 합계가 삼성 206구, KT 153구라고 해서 삼성의 구원진에 실점 위험이 정확히 53구만큼 더해지는 건 아니다. 투수별 분포와 휴식이 훨씬 중요하다.</p>
+    <figure class="figure"><figcaption>두 경기 연속 사용된 주요 구원투수</figcaption>
+      <table class="min-table"><thead><tr><th>투수</th><th>팀</th><th>1차전</th><th>2차전</th></tr></thead><tbody>
+        <tr><td>박영현</td><td>KT</td><td class="mono-val">22구</td><td class="mono-val">23구</td></tr>
+        <tr><td>김정운</td><td>KT</td><td class="mono-val">13구</td><td class="mono-val">23구</td></tr>
+        <tr><td>김태훈</td><td>삼성</td><td class="mono-val">13구</td><td class="mono-val">13구</td></tr>
+        <tr><td>배찬승</td><td>삼성</td><td class="mono-val">22구</td><td class="mono-val">19구</td></tr>
+        <tr><td>원태인</td><td>삼성</td><td class="mono-val">—</td><td class="mono-val">32구</td></tr>
+      </tbody></table>
+      <small>1·2차전 박스스코어에서 구원 투구 수 집계. 11월 5일은 이동·휴식일. 투구 수를 곧바로 부상·피로·실점 확률로 변환하지 않는다. <a href="#ref-box">[9]</a></small>
+    </figure>
+    <p>여기서 참고할 연구는 SABR의 7전 4선승제 투수 운용 논문이다. 선발의 세 번째 타순 대면을 피하려고 빨리 교체하면, 제한된 불펜이 여러 경기에서 같은 타자를 반복 상대하는 비용이 생긴다. 그 연구도 피로와 상대 타자의 익숙해짐을 분리해서 입증하지 못한다고 밝힌다. <a class="footlink" href="#ref-sabr">[10]</a> 이번 시리즈도 같은 질문을 던질 수 있지만, MLB에서 관측된 효과 크기를 그대로 KBO에 이식해선 안 된다.</p>
+   </section>
+
+   <section id="forecast" class="story-section">
+    <span class="section-index">05 / WHAT 1–1 CHANGES</span>
+    <h2>1승 1패. 숫자를 하나 정하기보다, 어떤 정보가 빠졌는지 봐야 한다.</h2>
+    <p>남은 다섯 경기 중 세 번을 이기는 팀이 우승한다. 삼성은 대구 3~5차전을 홈에서 치르고, 필요하면 수원에서 6·7차전을 치른다. 정규시즌 전력 차이를 어떻게 추정하느냐에 따라 삼성의 우승 가능성도 달라진다.</p>
+    <div class="model" aria-label="한국시리즈 조건부 우승 확률 시나리오">
+      <h3>정규시즌 전력의 두 추정 방식</h3>
+      <p>실제 승률 Log5와 득실점 피타고리안·Log5를 같은 남은 일정에 적용한다. 둘 다 고정된 경기별 승률과 독립 경기 가정 아래 계산한 <strong>시나리오</strong>이지, 로테이션·부상·개인 타격 능력까지 반영한 보정 예측이 아니다.</p>
+      <label for="home">삼성 홈 가산 / 수원 원정 감산 · <output id="home-read">1.5%p</output></label>
+      <input id="home" type="range" min="0" max="4" step=".25" value="1.5" />
+      <div class="row"><figure><span>정규시즌 실제 승률 Log5</span><strong id="p-record">39.0%</strong><small>중립 단판 승률 약 43.8%</small></figure><figure><span>득실점 기반 기대승률 Log5</span><strong id="p-runs">46.0%</strong><small>중립 단판 승률 약 47.5%</small></figure></div>
+      <p class="recheck" id="model-tell">기준 시나리오의 두 값 차이는 약 7.0%p. 모형 명세 차이지 확률 신뢰구간이 아니다.</p>
+      <details><summary>재현 방법과 조건을 자세히 보기</summary>
+        <p>2026 실제 승률(무승부 제외): 삼성 83/141, KT 90/139. 득실점 기대승률: P=RS^1.83/(RS^1.83+RA^1.83). 두 쌍을 Log5로 상대 보정한다. 3~5차전에는 삼성 중립 단판 승률에 위 홈 가산을 더하고 6~7차전에는 같은 양을 뺀다. 모든 남은 승패 경로를 전수 계산해 4승 선착 확률을 구한다.</p>
+        <p>이 모델에는 투수별 기량·출장·타순·휴식일·대구 파크팩터·홈 이점의 경험적 회귀계수·예측 캘리브레이션이 없다. <a href="https://github.com/pbkpch/pbkpch.github.io/blob/master/2026-korean-series/reproduce_ks26.py" target="_blank" rel="noopener noreferrer">표준 라이브러리만 쓰는 검산용 Python 코드</a>를 제공한다.</p>
+      </details>
     </div>
-  </div></section>
-  <section id="gameone" class="section"><div class="container">
-    <div class="section-header"><div class="eyebrow">04 / GAME ONE</div><div><h2>8대 0으로 벌어진 경기가<br />왜 8대 7로 끝났을까.</h2><p class="section-headnote">막판 추격만 기억하면 초반 승부가 어디서 갈렸는지 놓친다. 그렇다고 1점 차였다는 이유로 양 팀 전력을 동급으로 확정할 수도 없다.</p></div></div>
-    <div class="section-inner"><div class="prose reading"><p>KT는 1회 3점, 3회 2점을 올렸다. 삼성 선발 최원태는 2이닝 5자책점을 기록하고 내려왔다. 삼성은 6회까지 무득점. 이때까지는 KT가 선발과 타격 모두에서 주도했다. <a href="#source-score" class="source-inline">[1]</a></p><p>7회 삼성의 5득점, 8회 2득점으로 스코어가 한 점 차가 됐다. 그런데 이 7점을 모두 KT 구원진의 자책점으로 처리하면 안 된다. 선발 대니엘의 책임 실점은 3점, 이후 구원진 책임 실점은 4점이다. 주자가 어느 투수의 책임으로 출루했는지에 따라 자책점이 나뉘기 때문이다.</p></div>
-      <div class="game-strip"><div class="figure-head"><h3>경기별 이닝 스코어</h3><small>KS GAME 1 · KT 8 : 7 삼성</small></div><div class="inning-grid" id="inning-display"><span class="inn-num">INN.</span><span class="inn-num">1</span><span class="inn-num">2</span><span class="inn-num">3</span><span class="inn-num">4</span><span class="inn-num">5</span><span class="inn-num">6</span><span class="inn-num">7</span><span class="inn-num">8</span><span class="inn-num">9</span></div><div class="innings-take">강조한 7·8회가 삼성의 추격 구간이다. 9회말은 KT가 앞선 채로 경기 종료돼 진행하지 않았다.</div></div>
-      <div class="postgame"><div><h3>삼성이 하루에 쓴 구원 투구 수</h3><p>삼성 불펜은 6명·6이닝·121구. KT는 5명·3이닝·73구였다. 선발이 초반에 내려오면 다음 투수의 선택권까지 좁아진다. 다만 <strong>투구 수를 곧바로 피로도나 다음 경기 실점 확률로 환산할 수는 없다.</strong></p><div class="pitches"><div class="pitch-line"><div><span>삼성</span><b>121구</b></div><div class="track"><i style="width:100%;background:var(--lion)"></i></div></div><div class="pitch-line"><div><span>KT</span><b>73구</b></div><div class="track"><i style="width:60.33%;background:var(--wiz)"></i></div></div></div><p class="aside-note">1차전 구원진 사용량. 개인별 최근 등판, 실제 회복 상태, 투구 강도는 별도 고려가 필요하다.</p></div><div><h3>1차전의 질문이 2차전에서 실현됐다</h3><p>1차전 KT 박영현은 1⅔이닝 22구로 마지막 5아웃을 잡았다. 다음 경기에도 KT는 박영현을 8회에 조기 투입했고, 삼성은 원태인을 9회 구원으로 투입했다. 정규시즌 마무리 김재윤이 빠진 삼성의 운용 선택이 실제 경기의 핵심이 됐다. <a href="#source-roster" class="source-inline">[5]</a></p><p style="margin-top:12px">다만 같은 선수가 연투했다고 실제 3차전 피로도가 몇 점 증가했다고 환산할 수는 없다. 11월 5일은 이동일이고 3차전은 6일이다. <a href="https://www.khan.co.kr/article/202611042304001" target="_blank" rel="noopener noreferrer">2차전 구원 운용 복기</a></p></div></div>
-    </div>
-  </div></section>
-  <section id="calendar" class="section"><div class="container"><div class="section-header"><div class="eyebrow">05 / THE ROAD AHEAD · ACTUAL 1–1</div><div><h2>1승 1패, 대구에서<br />다섯 경기짜리 시리즈가 다시 시작된다.</h2><p class="section-headnote">삼성이 12회 접전을 이겨 1승 1패를 만들었다. 3~5차전은 대구, 6~7차전은 수원으로 이어지며 3차전 선발은 KT 소형준과 삼성 후라도로 확정됐다.</p></div></div><div class="section-inner"><div class="prose reading"><p>삼성은 대구 3경기에서 2승 1패를 하면 시리즈 3승 2패로 수원에 돌아간다. 3연승이면 5차전에 우승한다. 다만 홈에서 장타가 잘 나온다는 이유만으로 삼성이 자동으로 유리해지는 건 아니다. KT의 힐리어드도 같은 구장 조건에서 타격한다.</p></div><div class="schedule" aria-label="3차전부터 7차전 일정"><div><div class="g">GAME 03</div><div class="day">11.06</div><div class="venue">대구</div><div class="home">삼성 홈</div></div><div><div class="g">GAME 04</div><div class="day">11.07</div><div class="venue">대구</div><div class="home">삼성 홈</div></div><div><div class="g">GAME 05</div><div class="day">11.08</div><div class="venue">대구</div><div class="home">삼성 홈</div></div><div><div class="g">GAME 06</div><div class="day">11.10</div><div class="venue">수원</div><div class="away">KT 홈</div></div><div><div class="g">GAME 07</div><div class="day">11.11</div><div class="venue">수원</div><div class="away">KT 홈</div></div></div><p class="aside-note">5~7차전은 필요할 때만 개최. 홈 효과를 어느 정도로 볼지는 구장 특성과 별개로 모델의 가정이다. <a href="#source-schedule">일정 출처</a></p></div></div></section>
-  <section id="model" class="section"><div class="container"><div class="section-header"><div class="eyebrow">06 / PROBABILITY LAB</div><div><h2>우승 확률이라는 숫자에<br />조건을 붙여 보자.</h2><p class="section-headnote">2차전 승리로 현재는 1승 1패. 정규시즌 실제 승률과 득실점 기대승률의 차이를 남은 다섯 경기의 결과에 반영한다. 두 값을 비교하되 그 어느 쪽도 보정 완료된 예측으로 부르지 않는다.</p></div></div><div class="section-inner"><div class="prose reading"><p>정규시즌 득실점을 Log5 방식으로 상대 전력에 맞춰 바꾸면 삼성의 중립구장 단판 승률이 약 47.5% 나온다. 여기에 홈구장 이점을 임의로 1.5%포인트 더하거나 빼고 7전 4선승의 모든 남은 경우를 더한다. <strong>현재 엔트리와 실제 선발 로테이션을 반영한 예측 모델은 아니다.</strong></p></div>
-      <div class="model-shell"><div class="figure-head"><h3>삼성의 시리즈 우승 확률 · 가정 실험</h3><small>7전 4선승제 · 독립 경기</small></div><div class="model-status" role="group" aria-label="시리즈 상태"><button type="button" data-state="win" aria-pressed="true">현재 · 1–1</button><button type="button" data-state="before" aria-pressed="false">과거 · 0–1</button><button type="button" data-state="lose" aria-pressed="false">가상 · 0–2</button></div>
-        <div class="model-result"><div><small id="model-status-label">2차전 종료 현재, 삼성 우승 경우의 수</small><strong id="win-output" aria-live="polite">46.0%</strong></div><div style="text-align:right"><small>KT</small><strong id="other-output" style="font-size:30px;letter-spacing:-.035em">54.0%</strong></div></div><div class="model-meter" aria-label="삼성과 KT 우승 확률"><div id="model-meter-fill" style="width:46.0%"></div></div><div class="model-key"><span>삼성</span><span>KT</span></div><div class="control-grid"><div class="control"><label for="p-slider"><span>삼성 중립구장 1경기 승률</span><output id="p-label">47.5%</output></label><input id="p-slider" type="range" min="40" max="55" step="0.01" value="47.5" /><small>기본값은 2026시즌 득실점에서 계산. 이 수치를 올리면 삼성을 강팀으로 보는 가정이 된다.</small></div><div class="control"><label for="h-slider"><span>홈 이점 · 확률 가산</span><output id="h-label">1.5%p</output></label><input id="h-slider" type="range" min="0" max="5" step="0.5" value="1.5" /><small>삼성 홈 +, 수원 원정 −. 1.5%p는 실측치가 아닌 예시값이다.</small></div></div>
-        <div class="altcases"><div class="figure-head"><h3>전력 가정에 따른 민감도</h3><small>G2 실제 삼성 승리 · 현재 1승 1패</small></div><table><thead><tr><th>삼성 단판 승률</th><th>대구·수원 잔여 시리즈 우승 확률</th></tr></thead><tbody id="sensitivity-body"></tbody></table></div>
-        
-<div class="model-compare-research">
-  <div class="figure-head"><h3>같은 전력 차이를 두 방식으로 읽으면</h3><small>HOME ±1.5%p는 조절 가능</small></div>
-  <p>‘정규시즌 실제 승률’과 ‘득실점으로 추정한 기대승률’은 서로 다른 정보를 담고 있다. 각각 Log5로 중립 단판 승률을 만든 뒤 같은 경기 일정에 적용했다. <strong>이 둘의 차이는 모델 선택의 민감도이며 신뢰구간이 아니다.</strong></p>
-  <div class="model-compare-scroll">
-   <table class="model-compare-table"><thead><tr><th>전력 기준</th><th>중립 단판</th><th>0–1 상태</th><th>1–1 상태</th></tr></thead><tbody>
-      <tr><td>실제 승률 Log5</td><td id="log5-record-neutral">43.8%</td><td id="log5-record-now">23.6%</td><td id="log5-record-tied">39.0%</td></tr>
-      <tr><td>득실점 기대승률 Log5</td><td id="log5-pyth-neutral">47.5%</td><td id="log5-pyth-now">29.9%</td><td id="log5-pyth-tied">46.0%</td></tr>
-   </tbody></table>
-  </div>
-  <div class="model-compare-buttons"><button type="button" class="download-btn" id="model-from-record">실제 승률 모델 적용</button><button type="button" class="download-btn" id="model-from-pyth">득실점 모델 적용</button></div>
-  <p class="table-note">실제 승률: 삼성 83/141, KT 90/139 (무승부 제외). 기대승률: 시즌 득실점에 지수 1.83을 적용. 부상·투수 로테이션·감독 기용을 반영해 검증된 모델이 아니므로 두 값 가운데 하나를 ‘정확한 승률’이라고 인용하지 않는다.</p>
-</div>
-<div class="model-road-research">
-  <div class="figure-head"><h3>2차전 삼성 승리 → 대구에서 어떤 경로가 열리나</h3><small>G3–5 삼성 홈 · 독립 경기 가정</small></div>
-  <div class="road-readouts">
-   <div><strong id="road-sweep">11.8%</strong><span>대구에서 3연승, 5차전에 우승 확정</span></div>
-   <div><strong id="road-two">48.5%</strong><span>대구 3경기에서 2승 이상</span></div>
-   <div><strong id="road-leverage">29.8%p</strong><span>2차전 승·패에 따른 이후 우승 확률 차이</span></div>
-  </div>
-  <p class="table-note">이 숫자들은 아래 슬라이더에서 선택한 단판 전력과 홈 가정을 사용한다. 3~7차전 선발 투수, 개인별 회복, 상대 타순은 반영하지 않았다.</p>
-</div>
-<div class="model-breakdown" id="model-identity" aria-live="polite"></div><div class="model-warning"><strong>해석 주의.</strong> 이 수치는 모델에 넣은 가정을 정확하게 계산한 결과이지, 실제 우승 확률이 소수점 첫째 자리까지 알려져 있다는 뜻이 아니다. 과거 시리즈 백테스트, 확률 캘리브레이션, 선수 출전 가능성과 선발 스플릿을 반영하지 않았다. <span style="color:#fff">‘정확한 우승 예측’으로 인용하지 말 것.</span></div>
-      </div>
-    </div>
-  </div></section>
-  <section id="sources" class="section"><div class="container"><div class="section-header"><div class="eyebrow">07 / NOTES & SOURCES</div><div><h2>모르는 건 모른다고 적었다.</h2><p class="section-headnote">특정 숫자가 마음에 들지 않는다면 검증할 수 있어야 한다. 아래는 본문에 사용한 자료와 계산 원칙이다.</p></div></div><div class="section-inner sources-layout"><div><h3 style="font:600 20px var(--serif);margin-bottom:15px">원자료</h3><ul class="source-list"><li id="source-score"><span class="code">01</span><a href="https://www.yna.co.kr/view/AKR20261103186100007" target="_blank" rel="noopener noreferrer">연합뉴스 · 한국시리즈 1차전 이닝별 스코어와 승패</a></li><li id="source-standings"><span class="code">02</span><a href="https://www.ktwiz.co.kr/game/regular/ranking/team" target="_blank" rel="noopener noreferrer">KT 구단 · 2026 정규시즌 득실점·순위</a></li><li id="source-batting"><span class="code">03</span><a href="https://www.yagoonara.com/sabermetrics/teams" target="_blank" rel="noopener noreferrer">야구나라 · 2026 팀 타격 wRC+·ISO·BB%·K%</a></li><li id="source-g2"><span class="code">04</span><a href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">야구나라 · 한국시리즈 2차전 선발 기록·상대전적</a></li><li id="source-roster"><span class="code">05</span><a href="https://www.yna.co.kr/view/AKR20261102160800007" target="_blank" rel="noopener noreferrer">연합뉴스 · 엔트리와 삼성 투수 운용 상황</a></li><li id="source-pitching"><span class="code">06</span><a href="https://www.yagoonara.com/sabermetrics/teams/pitcher" target="_blank" rel="noopener noreferrer">야구나라 · 2026 팀 투구 FIP·ERA·삼진·볼넷</a></li><li id="source-schedule"><span class="code">07</span><a href="https://www.koreabaseball.com/Schedule/Schedule.aspx" target="_blank" rel="noopener noreferrer">KBO · 2026 한국시리즈 공식 일정</a></li></ul><p class="aside-note">공개 집계 사이트의 야구식 이닝 표기는 76.1 = 76⅓이닝, 172.2 = 172⅔이닝을 의미한다. 소수점 진법 이닝이 아니다.</p></div>
-    <div><h3 style="font:600 20px var(--serif);margin-bottom:15px">어떻게 계산했나</h3><div class="method-prose"><p><strong>피타고리안 기대승률</strong>은 시즌 득점(RS), 실점(RA)과 고정 지수 1.83으로 구했다.</p><div class="formula">Pyth = RS^1.83 / (RS^1.83 + RA^1.83)</div><p><strong>중립 경기 승률</strong>은 두 팀 기대승률에 Log5 방식을 적용했다.</p><div class="formula">P(S over K) = [S × (1−K)] / [S × (1−K) + K × (1−S)]</div><p>시리즈 계산은 2차전부터 최대 7차전까지 홈/원정의 고정 승률을 넣고 <strong>4승 선착</strong>의 결과를 전수 계산한다. 1차전 KT 승리는 이미 관측된 값으로 취급한다.</p><p>이 방법은 체력 소모, 불펜 가용성, 3~7차전 선발, 선수 부상, 구장 파크팩터의 정밀 차이, 수비 범위, 타구 질, 핫핸드, 날씨를 추정하지 않는다. 2026시즌에 맞춘 사후 보정이나 예측력 검증도 없다.</p></div><p class="repro-link"><b>코드로 재현하기.</b> 시즌 득실점·실제 승률 두 입력 방식을 독립적으로 계산하고, 0–1 및 1–1의 모든 가능한 경기 결과, Wilson 구간, K−BB% 표본오차를 다시 검산할 수 있다. <a href="https://github.com/pbkpch/pbkpch.github.io/blob/master/2026-korean-series/reproduce_ks26.py" target="_blank" rel="noopener noreferrer">검산용 Python 스크립트 보기</a> · Python 3.9 이상 · 표준 라이브러리만 사용.</p>
-<div class="footactions"><button class="download-btn" id="download-data" type="button">사용한 수치·가정 JSON 저장</button><button class="download-btn" id="print-report" type="button">인쇄 / PDF로 보관</button></div></div>
-  </div></div></section>
-</main>
-<footer><div class="container inner"><div><div class="line">시즌은 144경기.<br />한국시리즈는 일곱 경기.</div><div class="eyebrow" style="margin-top:18px">KS26 · Independent, unofficial baseball data notebook</div></div><div class="disclaim">2026년 11월 4일 2차전 시작 전 스냅샷.<br />실시간 점수·엔트리 자동 업데이트 없음.<br />자료 제공처 및 KBO·양 구단의 공식 보고서가 아닙니다.</div></div></footer>
+    <p>이 시점에서 감독이 실제로 고민할 문제는 구체적이다. 후라도를 몇 번째 타순 대면까지 맡길 것인가. 소형준의 투심에 대응할 타선을 어떻게 정할 것인가. 그리고 한 점 앞선 7회에 가장 좋은 불펜을 지금 사용할지, 다음 이닝을 위해 남길 것인가.</p>
+    <p>확인하지 못한 게 있다면 그건 그대로 남겨두는 편이 낫다. 3차전 선발 타순은 아직 발표되지 않았고, 투수별 회복 상태와 동일 기준의 구종·타구질 데이터도 확보되지 않았다. 이 상태에서 ‘삼성 우승 47.3%’처럼 소수점 한 자리까지 정밀한 결론을 쓰는 건 근거보다 형식이 앞선다.</p>
+   </section>
+  </article>
+</div></main>
+<section id="sources" class="references"><div class="wrap">
+ <h2>원자료와 검산</h2><p>이 글의 숫자는 2026년 11월 5일, 3차전 전까지 공개된 기록을 기준으로 한다. 결론이 아닌 사실을 확인하려면 먼저 원자료를 열어보면 된다. 원전의 문장은 그대로 복제하지 않았으며 서술은 독립적인 해석이다.</p>
+ <div class="ref-grid"><div><ol>
+  <li id="ref-game2"><a href="https://en.yna.co.kr/view/AEN20261104011451315" target="_blank" rel="noopener noreferrer">연합뉴스 · 2차전 6회 위기와 연장 승부의 상세 복기</a></li>
+  <li id="ref-recap"><a href="https://www.ktwiz.co.kr/game/regular/boxscore/20261104/77771104SSKT0" target="_blank" rel="noopener noreferrer">KT 구단 · 2026년 11월 4일 공식 박스스코어</a> · <a href="https://www.koreabaseball.com/MediaNews/News/BreakingNews/View.aspx?bdSe=62606" target="_blank" rel="noopener noreferrer">KBO 경기 기사</a></li>
+  <li id="ref-teams"><a href="https://www.yagoonara.com/sabermetrics/teams" target="_blank" rel="noopener noreferrer">야구나라 · 팀 wRC+·ISO 등</a> · <a href="https://www.yagoonara.com/team-stats/detail/2026/hitter" target="_blank" rel="noopener noreferrer">팀 타격 원기록</a></li>
+  <li id="ref-home"><a href="https://www.yagoonara.com/team-stats/game/2026/hitter" target="_blank" rel="noopener noreferrer">야구나라 · 2026시즌 홈/원정 타격 분리 기록</a></li>
+  <li id="ref-lineup"><a href="https://www.koreabaseball.com/MediaNews/News/BreakingNews/View.aspx?bdSe=62606" target="_blank" rel="noopener noreferrer">KBO · KS 2차전 선발 타순</a> · <a href="https://www.yagoonara.com/sabermetrics/hitter/woba" target="_blank" rel="noopener noreferrer">선수 wOBA</a></li>
+ </ol></div><div><ol start="6">
+  <li id="ref-manager"><a href="https://www.koreabaseball.com/MediaNews/News/BreakingNews/View.aspx?bdSe=62606" target="_blank" rel="noopener noreferrer">KBO 경기 전 박진만 감독 발언</a></li>
+  <li id="ref-pitchmix"><a href="https://en.yna.co.kr/view/AEN20261104011500315" target="_blank" rel="noopener noreferrer">연합뉴스 · 고영표·페덱의 실제 구종별 투구 수</a></li>
+  <li id="ref-game3"><a href="https://biz.chosun.com/en/en-sports/2026/11/05/3XVXZV6YD5DSPBRHNTRGGWJK5Q/" target="_blank" rel="noopener noreferrer">11월 5일 3차전 선발 확정 보도</a></li>
+  <li id="ref-box"><a href="https://www.yagoonara.com/schedule/130108" target="_blank" rel="noopener noreferrer">1차전 투수별 기록</a> · <a href="https://www.yagoonara.com/schedule/130109" target="_blank" rel="noopener noreferrer">2차전 투수별 기록</a></li>
+  <li id="ref-sabr"><a href="https://sabr.org/journal/article/balancing-starter-and-bullpen-workloads-in-a-seven-game-postseason-series/" target="_blank" rel="noopener noreferrer">SABR Baseball Research Journal · 7전제 투수 운용 연구</a></li>
+ </ol></div></div>
+ <div class="wide-feature"><h3>이 글에서 일부러 하지 않은 분석</h3><p>타순 변경으로 경기당 몇 점을 더 얻는다는 정밀 최적화, 추정만으로 만든 2026 KBO RE24, 상대 9타수로 계산한 다음 경기 홈런 확률, 박영현의 연투 피로를 고정 실점 페널티로 환산하는 계산은 포함하지 않았다. 소스 데이터가 부족한데 결과를 만들면 글은 더 화려해져도 분석은 약해진다.</p><p>분석에 필요한 정의와 1·2차전 실제 타순은 <a href="./lineup-lab/">선수·타순 기록실</a>에서 확인할 수 있다.</p></div>
+</div></section>
+<footer class="footer"><div class="wrap"><div><strong class="mono">KS26 / FIELD NOTES</strong><br><small>통계는 결과를 설명하는 도구지 결과를 대신하는 목소리가 아니다. 이 페이지는 구단, 리그, 연구자의 검토나 후원을 받은 공식 분석물이 아니다.</small></div><div><a href="./lineup-lab/">선수·타순 기록실</a> · <a href="#top">맨 위로</a></div></div></footer>
 <script>
 'use strict';
-const $=id=>document.getElementById(id);
-const rot=[['삼성','페덱',2.95,3.05,'76⅓',26.4,3.6],['삼성','원태인',4.52,3.37,'145⅓',18.5,5.4],['삼성','후라도',3.54,4.35,'150',15.4,4.9],['삼성','최원태',4.68,4.32,'125',22.0,8.3],['KT','고영표',3.28,3.23,'172⅔',25.9,3.1],['KT','소형준',3.15,3.61,'131⅓',19.4,4.4],['KT','대니엘',2.13,2.63,'55',30.3,7.9],['KT','로건',3.59,4.33,'92⅔',20.5,6.7]];
-$('rotation-table').querySelector('tbody').innerHTML=rot.map(r=>`<tr><td style="text-align:left">${r[0]} ${r[1]}</td><td>${r[2].toFixed(2)}</td><td>${r[3].toFixed(2)}</td><td>${r[4]}</td><td>${r[5].toFixed(1)}%</td><td>${r[6].toFixed(1)}%</td></tr>`).join('');
-const innings=[['삼성',[0,0,0,0,0,0,5,2,0]],['KT',[3,0,2,0,1,2,0,0,null]]];
-$('inning-display').innerHTML+=innings.map(([team,runs])=>`<span class="label">${team}</span>${runs.map((n,i)=>`<span class="cell ${team==='삼성'&&(i===6||i===7)?'focus':''}">${n==null?'–':n}</span>`).join('')}`).join('');
-const RS_S=806,RA_S=669,RS_K=825,RA_K=649,ex=1.83;
-const pyth=(rs,ra)=>Math.pow(rs,ex)/(Math.pow(rs,ex)+Math.pow(ra,ex));
-const pS=pyth(RS_S,RA_S),pK=pyth(RS_K,RA_K);
-const neutral=pS*(1-pK)/(pS*(1-pK)+(1-pS)*pK);
-const venue={2:'KT',3:'삼성',4:'삼성',5:'삼성',6:'KT',7:'KT'};
-let state='win';
-function calc(g,sw,kw,p,h){
- if(sw>=4)return 1;
- if(kw>=4)return 0;
- if(g>7)return 0;
- const pg=Math.max(0,Math.min(1,p+(venue[g]==='삼성'?h:-h)));
- return pg*calc(g+1,sw+1,kw,p,h)+(1-pg)*calc(g+1,sw,kw+1,p,h);
+const home=document.getElementById('home'),rec=document.getElementById('p-record'),runs=document.getElementById('p-runs'),homeRead=document.getElementById('home-read'),note=document.getElementById('model-tell');
+const log5=(a,b)=>a*(1-b)/(a*(1-b)+(1-a)*b);
+const record=log5(83/141,90/139),pyth=(r,a)=>r**1.83/(r**1.83+a**1.83),runStrength=log5(pyth(806,669),pyth(825,649));
+const venues=[1,1,1,-1,-1];
+function remaining(p,h) {
+  const memo=new Map();
+  function dp(i,s,k){
+    if(s>=3)return 1;if(k>=3)return 0;if(i>=5)return 0;
+    const key=i+'_'+s+'_'+k;if(memo.has(key))return memo.get(key);
+    const q=Math.max(0,Math.min(1,p+venues[i]*h));
+    const v=q*dp(i+1,s+1,k)+(1-q)*dp(i+1,s,k+1);memo.set(key,v);return v;
+  }
+  return dp(0,0,0);
 }
-function value(state,p,h){return state==='win'?calc(3,1,1,p,h):state==='lose'?calc(3,0,2,p,h):calc(2,0,1,p,h)}
-const pct=n=>(100*n).toFixed(1)+'%';
-function render(){
- const p=Number($('p-slider').value)/100,h=Number($('h-slider').value)/100;
- $('p-label').textContent=pct(p);$('h-label').textContent=(h*100).toFixed(1)+'%p';
- const win=value(state,p,h);$('win-output').textContent=pct(win);$('other-output').textContent=pct(1-win);$('model-meter-fill').style.width=pct(win);
- $('model-status-label').textContent=state==='before'?'회고 · 1차전 종료 0승 1패':state==='win'?'현재 · 2차전 종료 1승 1패':'반사실적 가정 · 0승 2패';
- $('sensitivity-body').innerHTML=[.45,.475,.50].map(pp=>`<tr><td>${pct(pp)}</td><td>${pct(value('win',pp,h))}</td></tr>`).join('');
- const pG2=p-h,a=value('win',p,h),b=value('lose',p,h),before=value('before',p,h);
- const recomposed=pG2*a+(1-pG2)*b;
- $('model-identity').textContent=`모형 검산 · (2차전 삼성 승 ${pct(pG2)} × 이후 ${pct(a)}) + (패 ${pct(1-pG2)} × 이후 ${pct(b)}) = ${pct(recomposed)}. 직접 계산 값 ${pct(before)}와 오차 ${(Math.abs(recomposed-before)*100).toFixed(7)}%p`;
+function paint(){
+  const h=Number(home.value)/100,p1=remaining(record,h),p2=remaining(runStrength,h);
+  homeRead.textContent=(h*100).toFixed(2).replace(/\.00$/,'')+'%p';
+  rec.textContent=(p1*100).toFixed(1)+'%';runs.textContent=(p2*100).toFixed(1)+'%';
+  note.innerHTML='두 방식의 차이 <b>'+((p2-p1)*100).toFixed(1)+'%p</b>. 어느 쪽도 실측 확률의 신뢰구간이 아니고, 상대 투수·선발 명단을 포함한 보정 예측이 아니다.';
 }
-document.querySelectorAll('button[data-state]').forEach(btn=>btn.addEventListener('click',()=>{state=btn.dataset.state;document.querySelectorAll('button[data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));render()}));
-['p-slider','h-slider'].forEach(id=>$(id).addEventListener('input',render));$('p-slider').value=(neutral*100).toFixed(2);render();
-$('download-data').addEventListener('click',()=>{
-const data={title:'2026 삼성-KT 한국시리즈 비공식 데이터북',snapshot:'2026-11-05 after G2, before G3',isLive:false,teams:{samsung:{W:83,L:58,T:3,RS:RS_S,RA:RA_S,wRCplus:108.3,FIP:4.55,ISO:.141},kt:{W:90,L:49,T:5,RS:RS_K,RA:RA_K,wRCplus:110.4,FIP:4.23,ISO:.130}},pitchers:rot,g1:{samsung:7,kt:8,samsungInnings:[0,0,0,0,0,0,5,2,0],ktInnings:[3,0,2,0,1,2,0,0,null],ktStarterChargedRuns:3,ktRelieversChargedRuns:4,samsungReliefPitches:121,ktReliefPitches:73},g2:{result:{samsung:3,kt:2,innings:12,samsungHits:14,ktHits:11,decisivePlay:'KT 12th-inning throwing error'},faeddeack:{BF:303,K:80,BB:11,ERA:2.95,FIP:3.05},goyoungpyo:{BF:706,K:183,BB:22,ERA:3.28,FIP:3.23}},headToHead:{samsungWins:9,ktWins:7,observedWinRate:9/16,wilson95Approx:[.3318,.7690]},starterDifference:{faeddeackBF:303,faeddeackK:80,faeddeackBB:11,goBF:706,goK:183,goBB:22,kBBPointDifference:-0.0323,normal95Approx:[-6.70,6.64]},model:{pythExponent:ex,neutralLog5:neutral,recordLog5:recordLog5,homeAdjustmentAssumption:.015,baseState:'Samsung 1-1 KT',archiveAfterG1:'Samsung 0-1 KT',independentGames:true,backtested:false,calibrated:false},references:[...document.querySelectorAll('.source-list a')].map(x=>({title:x.textContent.trim(),url:x.href}))};
-const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='KS26_samsung_kt_data.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
-});
-
-/* Second estimator: win/loss baseline, distinct from run-differential baseline. */
-const recordS=83/(83+58),recordK=90/(90+49);
-const recordLog5=recordS*(1-recordK)/(recordS*(1-recordK)+(1-recordS)*recordK);
-function renderModelSensitivity(){
- const h=Number($('h-slider').value)/100,p=Number($('p-slider').value)/100;
- $('log5-record-neutral').textContent=pct(recordLog5);$('log5-pyth-neutral').textContent=pct(neutral);
- $('log5-record-now').textContent=pct(value('before',recordLog5,h));
- $('log5-record-tied').textContent=pct(value('win',recordLog5,h));
- $('log5-pyth-now').textContent=pct(value('before',neutral,h));
- $('log5-pyth-tied').textContent=pct(value('win',neutral,h));
- const q=p+h;
- $('road-sweep').textContent=pct(q*q*q);
- $('road-two').textContent=pct(q*q*(3-2*q));
- $('road-leverage').textContent=((value('win',p,h)-value('lose',p,h))*100).toFixed(1)+'%p';
-}
-$('model-from-record').addEventListener('click',()=>{$('p-slider').value=(recordLog5*100).toFixed(2);render();renderModelSensitivity()});
-$('model-from-pyth').addEventListener('click',()=>{$('p-slider').value=(neutral*100).toFixed(2);render();renderModelSensitivity()});
-['p-slider','h-slider'].forEach(k=>$(k).addEventListener('input',renderModelSensitivity));
-document.querySelectorAll('button[data-state]').forEach(btn=>btn.addEventListener('click',renderModelSensitivity));
-renderModelSensitivity();
-$('print-report').addEventListener('click',()=>window.print());
+home.addEventListener('input',paint);paint();
 </script>
-</body>
-</html>
+</body></html>
