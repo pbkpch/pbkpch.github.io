@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""2026 Korean Series Samsung–KT: reproducible pre-G2 arithmetic.
+"""2026 Korean Series Samsung–KT: reproducible 1–1 series arithmetic.
 
-Scope: 2026 regular season (144 games each), KS G1 completed.
-Data cutoff: 2026-11-04 before Game 2.
+Scope: 2026 regular season (144 games each), KS G1/G2 completed.
+Data cutoff: 2026-11-05 after Game 2 and before Game 3.
 This is a scenario calculator, NOT a calibrated baseball forecast.
 
 Primary sources:
@@ -33,8 +33,8 @@ def neutral_record() -> float:
     return log5(SAM["w"] / (SAM["w"] + SAM["l"]),
                 KT["w"] / (KT["w"] + KT["l"]))
 
-def series_prob(p: float, home: float, game: int = 2,
-                samsung_wins: int = 0, kt_wins: int = 1) -> float:
+def series_prob(p: float, home: float, game: int = 3,
+                samsung_wins: int = 1, kt_wins: int = 1) -> float:
     """Exact probability of Samsung reaching four wins first."""
     @lru_cache(None)
     def recurse(g: int, s: int, k: int) -> float:
@@ -72,27 +72,27 @@ def pitcher_diff_ci() -> tuple[float, float, float]:
     return diff, diff - half, diff + half
 
 def report(p: float) -> dict[str, float]:
-    current = series_prob(p, HOME_SHIFT)
+    prior_to_g2 = series_prob(p, HOME_SHIFT, 2, 0, 1)
     tied = series_prob(p, HOME_SHIFT, 3, 1, 1)
     down02 = series_prob(p, HOME_SHIFT, 3, 0, 2)
     game2 = p - HOME_SHIFT
-    assert abs(current - (game2 * tied + (1 - game2) * down02)) < 1e-12
+    assert abs(prior_to_g2 - (game2 * tied + (1 - game2) * down02)) < 1e-12
     home_p = p + HOME_SHIFT
     return {
         "neutral_single_game": p,
         "g2_samsung_win": game2,
-        "current_down_0_1": current,
-        "after_g2_win_tied_1_1": tied,
-        "after_g2_loss_down_0_2": down02,
+        "actual_current_after_g2_tied_1_1": tied,
+        "archive_prior_to_g2_down_0_1": prior_to_g2,
+        "counterfactual_g2_loss_down_0_2": down02,
         "g2_swing_tied_vs_down_0_2": tied - down02,
-        "after_g2_win_daegu_sweep_to_title": home_p**3,
-        "after_g2_win_daegu_two_or_more_wins": home_p**2 * (3 - 2*home_p),
+        "current_daegu_sweep_to_title": home_p**3,
+        "current_daegu_two_or_more_wins": home_p**2 * (3 - 2*home_p),
     }
 
 def main() -> None:
     import json
     result = {
-        "data_cutoff": "2026-11-04 before Korean Series Game 2",
+        "data_cutoff": "2026-11-05 after Korean Series Game 2, before Game 3",
         "record_log5": report(neutral_record()),
         "runs_log5": report(neutral_runs()),
         "h2h_samsung_9_of_16_wilson_95": wilson_interval(9, 16),
@@ -100,9 +100,9 @@ def main() -> None:
         "disclaimer": "Scenario arithmetic only. Not fitted/calibrated. Independence, "
                       "fixed home shift, unchanged roster/pitcher strength assumed.",
     }
-    assert 0.235 < result["record_log5"]["current_down_0_1"] < 0.237
-    assert 0.298 < result["runs_log5"]["current_down_0_1"] < 0.300
-    assert 0.459 < result["runs_log5"]["after_g2_win_tied_1_1"] < 0.461
+    assert 0.389 < result["record_log5"]["actual_current_after_g2_tied_1_1"] < 0.392
+    assert 0.459 < result["runs_log5"]["actual_current_after_g2_tied_1_1"] < 0.461
+    assert 0.298 < result["runs_log5"]["archive_prior_to_g2_down_0_1"] < 0.300
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 if __name__ == "__main__":
